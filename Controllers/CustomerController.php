@@ -1,7 +1,10 @@
 <?php 
 class CusTomerController extends BaseController{
+    
     public function index(){
-        echo __METHOD__;
+      // $this->loadModel('CustomerModel');
+       $this-> view('frontend.customer.index',[]);
+
     }
 }
 ?>
