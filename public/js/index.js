@@ -39,4 +39,16 @@ $(document).ready(function () {
         })
     })
 
+    $(document).on('click','.delete',function(){
+        // alert('123')
+        id = $(this).attr('id');
+        slsp =parseInt($(this).attr('SLSP')) ;
+        if(slsp > 0){
+            $('#confirm').modal('show')
+        } 
+    })
+    $('.delete').click(function(){
+        alert('abc')
+    })
+
 })
