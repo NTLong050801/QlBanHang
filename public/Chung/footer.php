@@ -6,4 +6,12 @@
       </div>
     </div>
   </div>
-</div>
+</div>  
+ <script src="http://localhost/clothes/public/js/jquery-3.3.1.min.js"></script>
+    <script src="http://localhost/clothes/public/js/bootstrap.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery.nice-select.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery-ui.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery.slicknav.js"></script>
+    <script src="http://localhost/clothes/public/js/mixitup.min.js"></script>
+    <script src="http://localhost/clothes/public/js/owl.carousel.min.js"></script>
+    <script src="http://localhost/clothes/public/js/main.js"></script>
