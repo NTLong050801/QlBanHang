@@ -29,4 +29,14 @@ class AdminModel extends BaseModel
     public function addloaihang($data){
         return $this-> add(self::LOAIHANG,$data);
     }
+    //Xóa loại hàng theo id
+    public function deleteloaihang($col,$id){
+        return $this-> delete(self::LOAIHANG,$col,$id);
+    }
+
+    // tìm kiếm loại hàng theo id
+    public function findloaihang($col,$id){
+        return $this-> findByID(self::LOAIHANG,$col,$id);
+    }
+
 }

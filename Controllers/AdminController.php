@@ -31,6 +31,23 @@ class AdminController extends BaseController{
 
        return $this -> AdminModel ->addloaihang($data);
     }
+
+    public function deleteloaihang(){
+        $id =  $_POST['id'];
+        $col = ['IDLoaiHang'];
+        return $this-> AdminModel-> deleteloaihang($col,$id);
+        
+    }
+
+    public function findloaihang(){
+        $id = $_POST['id'];
+        $col = ['IDLoaiHang'];
+        $datas = $this-> AdminModel -> findloaihang($col,$id);
+        // $data = array_values($datas);
+         print_r($datas) ;
+        //echo json_encode($datas) ;
+        // echo '123';
+    }
 }
 
 ?>

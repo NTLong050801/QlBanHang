@@ -57,5 +57,5 @@ include('./public/Chung/footer.php');
 ?>
 <script src="public/js/index.js"></script>
 <script>
-   
+
 </script>
