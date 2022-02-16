@@ -43,7 +43,18 @@ class BaseModel extends Database
         echo 'Thêm thất bại';
       }
     }
-
+    // lấy 1 sản phẩm của mỗi loại hàng 
+    public function categories_item()
+    {
+      $sql = "select TenSP from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
+      $query = $this->query($sql);
+      $ar = [];
+      while ($row =  mysqli_fetch_assoc($query))
+      {
+        array_push($ar,$row);
+      }
+      return $ar;
+    }
     public function query($sql)
     {
       return mysqli_query($this->connect,$sql);
