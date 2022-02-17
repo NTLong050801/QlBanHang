@@ -44,12 +44,13 @@ class BaseModel extends Database
       }
     }
 
+    public function getSPbyLH($idSP){
+      
+    }
+
     public function query($sql)
     {
       return mysqli_query($this->connect,$sql);
     }
-
-
-
 
 }
