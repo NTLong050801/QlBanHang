@@ -11,8 +11,8 @@
             return $this -> getAll(self::SANPHAM);
         }
 
-        public function getSPLH(){
-            
+        public function getSPLH($id, $nameColID){
+            return $this -> findByID(self::LOAIHANG, $id, $nameColID);
         }
     }
 

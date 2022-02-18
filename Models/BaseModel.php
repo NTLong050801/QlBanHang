@@ -44,8 +44,14 @@ class BaseModel extends Database
       }
     }
 
-    public function getSPbyLH($idSP){
-      
+    public function findByID($table, $id, $nameColID){
+        $sql = "SELECT * FROM $table where $nameColID = '$id'";
+        $query = $this -> query($sql);
+        $ar = [];
+        while($row = mysqli_fetch_assoc($query)){
+          array_push($ar,$row);
+        }
+        return $ar;
     }
 
     public function query($sql)

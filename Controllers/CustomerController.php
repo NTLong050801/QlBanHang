@@ -1,20 +1,19 @@
 <?php 
 class CusTomerController extends BaseController{
-    
   public function __construct()
   {
       $this->loadModel('CustomerModel');
       $this->CustomerModel = new CustomerModel();
   }
     public function index(){
-      // $this->loadModel('CustomerModel');
-      //  $this-> view('frontend.customer.index',[]);
+      $id = $_POST['id'];
+      $nameColID = $_POST['nameCOlID'];
       $getAllLoaiHang = $this -> CustomerModel->getAllLoaiHang();
       $getAllSP = $this -> CustomerModel -> getAllSP();
+      $getSPbyLH = $this -> CustomerModel -> getSPLH($id, $nameColID);
       return $this-> view('frontend.customer.index',
-                          ['getAllLoaiHang' => $getAllLoaiHang],
-                          ['getAllSP' => $getAllSP]);
-      // print_r($getAllLoaiHang);
+                          ['getAllLoaiHang' => $getAllLoaiHang,
+                          'getAllSP' => $getAllSP]);
     }
 
     public function getAllLoaiHang(){
@@ -32,5 +31,7 @@ class CusTomerController extends BaseController{
         echo "</pre>";
         // return $this -> view('frontend.customer.index', ['getAllSP' => $getAllSP]);
     }
+
+
 }
 ?>

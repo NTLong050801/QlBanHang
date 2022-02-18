@@ -17,8 +17,6 @@ foreach ($getAllSP as $product) {
             </div>
         </div>
     </div>
-
 <?php
 }
-
 ?>

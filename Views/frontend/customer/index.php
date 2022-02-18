@@ -684,15 +684,17 @@
         $(document).ready(function(){
                 $(document).on('click', '.featured__controls__LH', function(){
                     idLH = $(this).attr('idlh');
+                    nameColID = "IDLoaiHang";
                     // alert(idLH);
                     $.ajax({
-                        url: "Views/frontend/customer/product_action.php",
+                        url: "../../../Controllers/CustomerController.php",
                         method: "POST",
                         data: {
-                            idLH: idLH
+                            idLH: idLH,
+                            nameColID: nameColID
                         },
                         success: function(dt){
-                            console.log(dt);
+                            // console.log(dt);
                         }
                     })
                 })
