@@ -240,6 +240,20 @@
                             <h5><a href="#">Sweater Staytuned</a></h5>
                         </div>
                     </div>
+                    <!-- <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
+                            <h5><a href="#">Vegetables</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
+                            <h5><a href="#">drink fruits</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
+                            <h5><a href="#">drink fruits</a></h5>
+                        </div> -->
                 </div>
             </div>
         </div>
@@ -270,7 +284,7 @@
                 </div>
             </div>
             <div class="row featured__filter">
-            <?php
+                <?php
                 foreach ($getAllSP as $product) {
                 ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
@@ -288,8 +302,10 @@
                             </div>
                         </div>
                     </div>
+
                 <?php
                 }
+
                 ?>
             </div>
         </div>
@@ -669,20 +685,18 @@
                 $(document).on('click', '.featured__controls__LH', function(){
                     idLH = $(this).attr('idlh');
                     nameColID = "IDLoaiHang";
-
+                    // alert(idLH);
                     $.ajax({
-                        url: "Controllers/CustomerController.php",
+                        url: "../../../Controllers/CustomerController.php",
                         method: "POST",
                         data: {
                             idLH: idLH,
                             nameColID: nameColID
                         },
                         success: function(dt){
-                            // $('.featured__filter').html(dt);
-                            console.log(dt);
+                            // console.log(dt);
                         }
                     })
-
                 })
         })
     </script>
