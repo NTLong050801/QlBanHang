@@ -302,10 +302,8 @@
                             </div>
                         </div>
                     </div>
-
                 <?php
                 }
-
                 ?>
             </div>
         </div>
@@ -684,17 +682,15 @@
         $(document).ready(function(){
                 $(document).on('click', '.featured__controls__LH', function(){
                     idLH = $(this).attr('idlh');
-                    nameColID = "IDLoaiHang";
-                    // alert(idLH);
                     $.ajax({
-                        url: "../../../Controllers/CustomerController.php",
+                        url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
                         method: "POST",
                         data: {
                             idLH: idLH,
-                            nameColID: nameColID
                         },
                         success: function(dt){
-                            // console.log(dt);
+                            $('.featured__filter').html(dt);
+                            console.log(dt);
                         }
                     })
                 })
