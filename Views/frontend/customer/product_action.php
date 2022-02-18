@@ -1,6 +1,5 @@
 <?php
-$idLH = $_POST['idLH'];
-foreach ($getAllSP as $product) {
+foreach ($getSPbyLH as $product) {
 ?>
     <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
         <div class="featured__item">
