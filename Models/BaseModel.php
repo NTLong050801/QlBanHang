@@ -55,6 +55,7 @@ class BaseModel extends Database
       }
       return $ar;
     }
+    
     public function query($sql)
     {
       return mysqli_query($this->connect,$sql);
