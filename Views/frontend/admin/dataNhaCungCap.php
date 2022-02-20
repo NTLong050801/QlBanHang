@@ -80,7 +80,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #dc5435;color:#fff;text-align: center;border-radius: 20px;">
 
-            <div class="modal-body" style="">
+            <div class="modal-body">
                 <h4 id="text_confirm"></h4>
             </div>
             <div class="modal-footer">

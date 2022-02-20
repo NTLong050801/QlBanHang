@@ -1,7 +1,7 @@
 <title>Trang chủ</title>
 <?php
 include('./public/Chung/header.php');
-include('./Core/Database.php');
+// include('./Core/Database.php');
 // include('./ham.php')
 ?>
 <div id="wrapper" style="overflow: scroll;height:100%">
