@@ -1,5 +1,5 @@
 <?php
-foreach ($getSPbyLH as $product) {
+foreach ($getProducts as $product) {
 ?>
     <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
         <div class="featured__item">

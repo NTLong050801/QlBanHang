@@ -31,19 +31,26 @@ class CusTomerController extends BaseController
   public function getAllSP()
   {
     $getAllSP = $this->CustomerModel->getAllSP();
-    echo "<pre>";
-    print_r($getAllSP);
-    echo "</pre>";
     // return $this -> view('frontend.customer.index', ['getAllSP' => $getAllSP]);
   }
 
   public function getSPLH()
   {
     $idLH = $_POST['idLH'];
-    $getSPbyLH = $this->CustomerModel->getSPbyLH($idLH);
-    return $this->view(
-      'frontend.customer.product_action',
-      ['getSPbyLH' => $getSPbyLH]
-    );
+    if($idLH == 0){
+      $getAllSP = $this->CustomerModel->getAllSP();
+      return $this->view(
+        'frontend.customer.product_action',
+        ['getProducts' => $getAllSP]
+      );
+    }
+    else{
+      $getSPbyLH = $this->CustomerModel->getSPbyLH($idLH);
+      return $this->view(
+        'frontend.customer.product_action',
+        ['getProducts' => $getSPbyLH]
+      );
+    }
   }
 }
+?>
