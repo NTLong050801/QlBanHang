@@ -1,6 +1,7 @@
 <title>Trang chủ</title>
 <?php
 include('./public/Chung/header.php');
+include('./Core/Database.php');
 // include('./ham.php')
 ?>
 <div id="wrapper" style="overflow: scroll;height:100%">
@@ -11,9 +12,9 @@ include('./public/Chung/header.php');
             <li class="sidebar-brand">
                 <h2>Khách</h2>
             </li>
-            <li id="true" class="nav-item"> <a href="http://localhost:88/QLbanhang/index.php?controller=admin"><i class="fa fa-home"></i>Loại hàng</a> </li>
-            <li id="true" class="nav-item"> <a href="donhang.php"><i class="fa fa-home"></i>Sản Phẩm</a> </li>
-            <li id="true" class="nav-item"> <a href="thongke.php"><i class="fa fa-home"></i>CtyGiaoHang</a> </li>
+            <li id="true" class="nav-item" chose="LoaiHang"> <a href="#"><i class="fa fa-home"></i>Loại hàng</a> </li>
+            <li id="true" class="nav-item" chose="NhaCungCap"> <a href="#"><i class="fa fa-home"></i>Nhà cung cấp</a> </li>
+            <li id="true" class="nav-item" chose="SanPham"> <a href="#"><i class="fa fa-home"></i>Sản Phẩm</a> </li>
 
         </ul>
     </div>
@@ -55,4 +56,7 @@ include('./public/Chung/header.php');
 <?php
 include('./public/Chung/footer.php');
 ?>
-<script src="public/js/index.js"></script>
+<script src="http://localhost:88/QLbanhang/public/js/admin/index.js"></script>
+<script src="http://localhost:88/QLbanhang/public/js/admin/ncc.js"></script>
+<script src="http://localhost:88/QLbanhang/public/js/admin/sp.js"></script>
+

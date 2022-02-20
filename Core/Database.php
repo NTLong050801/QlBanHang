@@ -5,6 +5,8 @@ class Database
     const USERNAME = 'root';
     const PASSWORD = '' ;
     const DB_NAME = 'qlbh';
+    const URL = "http://localhost:88/QLbanhang/";
+    // URL: =
     private  $connect;
     public function connect(){
         $connect = mysqli_connect(self::HOST,self::USERNAME,self::PASSWORD,self::DB_NAME);
