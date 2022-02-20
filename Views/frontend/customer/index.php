@@ -284,28 +284,7 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                <?php
-                foreach ($getAllSP as $product) {
-                ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                        <div class="featured__item">
-                            <div class="featured__item__pic" data-setbg="">
-                                <img src="http://localhost/QlBanHang/public/img/product/<?php echo $product['img'] ?>" alt="" class="set-bg">
-                                <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="featured__item__text">
-                                <h6><a href="#"><?php echo $product['TenSP'] ?></a></h6>
-                                <h5><?php echo $product['DonGiaBan'] ?></h5>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
+             
             </div>
         </div>
     </section>
@@ -681,19 +660,25 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script>
         $(document).ready(function() {
-            $(document).on('click', '.featured__controls__LH', function() {
-                idLH = $(this).attr('idlh');
-                $.ajax({
-                    url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
-                    method: "POST",
-                    data: {
-                        idLH: idLH,
-                    },
-                    success: function(dt) {
-                        $('.featured__filter').html(dt);
-                        // console.log(dt);
-                    }
-                })
+            idLH = 0;
+            transIDLH(idLH);
+            function transIDLH(idLH) {
+                    $.ajax({
+                        url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
+                        method: "POST",
+                        data: {
+                            idLH: idLH,
+                        },
+                        success: function(dt) {
+                            $('.featured__filter').html(dt);
+                            // console.log(dt);
+                        }
+                    })
+            }
+
+            $(document).on('click', '.active', function(){
+                idLH = $(this).attr('idLH');
+                transIDLH(idLH);
             })
 
         })
