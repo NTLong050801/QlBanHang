@@ -220,12 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="http://localhost/clothes_store/img/kingsman.jpg">
-                        <div class="hero__text">
-                            <span>CLOTHES STORE</span>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
-                        </div>
+                    <div class="hero__item set-bg" data-setbg="http://localhost/clothes/img/kingsman1.jpg">
                     </div>
                 </div>
             </div>
@@ -321,8 +316,8 @@
                                             <img src="img/latest-product/lp-1.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6><?= $products_new['TenSP']?></h6>
-                                            <span><?= $products_new['DonGiaBan']?></span>
+                                            <h6><?= $products_new['TenSP'] ?></h6>
+                                            <span><?= $products_new['DonGiaBan'] ?></span>
                                         </div>
                                     </a>
                                 <?php
@@ -617,8 +612,10 @@ include("./public/Chung/footer.php")
 ?>
 <script>
     $(document).ready(function() {
-        $('.active').click(function() {
-            id = $(this).attr('id');
+        
+        id = 0
+        react(id)
+        function react(id) {
             $.ajax({
                 url: "http://localhost/clothes/index.php?controller=customer&action=sweater",
                 method: "POST",
@@ -630,8 +627,11 @@ include("./public/Chung/footer.php")
                     console.log(dt)
                 }
             })
+        }
 
+        $('.active').click(function() {
+            id = $(this).attr('id')
+            react(id)
         })
-
     })
 </script>
