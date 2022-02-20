@@ -23,6 +23,16 @@ class CusTomerController extends BaseController{
     //     'category_item' => $category_item
     //   ]);
     // }
+
+    public function get_featured_item(){
+      $id = $_POST['id'];
+
+      $datas = $this->CustomerModel -> get_featured_item($id);
+      return $this->view('frontend.customer.featured__item',[
+        'datas'=> $datas
+      ]);
+      // print_r($datas);
+    }
     
 
 }

@@ -36,10 +36,11 @@ class BaseModel extends Database
       array_push($arr_vals, "'${val}'");
     }
     $str_val = implode(',', $arr_vals);
-
+    
     $sql = "INSERT INTO $table($column) values ($str_val)";
+    
     $query = $this->query($sql);
-    // echo $sql;
+    
     if ($query) {
       echo 'Thêm thành công';
     } else {
@@ -72,6 +73,37 @@ class BaseModel extends Database
       array_push($ar, $row);
     }
     return $ar;
+  }
+  public function categories_item()
+  {
+    $sql = "select TenSP from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
+    $query = $this->query($sql);
+    $ar = [];
+    while ($row =  mysqli_fetch_assoc($query)) {
+      array_push($ar, $row);
+    }
+    return $ar;
+  }
+
+  public function update($table,$ar,$ar_id){
+    $new_ar = [];
+    foreach($ar as $key => $val){
+      array_push($new_ar,$key.'='."'$val'")  ;
+
+    }
+    $new_ar = implode(',',$new_ar);
+    foreach($ar_id as $key => $val){
+      $where = $key.'='."'$val'"  ;
+
+    }
+    $sql = "UPDATE $table set $new_ar where $where ";
+    //echo $sql;
+    $query = $this->query($sql);
+    if ($query) {
+      echo 'Update thành công';
+    } else {
+      echo 'Update thất bại';
+    }
   }
 
   public function query($sql)

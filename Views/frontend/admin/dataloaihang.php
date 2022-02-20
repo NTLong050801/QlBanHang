@@ -109,7 +109,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-primary" id="btn_add_suc">Sửa</button>
+                    <button type="button" class="btn btn-primary" id="btn_update_succes" idlh="" >Sửa</button>
                 </div>
             </form>
         </div>
