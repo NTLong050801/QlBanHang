@@ -13,7 +13,7 @@ foreach ($getProducts as $product) {
             </div>
             <div class="featured__item__text">
                 <h6><a href="#"><?php echo $product['TenSP'] ?></a></h6>
-                <h5><?php echo $product['DonGiaBan'] ?></h5>
+                <h5 class="DonGiaBan"><?php echo $product['DonGiaBan'] ?></h5>
             </div>
         </div>
     </div>

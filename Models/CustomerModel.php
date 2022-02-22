@@ -24,6 +24,15 @@
             }
             return $ar;
         }
+        public function search($keySearch){
+            $sql = "SELECT * FROM sanpham where TenSP like '%$keySearch%'";
+            $query = $this -> query($sql);
+            $ar = [];
+            while($row = mysqli_fetch_assoc($query)){
+                array_push($ar, $row);
+            }
+            return $ar;
+        }
     
     }
 

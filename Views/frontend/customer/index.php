@@ -197,8 +197,8 @@
                                     Tất cả sản phẩm
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="Nhập sản phẩm cần tìm kiếm">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input class="hero__search__valSearch" type="text" placeholder="Nhập sản phẩm cần tìm kiếm">
+                                <button type="submit" class="btn hero__search__btnSearch">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -269,6 +269,11 @@
                     <div class="section-title">
                         <h2>Loại hàng</h2>
                     </div>
+                    <div class="section-range">
+                        <span>0</span>
+                        <input class="section-range__range" type="range" style="width: 30%" min="0" max="1000000" step="50000">
+                        <span class="section-range__max-price">500.000đ</span>
+                    </div>
                     <div class="featured__controls">
                         <ul>
                             <li idLH="0" class="active featured__controls__LH" data-filter="*">All</li>
@@ -284,7 +289,7 @@
                 </div>
             </div>
             <div class="row featured__filter">
-             
+
             </div>
         </div>
     </section>
@@ -659,31 +664,73 @@
     <script src="http://localhost/QlBanHang/public/js/main.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script>
+        function dauChamOSo() {
+            const hashPrice = (text) => {
+                let arr = text.split('').reverse();
+                const newArr = [];
+                arr.forEach((e, i) => {
+                    if ((i) % 3 === 0 && i !== 0) {
+                        newArr.push('.');
+                        newArr.push(e);
+                    } else {
+                        newArr.push(e);
+                    }
+                });
+                return newArr.reverse().join('');
+            }
+            // console.log(hashPrice("1000"));
+            const arr = Array.from(document.querySelectorAll(".DonGiaBan"));
+            arr.forEach((e) => {
+                let number = e.textContent;
+                e.textContent = hashPrice(number);
+            })
+        }
         $(document).ready(function() {
             idLH = 0;
             transIDLH(idLH);
-            function transIDLH(idLH) {
-                    $.ajax({
-                        url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
-                        method: "POST",
-                        data: {
-                            idLH: idLH,
-                        },
-                        success: function(dt) {
-                            $('.featured__filter').html(dt);
-                            // console.log(dt);
-                        }
-                    })
-            }
+            dauChamOSo();
 
-            $(document).on('click', '.active', function(){
+            function transIDLH(idLH) {
+                $.ajax({
+                    url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
+                    method: "POST",
+                    data: {
+                        idLH: idLH,
+                    },
+                    success: function(dt) {
+                        $('.featured__filter').html(dt);
+                        // console.log(dt);
+                        dauChamOSo();
+                    }
+                })
+            }
+            $('.hero__search__btnSearch').on('click', function(){
+                keySearch = $('.hero__search__valSearch').val();
+                $.ajax({
+                    url: "http://localhost/QlBanHang/?controller=customer&action=search",
+                    method: "POST",
+                    data: {
+                        keySearch: keySeach,        
+                    },
+                    success: function(dt){
+                        $('.featured__filter').html(dt);
+                    }
+                })
+            })
+            $(document).on('click', '.active', function() {
                 idLH = $(this).attr('idLH');
                 transIDLH(idLH);
             })
 
+            $('.section-range__range').on('input', function() {
+                // $(this).trigger('change');
+                val = $(this).val();
+                console.log('thành công');
+                $('.section-range__max-price').html(val + 'đ');
+            });
+
         })
     </script>
-
 </body>
 
 </html>

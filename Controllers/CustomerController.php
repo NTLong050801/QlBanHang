@@ -52,5 +52,14 @@ class CusTomerController extends BaseController
       );
     }
   }
+
+  public function search(){
+      // $keySearch = $_POST['keySearch'];
+      $keySearch = "hood";
+      $listSP = $this->CustomerModel->search($keySearch);
+      return $this->view(
+        'frontend.customer.product_action', ['getProducts' => $listSP]
+      );
+  }
 }
 ?>
