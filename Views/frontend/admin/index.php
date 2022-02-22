@@ -4,6 +4,8 @@ include('./public/Chung/header.php');
 // include('./Core/Database.php');
 // include('./ham.php')
 ?>
+<label for="customRange1" class="form-label">Example range</label>
+<input type="range" class="form-range" id="">
 <div id="wrapper" style="overflow: scroll;height:100%">
 
     <!-- Sidebar -->

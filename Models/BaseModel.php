@@ -49,12 +49,14 @@ class BaseModel extends Database
   }
 
   //Xóa sản phẩm của bảng theo id 
-  public function delete($table, $column, $id)
+  public function delete($table, $ar)
   {
-    $column = array_values($column)[0];
-    $sql = "DELETE from $table where $column = $id";
+    foreach($ar as $key => $val){
+      $where = $key.'='."'$val'"  ;
+    }
+    $sql = "DELETE from $table where $where";
     $query = $this->query($sql);
-    // echo $sql;
+    //  echo $sql;
     if ($query) {
       echo 'Xóa thành công';
     } else {
@@ -63,10 +65,12 @@ class BaseModel extends Database
   }
 
   // tìm kiếm bản ghi trong bảng
-  public function findByID($table, $column, $id)
+  public function find($table,$ar)
   {
-    $column = array_values($column)[0];
-    $sql = "SELECT * from $table where $column = $id";
+    foreach($ar as $key => $val){
+      $where = $key.'='."'$val'"  ;
+    }
+    $sql = "SELECT * from $table where $where";
     $query = $this->query($sql);
     $ar = [];
     while ($row =  mysqli_fetch_assoc($query)) {
@@ -94,7 +98,6 @@ class BaseModel extends Database
     $new_ar = implode(',',$new_ar);
     foreach($ar_id as $key => $val){
       $where = $key.'='."'$val'"  ;
-
     }
     $sql = "UPDATE $table set $new_ar where $where ";
     //echo $sql;
