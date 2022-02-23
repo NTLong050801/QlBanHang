@@ -173,3 +173,9 @@ h1.count{
 .nav-link{
     color: aqua;
 }
+.show_sp_lh:hover{
+    color: yellow;
+}
+.card{
+    float: left;
+}

@@ -23,9 +23,15 @@ class CusTomerController extends BaseController
   public function sweater()
   {
     $id = $_POST['id'];
-    $product_type = $this->CustomerModel->type_item($id);
+    // trang nhận đc vd : trang 3,  trang 4
+    $start = $_POST['start'];
+    // danh sách sp ở trang 3 , trang 4
+    $product_type = $this->CustomerModel->type_item($id,$start);
+    // tính tổng số trang
+    $tongsotrang = $this->CustomerModel -> total_page($id);
     return $this->view('frontend.customer.type_item', [
-      'product_type' => $product_type
+      'product_type' => $product_type,
+      'tongsotrang' => $tongsotrang
     ]);
   }
   public function search()

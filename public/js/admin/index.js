@@ -132,7 +132,18 @@ $(document).ready(function () {
             }
         })
     })
-
-
-
+$(document).on('click','.show_sp_lh',function(){
+    id = $(this).attr('idLH');
+    $.ajax({
+        url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+        method:"POST",
+        data:{
+            IDLoaiHang : id
+        },
+        success : function(dt){
+            $('#data_canvas').html(dt)
+            console.log(dt)
+        }
+    })
+})
 })

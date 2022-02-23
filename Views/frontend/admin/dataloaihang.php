@@ -25,7 +25,11 @@
                 <th scope="row"><?= $i ?></th>
                 <td><?= $data['TenLoaiHang'] ?></td>
                 <td><?= $data['MoTa'] ?></td>
-                <td data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><?= $data['SLSP'] ?></td>
+                <td>
+                    <span style="cursor: pointer;" class="show_sp_lh" idLH="<?= $data['IDLoaiHang'] ?>" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <?= $data['SLSP'] ?>
+                    </span>
+                </td>
                 <td><button class="btn btn-warning update" id="<?= $data['IDLoaiHang'] ?>">Sửa</button></td>
                 <td><button class="btn btn-danger delete" SLSP="<?= $data['SLSP'] ?>" id="<?= $data['IDLoaiHang'] ?>">Xóa</button></td>
             </tr>
@@ -93,18 +97,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-primary" id="btn_update_succes" idlh="" >Sửa</button>
+                    <button type="button" class="btn btn-primary" id="btn_update_succes" idlh="">Sửa</button>
                 </div>
             </form>
         </div>
     </div>
-</div>
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body small">
-    ...
-  </div>
 </div>

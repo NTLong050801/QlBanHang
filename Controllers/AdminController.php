@@ -6,6 +6,8 @@ class AdminController extends BaseController
     {
         $this->loadModel('AdminModel');
         $this->AdminModel = new AdminModel;
+        $this->loadModel('CustomerModel');
+        $this->CustomerModel = new CustomerModel;
     }
 
     public function index()
@@ -46,15 +48,17 @@ class AdminController extends BaseController
         ]);
     }
 
-    public function allctygiaohang(){
-        $data = $this -> AdminModel -> allctygiaohang();
+    public function allctygiaohang()
+    {
+        $data = $this->AdminModel->allctygiaohang();
         return $this->view('frontend.admin.dataCtyGiaoHang', [
             'datas' => $data,
         ]);
     }
 
-    public function allnhanvien(){
-        $data = $this -> AdminModel -> allnhanvien();
+    public function allnhanvien()
+    {
+        $data = $this->AdminModel->allnhanvien();
         return $this->view('frontend.admin.dataNhanVien', [
             'datas' => $data,
         ]);
@@ -73,16 +77,16 @@ class AdminController extends BaseController
             $ar['img'] = $anhchinh;
             $ar['types'] = 'sanpham';
         }
-          $table = array_pop($ar);
-          return $this->AdminModel->add_all($table, $ar);
-         print_r($ar);
+        $table = array_pop($ar);
+        return $this->AdminModel->add_all($table, $ar);
+        print_r($ar);
     }
     public function delete_all()
     {
         $ar = $_POST;
         // print_r($ar);
-         $table = array_pop($ar);
-         return $this->AdminModel->delete_all($table, $ar);
+        $table = array_pop($ar);
+        return $this->AdminModel->delete_all($table, $ar);
     }
 
     public function findByID()
@@ -115,7 +119,18 @@ class AdminController extends BaseController
             $key => $id
         ];
         //   print_r($ar_id);
-         return $this->AdminModel ->update_all($table,$ar,$ar_id);
+        return $this->AdminModel->update_all($table, $ar, $ar_id);
         //  print_r($ar);
+    }
+
+    public function data_canvas()
+    {
+        $id = $_POST['IDLoaiHang'];
+        $product_type = $this->CustomerModel->type_item_canvans($id);
+        return $this->view('frontend.admin.data_canvas', [
+            'product_types' => $product_type
+        ]);
+        // echo '<pre>';
+        // print_r($product_type);
     }
 }

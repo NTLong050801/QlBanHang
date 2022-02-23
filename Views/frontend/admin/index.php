@@ -4,8 +4,7 @@ include('./public/Chung/header.php');
 // include('./Core/Database.php');
 // include('./ham.php')
 ?>
-<label for="customRange1" class="form-label">Example range</label>
-<input type="range" class="form-range" id="">
+
 <div id="wrapper" style="overflow: scroll;height:100%">
 
     <!-- Sidebar -->
@@ -48,7 +47,7 @@ include('./public/Chung/header.php');
                     </nav>
                     <!-- bắt  đầu  content -->
                     <div class="container main-content">
-                        
+
 
                     </div>
                 </div>
@@ -73,9 +72,20 @@ include('./public/Chung/header.php');
 
     </div>
 </div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" id="data_canvas" style="text-align: center;">
+    
+  </div>
+</div>
 <?php
 include('./public/Chung/footer.php');
 ?>
+<script src="http://localhost:88/QLbanhang/public/js/admin/chung.js"></script>
 <script src="http://localhost:88/QLbanhang/public/js/admin/index.js"></script>
 <script src="http://localhost:88/QLbanhang/public/js/admin/ncc.js"></script>
 <script src="http://localhost:88/QLbanhang/public/js/admin/sp.js"></script>

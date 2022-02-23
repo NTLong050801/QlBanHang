@@ -25,12 +25,29 @@ class CustomerModel extends BaseModel
         return $this->categories_item();
     }
 
-    public function type_item($id)
+    public function type_item($id,$start)
+    {
+        if ($id == 0) {
+            $sql  = "select * from sanpham SP order by IDLoaiHang ASC limit $start,2";
+        } else {
+            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id 
+            order by IDSanPham ASC limit $start,2 ";
+        }
+
+        $query = $this->query($sql);
+        $ar = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($ar, $row);
+        }
+        return $ar;
+    }
+
+    public function type_item_canvans($id)
     {
         if ($id == 0) {
             $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang  ";
         } else {
-            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id";
+            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id ";
         }
 
         $query = $this->query($sql);
@@ -83,5 +100,19 @@ class CustomerModel extends BaseModel
             array_push($ar,$row);
         }
          return $ar ;
+    }
+    public function total_page($id){
+        if($id == '0'){
+            $sql = "SELECT count(IDSanPham) as SLSP from SanPham";
+        }else{
+            $sql = "SELECT count(IDSanPham) as SLSP from sanpham SP ,loaihang LH 
+            where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id";
+        }
+        $query = $this-> query($sql);
+        // tổng số sản phẩm của loại hàng
+        $tongsosp = mysqli_fetch_assoc($query)['SLSP'];
+        // tổng số trang = tổng số sản phẩm / số sp 1 trang
+        $tongsotrang = ceil($tongsosp/2);
+        return $tongsotrang;
     }
 }
