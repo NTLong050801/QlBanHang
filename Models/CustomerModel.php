@@ -25,20 +25,63 @@ class CustomerModel extends BaseModel
         return $this->categories_item();
     }
 
-    public function get_featured_item($id)
+    public function type_item($id)
     {
-        // id = 0 là all
-        if ($id == '0') {
-            $sql = "SELECT * from LoaiHang as Lh ,SanPham as SP where LH.IDLoaiHang = SP.IDLoaiHang";
+        if ($id == 0) {
+            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang  ";
         } else {
-            $sql = "SELECT * from LoaiHang as Lh ,SanPham as SP where LH.IDLoaiHang = SP.IDLoaiHang and LH.IDLoaiHang = $id ";
+            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id";
         }
-        $qr =  $this->query($sql);
-        // echo $sql;
+
+        $query = $this->query($sql);
         $ar = [];
-        while ($row =  mysqli_fetch_assoc($qr)) {
+        while ($row = mysqli_fetch_assoc($query)) {
             array_push($ar, $row);
         }
-          return $ar;
+        return $ar;
+    }
+    //lấy ra sản phẩm mới thêm
+    public function product_new()
+    {
+        $sql = "select  * from sanpham SP order by SP.IDSanPham DESC limit 0,3";
+        $query = $this->query($sql);
+        $ar = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($ar, $row);
+        }
+        return $ar;
+    }
+    public function product_selling()
+    {
+        $sql = "select * from sanpham SP , sp_donhang SPDH where SP.IDSanPham = SPDH.IDSanPham 
+        and (select count(IDSanPham) from sp_donhang group by IDSanPham) = (select max(count(IDSanPham)) from sp_donhang group by IDSanPham )";
+    }
+    public function search($val)
+    {
+        $sql = "select * from  sanpham SP where TenSP like '%$val%'";
+        $query = $this->query($sql);
+        if(mysqli_num_rows($query)>0)
+        {
+            $ar  = [];
+            while ($row = mysqli_fetch_assoc($query)) {
+                array_push($ar, $row);
+            }
+            return $ar;
+        }else
+        {
+            echo "Quần áo đâu rồi !!!";
+        }
+     
+    }
+    public function show_pro_price($price)
+    {
+        $sql = "SELECT * FROM  sanpham where DonGiaBan between 0 and $price";
+        $query = $this->query($sql);
+        $ar = [];
+        while($row = mysqli_fetch_assoc($query))
+        {
+            array_push($ar,$row);
+        }
+         return $ar ;
     }
 }

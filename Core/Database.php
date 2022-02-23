@@ -1,11 +1,11 @@
 <?php
-class Database 
+class Database
 {
     const HOST = 'localhost';
     const USERNAME = 'root';
     const PASSWORD = '' ;
-    const DB_NAME = 'qlbh';
-    const URL = "http://localhost:88/QLbanhang/";
+    const DB_NAME = 'qlbh_1';
+    const URL = "http://localhost/clothes/";
     // URL: =
     private  $connect;
     public function connect(){

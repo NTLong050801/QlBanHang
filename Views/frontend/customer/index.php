@@ -9,18 +9,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ogani | Template</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
     <!-- Css Styles -->
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanhang/public/css/style1.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -206,8 +206,8 @@
                                     All Categories
                                     <span class=""><?= $sum ?></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input id="product_search" type="text" placeholder="What do yo u need?">
+                                <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -220,15 +220,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="http://localhost:88/clothes_store/img/kingsman.jpg">
-                        <div class="hero__text">
-                            <span>CLOTHES STORE</span>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                    <!-- slideshow -->
+                    <!-- <div class="hero__item set-bg" data-setbg="http://localhost/clothes/public/img/kingman1.jpg"> -->
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
+                        <div class="carousel-inner" style="height : 500px; ">
+                            <div class="carousel-item active">
+                                <img src="http://localhost/clothes/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://localhost/clothes/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://localhost/clothes/public/img/undenim.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" id="right" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -242,7 +264,7 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
-                        <div class="categories__item set-bg" data-setbg="">
+                        <div class="categories__item " style="background-image: url('http://localhost/clothes/public/img/<?= $category_item['img'] ?>');">
                             <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
@@ -257,20 +279,29 @@
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
-        <div class="container">
+        <div class="container search_pro">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Featured Product</h2>
                     </div>
-                    <div class="featured__controls">
+                    <div>
+                        <label for="customRange2" class="form-label">Value Product</label>
+                        <br>
+                        <span> 0 </span>
+                        <input type="range" min="0" max="10000000" step="500000" value="0" style="width: 50%" class="form-range" id="pro_val">
+                        <span id="max_price">10000000</span>
+                        <br>
+                        <button class="btn-warning" id="price">Lọc giá</button>
+                    </div>
+
+                    <div id="xinchao" class="featured__controls">
                         <ul>
-                        <li id="0" class="active"  data-filter="*">All</li>
-                          
-                          <?php
+                            <li id="0" class="active" data-filter="*">All</li>
+                            <?php
                             foreach ($category as $categories) {
                             ?>
-                                <li id="<?= $categories['IDLoaiHang']?>" class="active" data-filter="*"><?= $categories['TenLoaiHang']?></li>
+                                <li id="<?= $categories['IDLoaiHang'] ?>" class="active" data-filter="*"><?= $categories['TenLoaiHang'] ?></li>
                             <?php
                             }
                             ?>
@@ -280,8 +311,10 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                
+
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- Featured Section End -->
@@ -311,7 +344,31 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Latest Products</h4>
+                        <h4>Sản phẩm mới ra</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <?php foreach ($product_new as $products_new) { ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/clothes/public/img/<?= $products_new['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $products_new['TenSP'] ?></h6>
+                                            <span><?= $products_new['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Sản phẩm bán chạy</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -376,72 +433,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Review Products</h4>
+                        <h4>Sản phẩm khuyến mại</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -645,7 +637,7 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
- 
+
 
 
 
@@ -656,29 +648,105 @@
 include("./public/Chung/footer.php")
 ?>
 <script>
-    $(document).ready(function(){
-        id = 0;
-        function load(id){
+    $(document).ready(function() {
+
+        id = 0
+
+        react(id)
+
+        function react(id) {
             $.ajax({
-               url:"http://localhost:88/QLbanhang/index.php?controller=customer&action=get_featured_item",
-               method:"POST",
-               data:{
-                   id : id
-               },
-               success:function(dt){
-                   $('.featured__filter').html(dt)
-                    console.log(dt)
-                
-               }
+                url: "http://localhost/clothes/index.php?controller=customer&action=sweater",
+                method: "POST",
+                data: {
+                    id: id,
+                },
+                success: function(dt) {
+                    $('.featured__filter').html(dt)
+                    change_color()
+
+                }
             })
         }
-        load(id)
-        $('.active').click(function(){
-             id = $(this).attr('id');
-            //  alert(id)
-            load(id)
-            
+
+        function change_color() {
+            // $(document).on("css","solid 2px red !important")
+            $(document).ready(function() {
+                $('.fresh-meat').css("border", "solid 2px red !important");
+            });
+
+        }
+        $('.active').click(function() {
+
+            id = $(this).attr('id')
+            react(id)
+        })
+
+        $('#btn_search').click(function() {
+            val = $('#product_search').val()
+            $('html, body').animate({
+                scrollTop: $(".search_pro").offset().top
+            }, 1000);
+            $.ajax({
+                url: "http://localhost/clothes/index.php?controller=customer&action=search",
+                method: 'POST',
+                data: {
+                    TenSP: val,
+                },
+                success: function(dt) {
+                    $('.featured__filter').html(dt)
+
+                }
+            })
+
+        })
+
+        $("#pro_val").on('input', function() {
+            val = $(this).val()
+            $('#max_price').html(val)
+
+        });
+        $("#price").on("click", function() {
+            val = $('#pro_val').val()
+            $.ajax({
+                url: "http://localhost/clothes/index.php?controller=customer&action=show_pro_price",
+                method: "POST",
+                data: {
+                    val: val,
+                },
+                success: function(dt) {
+                    $('.featured__filter').html(dt)
+                }
+            })
+        })
+
+        function reset() {
+            $('#right').click(function() {
+
+            })
+
+        }
+
+        setInterval(reset(), 1000)
+
+        const hashPrice = (text) => {
+            let arr = text.split('').reverse();
+            const newArr = [];
+            arr.forEach((e, i) => {
+                if ((i) % 3 === 0 && i !== 0) {
+                    newArr.push('.');
+                    newArr.push(e);
+                } else {
+                    newArr.push(e);
+                }
+            });
+            return newArr.reverse().join('');
+        }
+        console.log(hashPrice("1000"));
+        const arr = Array.from(document.querySelectorAll(".DonGiaBan"));
+        arr.forEach((e) => {
+            let number = e.textContent;
+            e.textContent = hashPrice(number);
         })
     })
-
 </script>
