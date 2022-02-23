@@ -25,7 +25,7 @@
                 <th scope="row"><?= $i ?></th>
                 <td><?= $data['TenLoaiHang'] ?></td>
                 <td><?= $data['MoTa'] ?></td>
-                <td><?= $data['SLSP'] ?></td>
+                <td data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><?= $data['SLSP'] ?></td>
                 <td><button class="btn btn-warning update" id="<?= $data['IDLoaiHang'] ?>">Sửa</button></td>
                 <td><button class="btn btn-danger delete" SLSP="<?= $data['SLSP'] ?>" id="<?= $data['IDLoaiHang'] ?>">Xóa</button></td>
             </tr>
@@ -68,23 +68,7 @@
         </div>
     </div>
 </div>
-<!-- 
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="background-color: #dc5435;color:#fff;text-align: center;border-radius: 20px;">
 
-            <div class="modal-body" style="">
-                <h4 id="text_confirm"></h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="btn_delete_err">OK (<span id="time_out">5</span>)</button>
-                <button type="button" class="btn btn-secondary" id="cancel_delete" data-bs-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary" id="btn_delete_succees">Xóa</button>
-            </div>
-        </div>
-
-    </div>
-</div> -->
 <!-- modal update loai hang -->
 <div class="modal fade" id="Modal_update_LH" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -114,4 +98,13 @@
             </form>
         </div>
     </div>
+</div>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    ...
+  </div>
 </div>

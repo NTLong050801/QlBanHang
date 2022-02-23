@@ -52,7 +52,7 @@ $(document).on('click', '.update_ctygh', function () {
     $('#Modal_add_ctygh').modal('show')
     id = $(this).attr('id');
     $('#Modaltt').html('Sửa Cty Giao Hàng')
-    $('#btn_add_ctgh_succ').html('Sửa sản phẩm')
+    $('#btn_add_ctgh_succ').html('Sửa Công ty')
     // alert(id);
     $.ajax({
         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",

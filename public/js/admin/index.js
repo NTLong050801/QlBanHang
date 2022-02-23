@@ -54,7 +54,6 @@ $(document).ready(function () {
             })
 
             var time_out = setInterval(function () {
-
                 val = val - 1;
                 if (val > 0) {
                     $('#time_out').html(val)
