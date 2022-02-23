@@ -46,6 +46,20 @@ class AdminController extends BaseController
         ]);
     }
 
+    public function allctygiaohang(){
+        $data = $this -> AdminModel -> allctygiaohang();
+        return $this->view('frontend.admin.dataCtyGiaoHang', [
+            'datas' => $data,
+        ]);
+    }
+
+    public function allnhanvien(){
+        $data = $this -> AdminModel -> allnhanvien();
+        return $this->view('frontend.admin.dataNhanVien', [
+            'datas' => $data,
+        ]);
+    }
+
 
     public function add_all()
     {
@@ -59,14 +73,16 @@ class AdminController extends BaseController
             $ar['img'] = $anhchinh;
             $ar['types'] = 'sanpham';
         }
-        $table = array_pop($ar);
-        return $this->AdminModel->add_all($table, $ar);
+          $table = array_pop($ar);
+          return $this->AdminModel->add_all($table, $ar);
+         print_r($ar);
     }
     public function delete_all()
     {
         $ar = $_POST;
-        $table = array_pop($ar);
-        return $this->AdminModel->delete_all($table, $ar);
+        // print_r($ar);
+         $table = array_pop($ar);
+         return $this->AdminModel->delete_all($table, $ar);
     }
 
     public function findByID()
@@ -98,8 +114,8 @@ class AdminController extends BaseController
         $ar_id = [
             $key => $id
         ];
-        //  print_r($ar_id);
+        //   print_r($ar_id);
          return $this->AdminModel ->update_all($table,$ar,$ar_id);
-        // print_r($ar);
+        //  print_r($ar);
     }
 }
