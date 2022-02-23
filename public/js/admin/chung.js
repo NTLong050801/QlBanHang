@@ -7,7 +7,7 @@ function msg(dt) {
 }
 function load(types) {
     $.ajax({
-        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all"+types+"",
+        url: "http://localhost/clothes/index.php?controller=admin&action=all"+types+"",
         success: function (dt) {
             $('.main-content').html(dt)
         }

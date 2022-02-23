@@ -18,7 +18,7 @@ $(document).ready(function () {
             MoTa = $('#MoTa').val();
 
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=addloaihang",
+                url: "http://localhost/clothes/index.php?controller=admin&action=addloaihang",
                 method: "POST",
                 data: {
                     TenLoaiHang: TenLoaiHang,
@@ -72,7 +72,7 @@ $(document).ready(function () {
             $('#btn_delete_succees').css("display", "block")
             $('#btn_delete_succees').click(function () {
                 $.ajax({
-                    url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=deleteloaihang",
+                    url: "http://localhost/clothes/index.php?controller=admin&action=deleteloaihang",
                     method: "POST",
                     data: {
                         id: id
@@ -92,7 +92,7 @@ $(document).ready(function () {
         id = $(this).attr('id');
         // alert(id);
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findloaihang",
+            url: "http://localhost/clothes/index.php?controller=admin&action=findloaihang",
             method: "POST",
             data: {
                 id: id
@@ -111,7 +111,7 @@ $(document).ready(function () {
         TenTheLoai_new = $('#TenTheLoai_new').val();
         MoTa_new = $('#MoTa_new').val();
         $.ajax({
-            url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=updateloaihang",
+            url:"http://localhost/clothes/index.php?controller=admin&action=updateloaihang",
             method : "POST",
             data:{
                 id: id,

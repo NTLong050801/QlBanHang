@@ -12,7 +12,7 @@ $(document).ready(function () {
       SoDienThoai = $('#SoDienThoai').val();
       Website = $('#Website').val();
       $.ajax({
-         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=addncc",
+         url: "http://localhost/clothes/index.php?controller=admin&action=addncc",
          method: "POST",
          data: {
             TenNCC: TenNCC,
@@ -64,7 +64,7 @@ $(document).ready(function () {
          $('#btn_delete_succees').css("display", "block")
          $('#btn_delete_succees').click(function () {
             $.ajax({
-               url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=deletencc",
+               url: "http://localhost/clothes/index.php?controller=admin&action=deletencc",
                method: "POST",
                data: {
                   id: id
@@ -84,7 +84,7 @@ $(document).ready(function () {
       id = $(this).attr('id');
         // alert(id);
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findncc",
+            url: "http://localhost/clothes/index.php?controller=admin&action=findncc",
             method: "POST",
             data: {
                 id: id
@@ -108,7 +108,7 @@ $(document).ready(function () {
       SDT_new = $('#SDT_new').val();
       Website_new = $('#Website_new').val();
       $.ajax({
-          url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=updatencc",
+          url:"http://localhost/clothes/index.php?controller=admin&action=updatencc",
           method : "POST",
           data:{
               id: id,

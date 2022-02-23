@@ -1,7 +1,7 @@
 <title>Trang chủ</title>
 <?php
 include('./public/Chung/header.php');
-include('./Core/Database.php');
+// include('./Core/Database.php');
 // include('./ham.php')
 ?>
 <div id="wrapper" style="overflow: scroll;height:100%">
@@ -56,7 +56,7 @@ include('./Core/Database.php');
 <?php
 include('./public/Chung/footer.php');
 ?>
-<script src="http://localhost:88/QLbanhang/public/js/admin/index.js"></script>
-<script src="http://localhost:88/QLbanhang/public/js/admin/ncc.js"></script>
-<script src="http://localhost:88/QLbanhang/public/js/admin/sp.js"></script>
+<script src="http://localhost/clothes/public/js/admin/index.js"></script>
+<script src="http://localhost/clothes/public/js/admin/ncc.js"></script>
+<script src="http://localhost/clothes/public/js/admin/sp.js"></script>
 

@@ -67,7 +67,7 @@ class AdminController extends BaseController{
         $anhchinh = $_FILES['img']['name'];
         if(!empty($anhchinh)){
             $tempname = $_FILES["img"]["tmp_name"];
-            $folder = $_SERVER['DOCUMENT_ROOT']."/QLBanHang/public/img/".$anhchinh;  
+            $folder = $_SERVER['DOCUMENT_ROOT']."/clothes/public/img/".$anhchinh;  
             move_uploaded_file($tempname, $folder);
         }
        $data['img'] = $anhchinh;

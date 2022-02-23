@@ -56,4 +56,32 @@ class CustomerModel extends BaseModel
         $sql = "select * from sanpham SP , sp_donhang SPDH where SP.IDSanPham = SPDH.IDSanPham 
         and (select count(IDSanPham) from sp_donhang group by IDSanPham) = (select max(count(IDSanPham)) from sp_donhang group by IDSanPham )";
     }
+    public function search($val)
+    {
+        $sql = "select * from  sanpham SP where TenSP like '%$val%'";
+        $query = $this->query($sql);
+        if(mysqli_num_rows($query)>0)
+        {
+            $ar  = [];
+            while ($row = mysqli_fetch_assoc($query)) {
+                array_push($ar, $row);
+            }
+            return $ar;
+        }else
+        {
+            echo "Quần áo đâu rồi !!!";
+        }
+     
+    }
+    public function show_pro_price($price)
+    {
+        $sql = "SELECT * FROM  sanpham where DonGiaBan between 0 and $price";
+        $query = $this->query($sql);
+        $ar = [];
+        while($row = mysqli_fetch_assoc($query))
+        {
+            array_push($ar,$row);
+        }
+         return $ar ;
+    }
 }

@@ -46,7 +46,7 @@ class BaseModel extends Database
     // lấy 1 sản phẩm của mỗi loại hàng 
     public function categories_item()
     {
-      $sql = "select TenSP from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
+      $sql = "select * from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
       $query = $this->query($sql);
       $ar = [];
       while ($row =  mysqli_fetch_assoc($query))
