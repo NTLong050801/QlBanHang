@@ -60,16 +60,16 @@ class AdminModel extends BaseModel
     }
 
     //Xóa loại hàng theo id
-    public function delete_all($table,$ar){
-        return $this-> delete($table,$ar);
-    }
+    // public function delete_all($table,$ar){
+    //     return $this-> delete($table,$ar);
+    // }
 
-    // tìm kiếm loại hàng theo id
-    public function findByID($table,$ar){
-        return $this-> find($table,$ar);
-    }
-    public function update_all($table,$ar,$ar_id){
-        return $this-> update($table,$ar,$ar_id);
-    }
+    // // tìm kiếm loại hàng theo id
+    // public function findByID($table,$ar){
+    //     return $this-> find($table,$ar);
+    // }
+    // public function update_all($table,$ar,$ar_id){
+    //     return $this-> update($table,$ar,$ar_id);
+    // }
 
 }

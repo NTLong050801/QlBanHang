@@ -704,15 +704,15 @@
                     }
                 })
             }
-            $('.hero__search__btnSearch').on('click', function(){
+            $('.hero__search__btnSearch').on('click', function() {
                 keySearch = $('.hero__search__valSearch').val();
                 $.ajax({
                     url: "http://localhost/QlBanHang/?controller=customer&action=search",
                     method: "POST",
                     data: {
-                        keySearch: keySearch,        
+                        keySearch: keySearch,
                     },
-                    success: function(dt){
+                    success: function(dt) {
                         $('.featured__filter').html(dt);
                     }
                 })
@@ -734,9 +734,10 @@
                         maxPrice: maxPrice,
                         idLH: idLH
                     },
-                    success: function(dt){
+                    success: function(dt) {
                         $('.featured__filter').html(dt);
                         // console.log(maxPrice);
+                        dauChamOSo();
                     }
                 })
             });
