@@ -55,40 +55,21 @@ class AdminModel extends BaseModel
         return $ar;
     }
     // add loại hàng 
-    public function addloaihang($data){
-        return $this-> add(self::LOAIHANG,$data);
+    public function add_all($table,$ar){
+        return $this-> add($table,$ar);
     }
 
-    public function addncc($data){
-        return $this-> add(self::NHACUNGCAP,$data);
-    }
-    
-    public function addsp($data){
-        return $this-> add(self::SANPHAM,$data);
-    }
     //Xóa loại hàng theo id
-    public function deleteloaihang($col,$id){
-        return $this-> delete(self::LOAIHANG,$col,$id);
-    }
-    public function deletencc($col,$id){
-        return $this-> delete(self::NHACUNGCAP,$col,$id);
+    public function delete_all($table,$ar){
+        return $this-> delete($table,$ar);
     }
 
     // tìm kiếm loại hàng theo id
-    public function findloaihang($col,$id){
-        return $this-> findByID(self::LOAIHANG,$col,$id);
+    public function findByID($table,$ar){
+        return $this-> find($table,$ar);
     }
-
-    public function  findncc($col,$id){
-        return $this-> findByID(self::NHACUNGCAP,$col,$id);
-    }
-
-
-    public function updateloaihang($ar,$id){
-        return $this-> update(self::LOAIHANG,$ar,$id);
-    }
-    public function updatencc($ar,$id){
-        return $this-> update(self::NHACUNGCAP,$ar,$id);
+    public function update_all($table,$ar,$ar_id){
+        return $this-> update($table,$ar,$ar_id);
     }
 
 }

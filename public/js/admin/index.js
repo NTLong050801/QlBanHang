@@ -18,11 +18,12 @@ $(document).ready(function () {
             MoTa = $('#MoTa').val();
 
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=addloaihang",
+                url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=add_all",
                 method: "POST",
                 data: {
                     TenLoaiHang: TenLoaiHang,
-                    MoTa: MoTa
+                    MoTa: MoTa,
+                    types : types
                 },
                 success: function (dt) {
                     $('#Modal_add_LH').modal('hide')
@@ -72,10 +73,11 @@ $(document).ready(function () {
             $('#btn_delete_succees').css("display", "block")
             $('#btn_delete_succees').click(function () {
                 $.ajax({
-                    url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=deleteloaihang",
+                    url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=delete_all",
                     method: "POST",
                     data: {
-                        id: id
+                        IDLoaiHang: id,
+                        types : types
                     },
                     success: function (dt) {
                         $('#confirm').modal('hide')
@@ -92,10 +94,12 @@ $(document).ready(function () {
         id = $(this).attr('id');
         // alert(id);
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findloaihang",
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
             method: "POST",
             data: {
-                id: id
+                IDLoaiHang: id,
+                types:types
+               
             },
             dataType: "json",
             success: function (dt) {
@@ -111,12 +115,13 @@ $(document).ready(function () {
         TenTheLoai_new = $('#TenTheLoai_new').val();
         MoTa_new = $('#MoTa_new').val();
         $.ajax({
-            url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=updateloaihang",
+            url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
             method : "POST",
             data:{
-                id: id,
+                IDLoaiHang: id,
                 TenLoaiHang : TenTheLoai_new,
-                MoTa : MoTa_new
+                MoTa : MoTa_new,
+                types: types
             },
             success : function(dt){
                 msg(dt);

@@ -12,13 +12,14 @@ $(document).ready(function () {
       SoDienThoai = $('#SoDienThoai').val();
       Website = $('#Website').val();
       $.ajax({
-         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=addncc",
+         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=add_all",
          method: "POST",
          data: {
-            TenNCC: TenNCC,
+            TenCongTy: TenNCC,
             DiaChi: DiaChi,
             SoDienThoai: SoDienThoai,
-            Website: Website
+            Website: Website,
+            types : types
          },
          success: function (dt) {
             $('#Modal_add_ncc').modal('hide')
@@ -64,10 +65,11 @@ $(document).ready(function () {
          $('#btn_delete_succees').css("display", "block")
          $('#btn_delete_succees').click(function () {
             $.ajax({
-               url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=deletencc",
+               url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=delete_all",
                method: "POST",
                data: {
-                  id: id
+                  IDNhaCungCap: id,
+                  types : types
                },
                success: function (dt) {
                   $('#confirm').modal('hide')
@@ -84,10 +86,11 @@ $(document).ready(function () {
       id = $(this).attr('id');
         // alert(id);
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findncc",
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
             method: "POST",
             data: {
-                id: id
+                IDNhaCungCap: id,
+                types:types
             },
             dataType: "json",
             success: function (dt) {
@@ -108,14 +111,15 @@ $(document).ready(function () {
       SDT_new = $('#SDT_new').val();
       Website_new = $('#Website_new').val();
       $.ajax({
-          url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=updatencc",
+          url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
           method : "POST",
           data:{
-              id: id,
-              TenCty_new : TenCty_new,
-              DiaChi_new : DiaChi_new,
-              SDT_new : SDT_new,
-              Website_new : Website_new
+              IDNhaCungCap: id,
+              TenCongTy: TenCty_new,
+              DiaChi : DiaChi_new,
+              SoDienThoai : SDT_new,
+              Website : Website_new,
+              types:types
           },
           success : function(dt){
               msg(dt);
