@@ -198,7 +198,7 @@
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input class="hero__search__valSearch" type="text" placeholder="Nhập sản phẩm cần tìm kiếm">
-                                <button type="submit" class="btn hero__search__btnSearch">SEARCH</button>
+                                <button type="submit" class="site-btn hero__search__btnSearch">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -271,8 +271,8 @@
                     </div>
                     <div class="section-range">
                         <span>0</span>
-                        <input class="section-range__range" type="range" style="width: 30%" min="0" max="1000000" step="50000">
-                        <span class="section-range__max-price">500.000đ</span>
+                        <input class="section-range__range" type="range" value="1000000" style="width: 30%" min="0" max="1000000" step="50000">
+                        <span class="section-range__max-price">100000đ</span>
                     </div>
                     <div class="featured__controls">
                         <ul>
@@ -710,13 +710,14 @@
                     url: "http://localhost/QlBanHang/?controller=customer&action=search",
                     method: "POST",
                     data: {
-                        keySearch: keySeach,        
+                        keySearch: keySearch,        
                     },
                     success: function(dt){
                         $('.featured__filter').html(dt);
                     }
                 })
             })
+
             $(document).on('click', '.active', function() {
                 idLH = $(this).attr('idLH');
                 transIDLH(idLH);
@@ -724,9 +725,20 @@
 
             $('.section-range__range').on('input', function() {
                 // $(this).trigger('change');
-                val = $(this).val();
-                console.log('thành công');
-                $('.section-range__max-price').html(val + 'đ');
+                maxPrice = $(this).val();
+                $('.section-range__max-price').html(maxPrice + 'đ');
+                $.ajax({
+                    url: "http://localhost/QlBanHang/?controller=customer&action=changePrice",
+                    method: "POST",
+                    data: {
+                        maxPrice: maxPrice,
+                        idLH: idLH
+                    },
+                    success: function(dt){
+                        $('.featured__filter').html(dt);
+                        // console.log(maxPrice);
+                    }
+                })
             });
 
         })

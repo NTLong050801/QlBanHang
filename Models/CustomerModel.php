@@ -33,7 +33,27 @@
             }
             return $ar;
         }
-    
+        public function changePrice($idLH, $maxPrice){
+            if($idLH == 0){
+                $sql = "SELECT * FROM sanpham where DonGiaBan between '0' and '$maxPrice'";
+                $query = $this -> query($sql);
+                $ar = [];
+                while($row = mysqli_fetch_assoc($query)){
+                    array_push($ar, $row);
+                }
+                return $ar;
+            }
+            else{
+                $sql = "SELECT * FROM sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = '$idLH' and SP.DonGiaBan between '0' and '$maxPrice'";
+                $query = $this -> query($sql);
+                $ar = [];
+                while($row = mysqli_fetch_assoc($query)){
+                    array_push($ar, $row);
+                }
+                return $ar;
+            }
+         
+        }
     }
 
 

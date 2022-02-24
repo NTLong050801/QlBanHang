@@ -54,12 +54,21 @@ class CusTomerController extends BaseController
   }
 
   public function search(){
-      // $keySearch = $_POST['keySearch'];
-      $keySearch = "hood";
+      $keySearch = $_POST['keySearch'];
       $listSP = $this->CustomerModel->search($keySearch);
       return $this->view(
         'frontend.customer.product_action', ['getProducts' => $listSP]
       );
+  }
+
+  public function changePrice(){
+    $maxPrice = $_POST['maxPrice'];
+    $idLH = $_POST['idLH'];
+    $listSP = $this->CustomerModel->changePrice($idLH, $maxPrice);
+    return $this->view(
+      'frontend.customer.product_action', ['getProducts' => $listSP]
+    );
+    
   }
 }
 ?>
