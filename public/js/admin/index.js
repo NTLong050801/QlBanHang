@@ -132,18 +132,42 @@ $(document).ready(function () {
             }
         })
     })
-$(document).on('click','.show_sp_lh',function(){
-    id = $(this).attr('idLH');
-    $.ajax({
-        url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
-        method:"POST",
-        data:{
-            IDLoaiHang : id
-        },
-        success : function(dt){
-            $('#data_canvas').html(dt)
-            console.log(dt)
-        }
+    $(document).on('click', '.show_sp_lh', function () {
+        id = $(this).attr('idLH');
+        TenLoaiHang = $(this).attr('TenLoaiHang');
+        $('#offcanvasRightLabel').html(TenLoaiHang)
+        $.ajax({
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+            method: "POST",
+            data: {
+                IDLoaiHang: id
+            },
+            success: function (dt) {
+                $('#data_canvas').html(dt)
+
+            }
+        })
     })
-})
+    $(document).on('click', '.detail_sp', function () {
+        IDSanPham = $(this).attr('idsp')
+        // alert(IDSanPham)
+        $('.offcanvas').offcanvas('hide');
+        load("SanPham", IDSanPham)
+        
+        // nav.offset().top
+        // nav = $(document).on('#tbl')
+        $(document).on('animate','#wrapper',function(){
+            scrollTop: $('#tbl').offset().top
+        })
+        // if(nav.length){
+        //     $('#wrapper').animate({
+        //         scrollTop: nav.offset().top
+        //     }, 1000);
+        //     console.log(nav)
+        // }else{
+        //     console.log(nav)
+        // }
+        
+
+    })
 })

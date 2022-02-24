@@ -26,7 +26,7 @@
                 <td><?= $data['TenLoaiHang'] ?></td>
                 <td><?= $data['MoTa'] ?></td>
                 <td>
-                    <span style="cursor: pointer;" class="show_sp_lh" idLH="<?= $data['IDLoaiHang'] ?>" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <span style="cursor: pointer;" class="show_sp_lh" TenLoaiHang = "<?= $data['TenLoaiHang'] ?>" idLH="<?= $data['IDLoaiHang'] ?>" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <?= $data['SLSP'] ?>
                     </span>
                 </td>

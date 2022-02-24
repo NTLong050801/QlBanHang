@@ -34,9 +34,18 @@
         $i = 1;
         foreach ($datas as $data) {
         ?>
-            <tr>
+            <tr id="tbl" class="<?php 
+                if(isset($IDSanPham)){
+                    if($IDSanPham == $data['IDSanPham']){
+                        echo "table-info";
+                    }
+                }
+            ?>">
                 <th scope="row"><?= $i ?></th>
-                <td><?= $data['TenSP'] ?></td>
+                <td>
+                    <img style="width:100px" src="http://localhost:88/QLbanhang/public/img/<?= $data['img'] ?>" alt="">
+                    <?= $data['TenSP'] ?>
+                </td>
                 <td><?= $data['TenCongTy'] ?></td>
                 <td><?= $data['TenLoaiHang'] ?></td>
                 <td><?= $data['DonGiaNhap'] ?></td>

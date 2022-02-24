@@ -38,6 +38,11 @@ class AdminController extends BaseController
 
     public function allsanpham()
     {
+        if(isset($_POST['IDSanPham'])){
+            $IDSanPham = $_POST['IDSanPham'];
+        }else{
+            $IDSanPham = 0;
+        }
         $data = $this->AdminModel->allSanPham();
         $loaihangs =  $this->AdminModel->allmathang();
         $nccs = $this->AdminModel->allNhaCungCap();
@@ -45,7 +50,9 @@ class AdminController extends BaseController
             'datas' => $data,
             'loaihangs' => $loaihangs,
             'nccs' => $nccs,
+            'IDSanPham' => $IDSanPham
         ]);
+        // echo $IDSanPham;
     }
 
     public function allctygiaohang()

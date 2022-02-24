@@ -9,7 +9,7 @@ foreach ($product_types as $product_type) {
             <span style="color: red;">x</span>
             SL : <?= $product_type['SoLuongCon'] ?>
         </p>
-            <a href="#" class="btn btn-primary">Sửa đổi</a>
+            <a href="#" class="btn btn-primary detail_sp" idsp = "<?= $product_type['IDSanPham'] ?>">Chi tiết</a>
         </div>
     </div>
 <?php

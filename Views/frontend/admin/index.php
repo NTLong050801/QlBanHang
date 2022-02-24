@@ -75,13 +75,14 @@ include('./public/Chung/header.php');
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <h5 id="offcanvasRightLabel" style="margin-left: 40%;">Offcanvas right</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body" id="data_canvas" style="text-align: center;">
     
   </div>
 </div>
+<div id="a"></div>
 <?php
 include('./public/Chung/footer.php');
 ?>
