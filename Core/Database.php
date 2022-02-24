@@ -5,7 +5,7 @@ class Database
     const USERNAME = 'root';
     const PASSWORD = '' ;
     const DB_NAME = 'qlbh';
-    const URL = "http://localhost:88/QLbanhang/";
+    const URL = "http://localhost/clothes/";
     // URL: =
     private  $connect;
     public function connect(){

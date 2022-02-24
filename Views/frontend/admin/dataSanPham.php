@@ -5,13 +5,13 @@
 <br>
 <!-- Example single danger button -->
 <div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Open this select menu</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-  <label for="floatingSelect">Sắp xếp theo</label>
+    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <label for="floatingSelect">Sắp xếp theo</label>
 </div>
 <br>
 <table class="table table-dark table-striped">
@@ -34,9 +34,18 @@
         $i = 1;
         foreach ($datas as $data) {
         ?>
-            <tr>
+            <tr id="tbl" class="<?php 
+                if(isset($IDSanPham)){
+                    if($IDSanPham == $data['IDSanPham']){
+                        echo "table-info";
+                    }
+                }
+            ?>">
                 <th scope="row"><?= $i ?></th>
-                <td><?= $data['TenSP'] ?></td>
+                <td>
+                    <img style="width:100px" src="http://localhost:88/QLbanhang/public/img/<?= $data['img'] ?>" alt="">
+                    <?= $data['TenSP'] ?>
+                </td>
                 <td><?= $data['TenCongTy'] ?></td>
                 <td><?= $data['TenLoaiHang'] ?></td>
                 <td><?= $data['DonGiaNhap'] ?></td>
@@ -55,7 +64,7 @@
     </tbody>
 </table>
 <!-- modal confim -->
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #dc5435;color:#fff;text-align: center;border-radius: 20px;">
 
@@ -70,7 +79,7 @@
         </div>
 
     </div>
-</div>
+</div> -->
 <!-- Modal -->
 <div class="modal fade" id="modalAddSP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -84,7 +93,7 @@
             <div class="modal-body">
                 <form action="" method="POST" enctype="multipart/form-data" id="myform_adds" name="myform_adds">
                     <div class="col-6" style="float: left;">
-                    <input type="text" value="" hidden name="IDSanPham" id="IDSanPham">
+                        <input type="text" value="" hidden name="IDSanPham" id="IDSanPham">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Tên SP</label>
                             <input require type="text" class="form-control" id="TenSP" name="TenSP" aria-describedby="emailHelp">

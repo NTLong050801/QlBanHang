@@ -76,7 +76,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #dc5435;color:#fff;text-align: center;border-radius: 20px;">
 
@@ -91,7 +91,7 @@
         </div>
 
     </div>
-</div>
+</div> -->
 <!-- modal update loai hang -->
 <div class="modal fade" id="Modal_update_ncc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

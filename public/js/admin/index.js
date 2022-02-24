@@ -1,13 +1,14 @@
 
 $(document).ready(function () {
-   types = "LoaiHang"
-    $('.nav-item').click(function(){
+    types = "LoaiHang"
+    $('.nav-item').click(function () {
         types = $(this).attr('chose');
         // function load()
         // alert(types)
         load(types)
     })
     load(types)
+
 
 
     $(document).on('click', '#btn_add_LH', function () {
@@ -23,7 +24,7 @@ $(document).ready(function () {
                 data: {
                     TenLoaiHang: TenLoaiHang,
                     MoTa: MoTa,
-                    types : types
+                    types: types
                 },
                 success: function (dt) {
                     $('#Modal_add_LH').modal('hide')
@@ -36,12 +37,14 @@ $(document).ready(function () {
 
     $(document).on('click', '.delete', function () {
         // alert('123')
-        val = 5;
+
         id = $(this).attr('id')
         $('#confirm').modal('show')
         slsp = parseInt($(this).attr('SLSP'));
         if (slsp > 0) {
+            val = 5;
             $('#time_out').html(val)
+            // $('#time_out').html('5')
             $('#btn_delete_err').css("display", "block")
             $('#cancel_delete').css("display", "none")
             $('#btn_delete_succees').css("display", "none")
@@ -51,7 +54,6 @@ $(document).ready(function () {
             })
 
             var time_out = setInterval(function () {
-
                 val = val - 1;
                 if (val > 0) {
                     $('#time_out').html(val)
@@ -60,7 +62,7 @@ $(document).ready(function () {
 
                     clearInterval(time_out);
                     $('#confirm').modal('hide')
-                    val = 5
+                    //val = 5
                     // console.log(val)
 
                 }
@@ -77,7 +79,7 @@ $(document).ready(function () {
                     method: "POST",
                     data: {
                         IDLoaiHang: id,
-                        types : types
+                        types: types
                     },
                     success: function (dt) {
                         $('#confirm').modal('hide')
@@ -98,13 +100,13 @@ $(document).ready(function () {
             method: "POST",
             data: {
                 IDLoaiHang: id,
-                types:types
-               
+                types: types
+
             },
             dataType: "json",
             success: function (dt) {
                 // console.log(dt[0]['TenLoaiHang'])
-                $('#btn_update_succes').attr("idlh",dt[0]['IDLoaiHang'])
+                $('#btn_update_succes').attr("idlh", dt[0]['IDLoaiHang'])
                 $('#TenTheLoai_new').val(dt[0]['TenLoaiHang'])
                 $('#MoTa_new').val(dt[0]['MoTa']);
             }
@@ -115,22 +117,57 @@ $(document).ready(function () {
         TenTheLoai_new = $('#TenTheLoai_new').val();
         MoTa_new = $('#MoTa_new').val();
         $.ajax({
-            url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
-            method : "POST",
-            data:{
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
+            method: "POST",
+            data: {
                 IDLoaiHang: id,
-                TenLoaiHang : TenTheLoai_new,
-                MoTa : MoTa_new,
+                TenLoaiHang: TenTheLoai_new,
+                MoTa: MoTa_new,
                 types: types
             },
-            success : function(dt){
+            success: function (dt) {
                 msg(dt);
                 load(types)
                 $('#Modal_update_LH').modal('hide')
             }
         })
     })
+    $(document).on('click', '.show_sp_lh', function () {
+        id = $(this).attr('idLH');
+        TenLoaiHang = $(this).attr('TenLoaiHang');
+        $('#offcanvasRightLabel').html(TenLoaiHang)
+        $.ajax({
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+            method: "POST",
+            data: {
+                IDLoaiHang: id
+            },
+            success: function (dt) {
+                $('#data_canvas').html(dt)
 
+            }
+        })
+    })
+    $(document).on('click', '.detail_sp', function () {
+        IDSanPham = $(this).attr('idsp')
+        // alert(IDSanPham)
+        $('.offcanvas').offcanvas('hide');
+        load("SanPham", IDSanPham)
+        
+        // nav.offset().top
+        // nav = $(document).on('#tbl')
+        $(document).on('animate','#wrapper',function(){
+            scrollTop: $('#tbl').offset().top
+        })
+        // if(nav.length){
+        //     $('#wrapper').animate({
+        //         scrollTop: nav.offset().top
+        //     }, 1000);
+        //     console.log(nav)
+        // }else{
+        //     console.log(nav)
+        // }
+        
 
-
+    })
 })
