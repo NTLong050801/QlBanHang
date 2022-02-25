@@ -7,7 +7,7 @@ function msg(dt) {
 }
 function load(types,id_sp) {
     $.ajax({
-        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all"+types+"",
+        url: "http://localhost/QlBanHang/index.php?controller=admin&action=all"+types+"",
         method:"POST",
         data:{
             IDSanPham : id_sp

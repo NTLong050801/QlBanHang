@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="http://localhost/QlBanHang/public/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/QlBanHang/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/QlBanHang/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QlBanHang/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QlBanHang/public/css/style1.css" type="text/css">
 </head>
 
 <body>
@@ -240,20 +240,6 @@
                             <h5><a href="#">Sweater Staytuned</a></h5>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="http://localhost/QlBanHang/public/img/product/hoodie-essentiall.png">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div> -->
                 </div>
             </div>
         </div>
@@ -288,7 +274,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row featured__filter">
+            <div class="row featured__filter d-flex flex-column">
 
             </div>
         </div>
@@ -663,87 +649,8 @@
     <script src="http://localhost/QlBanHang/public/js/owl.carousel.min.js"></script>
     <script src="http://localhost/QlBanHang/public/js/main.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <script>
-        function dauChamOSo() {
-            const hashPrice = (text) => {
-                let arr = text.split('').reverse();
-                const newArr = [];
-                arr.forEach((e, i) => {
-                    if ((i) % 3 === 0 && i !== 0) {
-                        newArr.push('.');
-                        newArr.push(e);
-                    } else {
-                        newArr.push(e);
-                    }
-                });
-                return newArr.reverse().join('');
-            }
-            // console.log(hashPrice("1000"));
-            const arr = Array.from(document.querySelectorAll(".DonGiaBan"));
-            arr.forEach((e) => {
-                let number = e.textContent;
-                e.textContent = hashPrice(number);
-            })
-        }
-        $(document).ready(function() {
-            idLH = 0;
-            transIDLH(idLH);
-            dauChamOSo();
-
-            function transIDLH(idLH) {
-                $.ajax({
-                    url: "http://localhost/QlBanHang/?controller=customer&action=getSPLH",
-                    method: "POST",
-                    data: {
-                        idLH: idLH,
-                    },
-                    success: function(dt) {
-                        $('.featured__filter').html(dt);
-                        // console.log(dt);
-                        dauChamOSo();
-                    }
-                })
-            }
-            $('.hero__search__btnSearch').on('click', function() {
-                keySearch = $('.hero__search__valSearch').val();
-                $.ajax({
-                    url: "http://localhost/QlBanHang/?controller=customer&action=search",
-                    method: "POST",
-                    data: {
-                        keySearch: keySearch,
-                    },
-                    success: function(dt) {
-                        $('.featured__filter').html(dt);
-                    }
-                })
-            })
-
-            $(document).on('click', '.active', function() {
-                idLH = $(this).attr('idLH');
-                transIDLH(idLH);
-            })
-
-            $('.section-range__range').on('input', function() {
-                // $(this).trigger('change');
-                maxPrice = $(this).val();
-                $('.section-range__max-price').html(maxPrice + 'đ');
-                $.ajax({
-                    url: "http://localhost/QlBanHang/?controller=customer&action=changePrice",
-                    method: "POST",
-                    data: {
-                        maxPrice: maxPrice,
-                        idLH: idLH
-                    },
-                    success: function(dt) {
-                        $('.featured__filter').html(dt);
-                        // console.log(maxPrice);
-                        dauChamOSo();
-                    }
-                })
-            });
-
-        })
-    </script>
+    <script src="http://localhost/QlBanHang/public/js/customer/function.js"></script>
+    <script src="http://localhost/QlBanHang/public/js/customer/main.js"></script>
 </body>
 
 </html>

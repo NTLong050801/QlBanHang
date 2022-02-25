@@ -19,7 +19,7 @@ $(document).ready(function () {
             MoTa = $('#MoTa').val();
 
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=add_all",
+                url: "http://localhost/QlBanHang/index.php?controller=admin&action=add_all",
                 method: "POST",
                 data: {
                     TenLoaiHang: TenLoaiHang,
@@ -75,7 +75,7 @@ $(document).ready(function () {
             $('#btn_delete_succees').css("display", "block")
             $('#btn_delete_succees').click(function () {
                 $.ajax({
-                    url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=delete_all",
+                    url: "http://localhost/QlBanHang/index.php?controller=admin&action=delete_all",
                     method: "POST",
                     data: {
                         IDLoaiHang: id,
@@ -96,7 +96,7 @@ $(document).ready(function () {
         id = $(this).attr('id');
         // alert(id);
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
+            url: "http://localhost/QlBanHang/index.php?controller=admin&action=findByID",
             method: "POST",
             data: {
                 IDLoaiHang: id,
@@ -117,7 +117,7 @@ $(document).ready(function () {
         TenTheLoai_new = $('#TenTheLoai_new').val();
         MoTa_new = $('#MoTa_new').val();
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
+            url: "http://localhost/QlBanHang/index.php?controller=admin&action=update_all",
             method: "POST",
             data: {
                 IDLoaiHang: id,
@@ -137,7 +137,7 @@ $(document).ready(function () {
         TenLoaiHang = $(this).attr('TenLoaiHang');
         $('#offcanvasRightLabel').html(TenLoaiHang)
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+            url: "hhttp://localhost/QlBanHang/index.php?controller=admin&action=data_canvas",
             method: "POST",
             data: {
                 IDLoaiHang: id

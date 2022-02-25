@@ -16,6 +16,55 @@ class BaseModel extends Database
       }
       return $ar;
     }
+    
+    public function delete($table, $ar)
+  {
+    foreach($ar as $key => $val){
+      $where = $key.'='."'$val'"  ;
+    }
+    $sql = "DELETE from $table where $where";
+    $query = $this->query($sql);
+    //  echo $sql;
+    if ($query) {
+      echo 'Xóa thành công';
+    } else {
+      echo 'Xóa thất bại';
+    }
+  }
+
+  public function find($table,$ar)
+  {
+    foreach($ar as $key => $val){
+      $where = $key.'='."'$val'"  ;
+    }
+    $sql = "SELECT * from $table where $where";
+    $query = $this->query($sql);
+    $ar = [];
+    while ($row =  mysqli_fetch_assoc($query)) {
+      array_push($ar, $row);
+    }
+    return $ar;
+  }
+
+  public function update($table,$ar,$ar_id){
+    $new_ar = [];
+    foreach($ar as $key => $val){
+      array_push($new_ar,$key.'='."'$val'")  ;
+
+    }
+    $new_ar = implode(',',$new_ar);
+    foreach($ar_id as $key => $val){
+      $where = $key.'='."'$val'"  ;
+    }
+    $sql = "UPDATE $table set $new_ar where $where ";
+    //echo $sql;
+    $query = $this->query($sql);
+    if ($query) {
+      echo 'Update thành công';
+    } else {
+      echo 'Update thất bại';
+    }
+  }
 
     // đếm số bản ghi trong table
     public function count($column,$table){

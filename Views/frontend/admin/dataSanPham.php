@@ -43,7 +43,7 @@
             ?>">
                 <th scope="row"><?= $i ?></th>
                 <td>
-                    <img style="width:100px" src="http://localhost:88/QLbanhang/public/img/<?= $data['img'] ?>" alt="">
+                    <img style="width:100px" src="http://localhost/QLbanhang/public/img/product/<?= $data['img'] ?>" alt="">
                     <?= $data['TenSP'] ?>
                 </td>
                 <td><?= $data['TenCongTy'] ?></td>

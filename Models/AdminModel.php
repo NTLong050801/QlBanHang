@@ -81,10 +81,10 @@ class AdminModel extends BaseModel
     }
 
     // tìm kiếm loại hàng theo id
-    public function findByID($table, $ar)
-    {
-        return $this->find($table, $ar);
-    }
+    // public function findByID($table, $ar)
+    // {
+    //     return $this->find($table, $ar);
+    // }
     public function update_all($table, $ar, $ar_id)
     {
         return $this->update($table, $ar, $ar_id);
