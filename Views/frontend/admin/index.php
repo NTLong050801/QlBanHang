@@ -4,8 +4,10 @@ include('./public/Chung/header.php');
 // include('./Core/Database.php');
 // include('./ham.php')
 ?>
-
-<div id="wrapper" style="overflow: scroll;height:100%">
+<body>
+    
+</body>
+<div id="wrapper">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -82,7 +84,8 @@ include('./public/Chung/header.php');
     
   </div>
 </div>
-<div id="a"></div>
+<div id="liveAlertPlaceholder"></div>
+</body>
 <?php
 include('./public/Chung/footer.php');
 ?>

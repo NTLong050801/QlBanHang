@@ -27,7 +27,7 @@
                 <td><?= $data['Diachi'] ?></td>
                 <td><?= $data['SoDienThoai'] ?></td>
                 <td><?= $data['Website'] ?></td>
-                <td><?= $data['SLSP'] ?></td>
+                <td class="show_ncc_sp" TenCTy ="<?= $data['TenCongTy'] ?>" IDncc=<?= $data['IDNhaCungCap'] ?> data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><?= $data['SLSP'] ?></td>
                 <td><button class="btn btn-warning update_ncc" id="<?= $data['IDNhaCungCap'] ?>">Sửa</button></td>
                 <td><button class="btn btn-danger delete_ncc" SLSP_NCC ="<?= $data['SLSP']?>"  id="<?= $data['IDNhaCungCap'] ?>">Xóa</button></td>
             </tr>

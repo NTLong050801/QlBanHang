@@ -64,8 +64,8 @@ $(document).on('click', '.update_sp', function () {
             // console.log(dt[0]['TenLoaiHang'])
             // $('#btn_update_succes').attr("idlh",dt[0]['IDLoaiHang'])
             // $('#TenTheLoai_new').val(dt[0]['TenLoaiHang'])
-            console.log(dt)
-            $('#IDSanPham').attr('value',dt[0]['IDSanPham']);
+
+            $('#IDSanPham').attr('value', dt[0]['IDSanPham']);
             $('#TenSP').val(dt[0]['TenSP']);
             $('#IDLoaiHang').val(dt[0]['IDLoaiHang']);
             $('#IDNhaCungCap').val(dt[0]['IDNhaCungCap']);
@@ -86,12 +86,46 @@ $(document).on('click', '.update_sp', function () {
             processData: false,
             contentType: false,
             success: function (dt) {
-                 msg(dt)
-                 load(types)
-                 $('#modalAddSP').modal('hide')
-                
+                msg(dt)
+                load(types)
+                $('#modalAddSP').modal('hide')
+
             }
         })
+    })
+})
+$(document).on('change', '#floatingSelect', function () {
+    IDLoaiHang = $(this).val()
+    $.ajax({
+        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+        method: "POST",
+        data: {
+            IDLoaiHang: IDLoaiHang,
+        },
+        success: function (dt) {
+            $('.main-content').html(dt)
+            //console.log(dt)
+
+
+        }
+    })
+})
+$(document).on('click','#btn_search',function(){
+    val = $('#ip_search').val()
+    IDLoaiHang = $('#floatingSelect').val();
+    $.ajax({
+        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=search_sp",
+        method: "POST",
+        data: {
+            val : val,
+            IDLoaiHang: IDLoaiHang,
+        },
+        success: function (dt) {
+            $('.main-content').html(dt)
+            //console.log(dt)
+
+
+        }
     })
 })
 

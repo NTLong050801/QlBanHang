@@ -42,21 +42,7 @@ class CustomerModel extends BaseModel
         return $ar;
     }
 
-    public function type_item_canvans($id)
-    {
-        if ($id == 0) {
-            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang  ";
-        } else {
-            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id ";
-        }
-
-        $query = $this->query($sql);
-        $ar = [];
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($ar, $row);
-        }
-        return $ar;
-    }
+   
     //lấy ra sản phẩm mới thêm
     public function product_new()
     {

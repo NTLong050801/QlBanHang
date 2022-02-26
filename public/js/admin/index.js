@@ -9,8 +9,6 @@ $(document).ready(function () {
     })
     load(types)
 
-
-
     $(document).on('click', '#btn_add_LH', function () {
         //alert('123')
         $('#Modal_add_LH').modal('show')
@@ -62,11 +60,7 @@ $(document).ready(function () {
 
                     clearInterval(time_out);
                     $('#confirm').modal('hide')
-                    //val = 5
-                    // console.log(val)
-
                 }
-
             }, 1000)
         } else {
             $('#text_confirm').html('Bạn chắc chắn muốn xóa thể loại này ?');
@@ -132,42 +126,108 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on('click', '.show_sp_lh', function () {
-        id = $(this).attr('idLH');
-        TenLoaiHang = $(this).attr('TenLoaiHang');
-        $('#offcanvasRightLabel').html(TenLoaiHang)
-        $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
-            method: "POST",
-            data: {
-                IDLoaiHang: id
-            },
-            success: function (dt) {
-                $('#data_canvas').html(dt)
 
-            }
-        })
+
+})
+function getAllSpByLh(id){
+    $.ajax({
+        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+        method: "POST",
+        data: {
+            IDLoaiHang: id
+        },
+        success: function (dt) {
+            $('#data_canvas').html(dt)
+        }
     })
-    $(document).on('click', '.detail_sp', function () {
-        IDSanPham = $(this).attr('idsp')
-        // alert(IDSanPham)
-        $('.offcanvas').offcanvas('hide');
-        load("SanPham", IDSanPham)
-        
-        // nav.offset().top
-        // nav = $(document).on('#tbl')
-        $(document).on('animate','#wrapper',function(){
-            scrollTop: $('#tbl').offset().top
-        })
-        // if(nav.length){
-        //     $('#wrapper').animate({
-        //         scrollTop: nav.offset().top
-        //     }, 1000);
-        //     console.log(nav)
-        // }else{
-        //     console.log(nav)
-        // }
-        
+}
+$(document).on('click', '.show_sp_lh', function show_cavans() {
+    id = $(this).attr('idLH');
+    TenLoaiHang = $(this).attr('TenLoaiHang');
+    $('#offcanvasRightLabel').html(TenLoaiHang)
+    getAllSpByLh(id)
+    
+})
+$(document).on('click', '.detail_sp', function () {
+    IDSanPham = $(this).attr('idsp')
+    // alert(IDSanPham)
+    $('#offcanvasRight').offcanvas('hide');
+    types = "SanPham"
 
+    $.ajax({
+        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+        method: "POST",
+        data: {
+            IDSanPham: IDSanPham
+        },
+        success: function (dt) {
+
+            $('.main-content').html(dt)
+            $('html, body').animate({
+                scrollTop: $('#tbl').offset().top
+            }, 1000);
+            setInterval(function () {
+                if ($('#tbl').hasClass('table-primary')) {
+                    $('#tbl').removeClass("table-primary")
+                    $('#tbl').addClass("table-danger")
+
+                } else {
+                    $('#tbl').removeClass("table-danger")
+                    $('#tbl').addClass("table-primary")
+                }
+                $('#tbl').css("margin-bottom", "20px")
+                $('#tbl').css("margin-top", "20px")
+
+            }, 500)
+            // $('.offcanvas-backdrop').each(function () {
+            //     $(this).removeClass('show')
+            // })
+
+        }
     })
 })
+function load_toast(content) {
+    $('#liveToast').toast('show')
+    $('.toast-body').html(content);
+    setTimeout(function () {
+        $('#liveToast').toast('hide')
+    }, 2000)
+}
+$(document).on('click', '.lamsau', function () {
+    load_toast('Chức năng này đang được nhà phát triển thiết kế !')
+    // alert('123')
+})
+spam = 1;
+
+$(document).on('click', '#order_sp', function () {
+    spam++;
+    orderby = $(this).attr('order')
+    if (spam < 5) {
+        $.ajax({
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+            method: "POST",
+            data: {
+                order: orderby,
+            },
+            success: function (dt) {
+                $('.main-content').html(dt)
+
+                if (orderby == 'DESC') {
+                    load_toast('Đã sắp xếp loại hàng với SLSP từ lớn đến nhỏ !')
+                    $('#order_sp').attr('order', "ASC")
+                } else {
+                    load_toast('Đã sắp xếp loại hàng với SLSP từ nhỏ đến lớn!')
+                    $('#order_sp').attr('order', "DESC")
+                }
+            }
+        })
+    } else {
+        msg("Vui lòng không spam !!!!!!")
+    }
+    // alert(orderby)
+    setInterval(function () {
+        spam = 1
+    }, 5000)
+})
+
+

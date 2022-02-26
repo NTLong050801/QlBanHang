@@ -19,7 +19,7 @@ $(document).ready(function () {
             DiaChi: DiaChi,
             SoDienThoai: SoDienThoai,
             Website: Website,
-            types : types
+            types: types
          },
          success: function (dt) {
             $('#Modal_add_ncc').modal('hide')
@@ -69,7 +69,7 @@ $(document).ready(function () {
                method: "POST",
                data: {
                   IDNhaCungCap: id,
-                  types : types
+                  types: types
                },
                success: function (dt) {
                   $('#confirm').modal('hide')
@@ -84,24 +84,24 @@ $(document).ready(function () {
    $(document).on('click', '.update_ncc', function () {
       $('#Modal_update_ncc').modal('show')
       id = $(this).attr('id');
-        // alert(id);
-        $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
-            method: "POST",
-            data: {
-                IDNhaCungCap: id,
-                types:types
-            },
-            dataType: "json",
-            success: function (dt) {
-                // console.log(dt[0]['TenLoaiHang'])
-                $('#btn_update_ncc_succes').attr("idncc",dt[0]['IDNhaCungCap'])
-                $('#TenCty_new').val(dt[0]['TenCongTy'])
-                $('#DiaChi_new').val(dt[0]['DiaChi']);
-                $('#SDT_new').val(dt[0]['SoDienThoai']);
-                $('#Website_new').val(dt[0]['Website']);
-            }
-        })
+      // alert(id);
+      $.ajax({
+         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
+         method: "POST",
+         data: {
+            IDNhaCungCap: id,
+            types: types
+         },
+         dataType: "json",
+         success: function (dt) {
+            // console.log(dt[0]['TenLoaiHang'])
+            $('#btn_update_ncc_succes').attr("idncc", dt[0]['IDNhaCungCap'])
+            $('#TenCty_new').val(dt[0]['TenCongTy'])
+            $('#DiaChi_new').val(dt[0]['DiaChi']);
+            $('#SDT_new').val(dt[0]['SoDienThoai']);
+            $('#Website_new').val(dt[0]['Website']);
+         }
+      })
    })
 
    $(document).on('click', '#btn_update_ncc_succes', function () {
@@ -111,23 +111,39 @@ $(document).ready(function () {
       SDT_new = $('#SDT_new').val();
       Website_new = $('#Website_new').val();
       $.ajax({
-          url:"http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
-          method : "POST",
-          data:{
-              IDNhaCungCap: id,
-              TenCongTy: TenCty_new,
-              DiaChi : DiaChi_new,
-              SoDienThoai : SDT_new,
-              Website : Website_new,
-              types:types
-          },
-          success : function(dt){
-              msg(dt);
-              console.log(dt)
-              load(types)
-              $('#Modal_update_ncc').modal('hide')
-          }
+         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
+         method: "POST",
+         data: {
+            IDNhaCungCap: id,
+            TenCongTy: TenCty_new,
+            DiaChi: DiaChi_new,
+            SoDienThoai: SDT_new,
+            Website: Website_new,
+            types: types
+         },
+         success: function (dt) {
+            msg(dt);
+            console.log(dt)
+            load(types)
+            $('#Modal_update_ncc').modal('hide')
+         }
       })
-  })
+   })
 
+   $(document).on('click', '.show_ncc_sp', function () {
+      id = $(this).attr('IDncc')
+      TenCongTy = $(this).attr('TenCty')
+      $('#offcanvasRightLabel').html(TenCongTy)
+      alert('123')
+      $.ajax({
+         url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
+         method: "POST",
+         data: {
+            IDNhaCungCap: id
+         },
+         success: function (dt) {
+            $('#data_canvas').html(dt)
+         }
+      })
+   })
 })

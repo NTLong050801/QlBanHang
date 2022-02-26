@@ -18,9 +18,16 @@ class AdminController extends BaseController
 
     public function allLoaiHang()
     {
-        // $data = $this ->AdminModel -> allmathang();
+        $data = $this ->AdminModel -> allmathang();
+        if(isset($_POST['order'])){
+            $order = $_POST['order'];
+        }else{
+            $order = "ASC";
+        }
+        // $order = $_POST['order'];
+        
         $total = $this->AdminModel->totalmathang();
-        $totalSP_LH = $this->AdminModel->totalSP_LH();
+        $totalSP_LH = $this->AdminModel->totalSP_LH($order);
         return $this->view('frontend.admin.dataloaihang', [
             'datas' => $totalSP_LH,
             'total' => $total
@@ -43,16 +50,44 @@ class AdminController extends BaseController
         }else{
             $IDSanPham = 0;
         }
-        $data = $this->AdminModel->allSanPham();
+        if(isset($_POST['IDLoaiHang'])){
+            $IDLoaiHang = $_POST;
+            $id = $_POST['IDLoaiHang'];
+        }else{
+            $IDLoaiHang = 0;
+            $id = 0;
+        }
+        
+        // print_r($_POST);
+        $product_type = $this->AdminModel->type_item_canvans($IDLoaiHang);
+        // $data = $this->AdminModel->allSanPham();
         $loaihangs =  $this->AdminModel->allmathang();
         $nccs = $this->AdminModel->allNhaCungCap();
         return $this->view('frontend.admin.dataSanPham', [
-            'datas' => $data,
+            'datas' => $product_type,
             'loaihangs' => $loaihangs,
             'nccs' => $nccs,
-            'IDSanPham' => $IDSanPham
+            'IDSanPham' => $IDSanPham,
+            'IDLoaiHang' => $id
+            // 'product_types' => $product_type
         ]);
         // echo $IDSanPham;
+    }
+
+    public function search_sp(){
+        $IDLoaiHang = $_POST['IDLoaiHang'];
+        $val = $_POST['val'];
+        $loaihangs =  $this->AdminModel->allmathang();
+        $nccs = $this->AdminModel->allNhaCungCap();
+        $product_type = $this->AdminModel->search($IDLoaiHang,$val);
+        return $this->view('frontend.admin.dataSanPham', [
+            'datas' => $product_type,
+            'IDLoaiHang' => $IDLoaiHang,
+            'loaihangs' => $loaihangs,
+            'nccs' => $nccs,
+            // 'product_types' => $product_type
+        ]);
+
     }
 
     public function allctygiaohang()
@@ -132,8 +167,8 @@ class AdminController extends BaseController
 
     public function data_canvas()
     {
-        $id = $_POST['IDLoaiHang'];
-        $product_type = $this->CustomerModel->type_item_canvans($id);
+        $id = $_POST;
+        $product_type = $this->AdminModel->type_item_canvans($id);
         return $this->view('frontend.admin.data_canvas', [
             'product_types' => $product_type
         ]);

@@ -5,16 +5,18 @@ function msg(dt) {
         $('#msg').modal('hide');
     }, 3000)
 }
-function load(types,id_sp) {
+function load(types, id_sp) {
     $.ajax({
-        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all"+types+"",
-        method:"POST",
-        data:{
-            IDSanPham : id_sp
+        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+        method: "POST",
+        data: {
+            IDSanPham: id_sp,   
         },
         success: function (dt) {
              $('.main-content').html(dt)
+            //console.log(dt)
             
+
         }
     })
 }
