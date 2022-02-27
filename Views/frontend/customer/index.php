@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -11,7 +10,7 @@
     <title>Ogani | Template</title>
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/bootstrap.min.css" type="text/css">
+    <!-- <link rel="stylesheet" href="http://localhost/clothes/public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/nice-select.css" type="text/css">
@@ -19,6 +18,16 @@
     <link rel="stylesheet" href="http://localhost/clothes/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/style1.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
@@ -231,13 +240,13 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
-                                <img src="http://localhost/clothes/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost/clothes/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost/clothes/public/img/undenim.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -265,7 +274,7 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
-                        <div class="categories__item " style="background-image: url('http://localhost/clothes/public/img/<?= $category_item['img'] ?>');">
+                        <div class="categories__item " style="background-image: url('http://localhost:88/QLBanHang/public/img/<?= $category_item['img'] ?>');">
                             <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
@@ -290,8 +299,8 @@
                         <label for="customRange2" class="form-label">Value Product</label>
                         <br>
                         <span> 0 </span>
-                        <input type="range" min="0" max="10000000" step="500000" value="0" style="width: 50%" class="form-range" id="pro_val">
-                        <span id="max_price">10000000</span>
+                        <input type="range" min="0" max="1000000" step="100000" value="0" style="width: 50%" class="form-range" id="pro_val">
+                        <span id="max_price">1000000</span>
                         <br>
                         <button class="btn-warning" id="price">Lọc giá</button>
                     </div>
@@ -312,11 +321,11 @@
                 </div>
             </div>
 
-            <div class="row featured__filter">
+            <div class=" featured__filter">
 
             </div>
 
-           
+
 
 
         </div>
@@ -356,7 +365,7 @@
                                 <?php foreach ($product_new as $products_new) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/clothes/public/img/<?= $products_new['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $products_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $products_new['TenSP'] ?></h6>
@@ -663,14 +672,15 @@ require("./public/Chung/footer.php")
         // start = 1;
         react(id)
         // click chọn loại hàng 
-        function react(id) {
+        function react(id, tranghientai) {
             $.ajax({
-                url: "http://localhost/clothes/index.php?controller=customer&action=sweater",
+                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=sweater",
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
                     id: id, // id của mặt hàng 
                     // start: start
+                    tranghientai: tranghientai
                 },
                 success: function(dt) {
                     $('.featured__filter').html(dt)
@@ -687,18 +697,22 @@ require("./public/Chung/footer.php")
             });
 
         }
-            // click chọn loại hàng
+        // click chọn loại hàng
         $('.active').click(function() {
             id = $(this).attr('id') // lay id loai hang
             react(id) // goi react
-         
+
         })
 
         // click chuyển trang 
-        // $(document).on('click', '.page-item', function() {
-        //     tranghientai = $(this).attr('tranghientai');
-        //     react(id, tranghientai)
-        // })
+        $(document).on('click', '.page-item', function() {
+            tranghientai = $(this).attr('tranghientai');
+            // alert(tranghientai)
+            react(id, tranghientai)
+            $('html, body').animate({
+                scrollTop: $(".search_pro").offset().top
+            }, 1000);
+        })
 
         $('#btn_search').click(function() {
             val = $('#product_search').val()
@@ -706,7 +720,7 @@ require("./public/Chung/footer.php")
                 scrollTop: $(".search_pro").offset().top
             }, 1000);
             $.ajax({
-                url: "http://localhost/clothes/index.php?controller=customer&action=search",
+                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=search",
                 method: 'POST',
                 data: {
                     TenSP: val,
@@ -719,15 +733,43 @@ require("./public/Chung/footer.php")
 
         })
 
+        // function dauChamOSo() {
+        //     const hashPrice = (text) => {
+        //         let arr = text.split("").reverse();
+        //         const newArr = [];
+        //         arr.forEach((e, i) => {
+        //             if (i % 3 === 0 && i !== 0) {
+        //                 newArr.push(".");
+        //                 newArr.push(e);
+        //             } else {
+        //                 newArr.push(e);
+        //             }
+        //         });
+        //         return newArr.reverse().join("");
+        //     };
+        //     // console.log(hashPrice("1000"));
+        //     const arr = Array.from(document.querySelectorAll("#max_price"));
+        //     arr.forEach((e) => {
+        //         let number = e.textContent;
+        //         e.textContent = hashPrice(number);
+        //     });
+        // }
+        // dauChamOSo()
         $("#pro_val").on('input', function() {
             val = $(this).val()
-            $('#max_price').html(val)
-
+             $('#max_price').html(val)
+            // dauChamOSo()
         });
+
         $("#price").on("click", function() {
             val = $('#pro_val').val()
+            $('.mixitup-control-active').each(function(){
+                $(this).hasClass('.mixitup-control-active .active');
+                IDLH = $(this).attr('id')
+            })
+            alert(IDLH);
             $.ajax({
-                url: "http://localhost/clothes/index.php?controller=customer&action=show_pro_price",
+                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
