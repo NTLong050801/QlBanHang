@@ -7,12 +7,12 @@
     </div>
   </div>
 </div>  
- <script src="http://localhost:88/QLbanhang/public/js/jquery-3.3.1.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/bootstrap.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/jquery.nice-select.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/jquery-ui.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/jquery.slicknav.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/mixitup.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/owl.carousel.min.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/main.js"></script>
-    <script src="http://localhost:88/QLbanhang/public/js/admin/chung.js"></script>
+ <script src="http://localhost/clothes/public/js/jquery-3.3.1.min.js"></script>
+    <script src="http://localhost/clothes/public/js/bootstrap.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery.nice-select.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery-ui.min.js"></script>
+    <script src="http://localhost/clothes/public/js/jquery.slicknav.js"></script>
+    <script src="http://localhost/clothes/public/js/mixitup.min.js"></script>
+    <script src="http://localhost/clothes/public/js/owl.carousel.min.js"></script>
+    <script src="http://localhost/clothes/public/js/main.js"></script>
+    <script src="http://localhost/clothes/public/js/admin/chung.js"></script>

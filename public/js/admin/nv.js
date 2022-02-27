@@ -7,7 +7,7 @@ $(document).on('click', '#btn_add_nv_succ', function () {
     // console.log(form)
 
     $.ajax({
-        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=add_all",
+        url: "http://localhost/clothes/index.php?controller=admin&action=add_all",
         method: "POST",
         data: form,
         mimeType: "multipart/form-data",
@@ -33,7 +33,7 @@ $(document).on('click', '.delete_nv', function () {
     $('#btn_delete_succees').css("display", "block")
     $('#btn_delete_succees').click(function () {
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=delete_all",
+            url: "http://localhost/clothes/index.php?controller=admin&action=delete_all",
             method: "POST",
             data: {
                 IDNhanVien: id,
@@ -56,7 +56,7 @@ $(document).on('click', '.update_nv', function () {
     $('#btn_add_nv_succ').html('Sửa Nhân viên')
     // alert(id);
     $.ajax({
-        url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=findByID",
+        url: "http://localhost/clothes/index.php?controller=admin&action=findByID",
         method: "POST",
         data: {
             IDNhanVien: id,
@@ -83,7 +83,7 @@ $(document).on('click', '.update_nv', function () {
     $('#btn_add_nv_succ').click(function () {
         form = new FormData(myForm_add_nv)
         $.ajax({
-            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=update_all",
+            url: "http://localhost/clothes/index.php?controller=admin&action=update_all",
             method: "POST",
             data: form,
             mimeType: "multipart/form-data",

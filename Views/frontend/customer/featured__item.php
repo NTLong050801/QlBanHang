@@ -4,7 +4,7 @@ if (is_array($datas)) {
 ?>
         <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
             <div class="featured__item">
-                <div class="featured__item__pic " style="background-image: url('http://localhost:88/QLbanhang/public/img/<?= $data['img'] ?>');">
+                <div class="featured__item__pic " style="background-image: url('http://localhost/clothes/public/img/<?= $data['img'] ?>');">
                     <ul class="featured__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
