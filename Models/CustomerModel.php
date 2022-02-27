@@ -116,4 +116,22 @@ class CustomerModel extends BaseModel
         
 
     }
+    public function page_num($id_LH)
+    {
+        if($id_LH == 0 )
+        {
+            $sql  = "select count(IDSanPham) as SoluongSP from sanpham ";
+            $query = $this->query($sql);
+           $tongbanghi = mysqli_fetch_assoc($query)['SoluongSP'];
+           
+        } else 
+        {
+            $sql  = "select count(SP.IDSanPham) as SoluongSP from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id_LH";
+            $query = $this->query($sql);
+            $tongbanghi = mysqli_fetch_assoc($query)['SoluongSP'];
+           
+        }
+        $tongsotrang = ceil($tongbanghi/5);
+        return $tongsotrang;
+    }
 }
