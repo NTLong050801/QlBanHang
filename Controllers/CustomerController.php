@@ -18,13 +18,13 @@ class CusTomerController extends BaseController
     $category_item =  $this->CustomerModel->category_item();
     $category = $this->CustomerModel->get_category();
     $sum  = $this->CustomerModel->sum_type();
-    $tongsotrang = $this->CustomerModel->total_page($id);
+  //  $tongsotrang = $this->CustomerModel->total_page($id);
     return  $this->view('frontend.customer.index', [
       'category' =>  $category,
       'sum'      => $sum,
       'categories_item' => $category_item,
       'product_new' => $product_new,
-      'tongsotrang' => $tongsotrang
+     // 'tongsotrang' => $tongsotrang
     ]);
   }
   public function sweater()
@@ -38,7 +38,7 @@ class CusTomerController extends BaseController
     $tongsotrang_id = $this->CustomerModel->total_page($id);
     return $this->view('frontend.customer.type_item', [
       'product_type' => $product_type,
-      'tongsotrang_id' => $tongsotrang_id
+     'tongsotrang_id' => $tongsotrang_id
     ]);
   }
   public function search()
@@ -64,5 +64,16 @@ class CusTomerController extends BaseController
       ]
     );
   }
+  public function phantrang()
+  {
+    if(isset($_POST['sotrang']))
+    {
+    
+    }else 
+    {
+
+    }
+  }
+
  
 }

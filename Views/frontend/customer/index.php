@@ -738,6 +738,23 @@ require("./public/Chung/footer.php")
             })
         })
 
+        $(document).on("click",".pagenation",function(){
+            sotrang =  $(this).attr(trang)
+            IDLH = id
+            $.ajax({
+                url : "http://localhost/clothes/index.php?controller=customer&action=pro_1_page",
+                method :"post",
+                data :{
+                    sotrang: sotrang,
+                    IDLH : IDLH
+                },success:function(dt)
+                {
+                    $('.featured__filter').html(dt)
+                }
+            })
+        })
+        
+     
         function reset() {
             $('#right').click(function() {
 

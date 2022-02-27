@@ -31,7 +31,7 @@ foreach ($product_type as $type_itemes) {
             </li> <?php
                     for ($i = 1; $i <= $tongsotrang_id; $i++) {
                     ?>
-                <li class="page-item"><a class="page-link" href="#"><?= $i ?></a></li>
+                <li trang="<?= $i ?>" class="page-item"><a class="page-link" href="#"><?= $i ?></a></li>
             <?php
                     }
             ?>
