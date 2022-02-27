@@ -286,6 +286,7 @@
                     <div class="section-title">
                         <h2>Featured Product</h2>
                     </div>
+
                     <div>
                         <label for="customRange2" class="form-label">Value Product</label>
                         <br>
@@ -657,8 +658,30 @@ require("./public/Chung/footer.php")
 
 
 <script>
+//    function vovan()
+//    {
+//     const hashPrice = (text) => {
+//         let arr = text.split('').reverse();
+//         const newArr = [];
+//         arr.forEach((e, i) => {
+//             if ((i) % 3 === 0 && i !== 0) {
+//                 newArr.push('.');
+//                 newArr.push(e);
+//             } else {
+//                 newArr.push(e);
+//             }
+//         });
+//         return newArr.reverse().join('');
+//     }
+//     console.log(hashPrice("1000"));
+//     const arr = Array.from(document.querySelectorAll("DonGiaBan"));
+//     arr.forEach((e) => {
+//         let number = e.textContent;
+//         e.textContent = hashPrice(number);
+//     })
+//    }
     $(document).ready(function() {
-
+      
         id = 0
         // start = 1;
         react(id)
@@ -673,6 +696,7 @@ require("./public/Chung/footer.php")
                     // start: start
                 },
                 success: function(dt) {
+                    
                     $('.featured__filter').html(dt)
                     change_color()
 
@@ -712,6 +736,7 @@ require("./public/Chung/footer.php")
                     TenSP: val,
                 },
                 success: function(dt) {
+                    
                     $('.featured__filter').html(dt)
 
                 }
@@ -763,9 +788,27 @@ require("./public/Chung/footer.php")
         }
 
         setInterval(reset(), 1000)
+        
+        $('.active').on("click",function(){
+            id = $(this).attr('id')
+            $.ajax({
+                url : "http://localhost/clothes/index.php?controller=customer&action=page_num",
+                method: "POST",
+                data : {
+                    id_loaihang : id
+                },
+                success : function(dt)
+                {
+
+<<<<<<< Updated upstream
 
 
 
-
+=======
+               
+                }
+            })
+        })
+>>>>>>> Stashed changes
     })
 </script>

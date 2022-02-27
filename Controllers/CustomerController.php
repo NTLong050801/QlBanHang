@@ -64,6 +64,7 @@ class CusTomerController extends BaseController
       ]
     );
   }
+<<<<<<< Updated upstream
   public function phantrang()
   {
     if(isset($_POST['sotrang']))
@@ -73,6 +74,18 @@ class CusTomerController extends BaseController
     {
 
     }
+=======
+  public function page_num()
+  {
+    $id_loaihang = $_POST['id_loaihang'];
+    $page_num = $this->CustomerModel->page_num($id_loaihang);
+    return $this->view(
+      'frontend.customer.type_item',
+      [
+        'tongsotrang' => $page_num
+      ]
+    );
+>>>>>>> Stashed changes
   }
 
  

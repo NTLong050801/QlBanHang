@@ -21,6 +21,7 @@ foreach ($product_type as $type_itemes) {
 <?php
 }
 ?>
+<<<<<<< Updated upstream
 <div class="grid col-xs-1  d-flex justify-content-center pagenation">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
@@ -43,3 +44,18 @@ foreach ($product_type as $type_itemes) {
         </ul>
     </nav>
 </div>
+=======
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <?php
+        for ($i = 1; $i <= $tongsotrang; $i++) { ?>
+            <li class="page-item"><a class="page-link" href="#"><?= $i ?></a></li>
+        <?php
+        }
+        ?>
+
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
+>>>>>>> Stashed changes
