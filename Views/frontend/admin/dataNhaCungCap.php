@@ -11,7 +11,7 @@
             <th scope="col" style="width:20%">Địa chỉ</th>
             <th scope="col" style="width:15%">Số DT</th>
             <th scope="col" style="width:15%">Website</th>
-            <th scope="col" style="width:15%">Số SP</th>
+            <th scope="col" style="width:15%" order="DESC" id="order_ncc">Số SP</th>
             <th scope="col" style="width:10%">Sửa</th>
             <th scope="col" style="width:10%">Xóa</th>
         </tr>
@@ -27,7 +27,7 @@
                 <td><?= $data['Diachi'] ?></td>
                 <td><?= $data['SoDienThoai'] ?></td>
                 <td><?= $data['Website'] ?></td>
-                <td class="show_ncc_sp" TenCTy ="<?= $data['TenCongTy'] ?>" IDncc=<?= $data['IDNhaCungCap'] ?> data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><?= $data['SLSP'] ?></td>
+                <td style="cursor:pointer" class="show_ncc_sp" TenCTy ="<?= $data['TenCongTy'] ?>" IDncc=<?= $data['IDNhaCungCap'] ?> data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><?= $data['SLSP'] ?></td>
                 <td><button class="btn btn-warning update_ncc" id="<?= $data['IDNhaCungCap'] ?>">Sửa</button></td>
                 <td><button class="btn btn-danger delete_ncc" SLSP_NCC ="<?= $data['SLSP']?>"  id="<?= $data['IDNhaCungCap'] ?>">Xóa</button></td>
             </tr>

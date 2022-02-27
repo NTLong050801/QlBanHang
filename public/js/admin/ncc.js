@@ -123,7 +123,7 @@ $(document).ready(function () {
          },
          success: function (dt) {
             msg(dt);
-            console.log(dt)
+            
             load(types)
             $('#Modal_update_ncc').modal('hide')
          }
@@ -134,7 +134,6 @@ $(document).ready(function () {
       id = $(this).attr('IDncc')
       TenCongTy = $(this).attr('TenCty')
       $('#offcanvasRightLabel').html(TenCongTy)
-      alert('123')
       $.ajax({
          url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=data_canvas",
          method: "POST",
@@ -146,4 +145,36 @@ $(document).ready(function () {
          }
       })
    })
+   spam = 1
+   $(document).on('click', '#order_ncc', function () {
+      spam++;
+      // alert('123')
+      orderby = $(this).attr('order')
+      if (spam < 5) {
+          $.ajax({
+              url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+              method: "POST",
+              data: {
+                  order: orderby,
+              },
+              success: function (dt) {
+                  $('.main-content').html(dt)
+  
+                  if (orderby == 'DESC') {
+                      load_toast('Đã sắp xếp loại hàng với SLSP từ lớn đến nhỏ !')
+                      $('#order_ncc').attr('order', "ASC")
+                  } else {
+                      load_toast('Đã sắp xếp loại hàng với SLSP từ nhỏ đến lớn!')
+                      $('#order_ncc').attr('order', "DESC")
+                  }
+              }
+          })
+      } else {
+          msg("Vui lòng không spam !!!!!!")
+      }
+      // alert(orderby)
+      setInterval(function () {
+          spam = 1
+      }, 5000)
+  })
 })
