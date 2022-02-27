@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -10,14 +11,14 @@
     <title>Ogani | Template</title>
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLbanhang/public/css/style1.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
@@ -221,7 +222,7 @@
                         </div>
                     </div>
                     <!-- slideshow -->
-                    <!-- <div class="hero__item set-bg" data-setbg="http://localhost:88/QLbanhang/public/img/kingman1.jpg"> -->
+                    <!-- <div class="hero__item set-bg" data-setbg="http://localhost/clothes/public/img/kingman1.jpg"> -->
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -230,13 +231,13 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
-                                <img src="http://localhost:88/QLbanhang/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
+                                <img src="http://localhost/clothes/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost:88/QLbanhang/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost/clothes/public/img/quannam.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost:88/QLbanhang/public/img/undenim.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost/clothes/public/img/undenim.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -264,7 +265,7 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
-                        <div class="categories__item " style="background-image: url('http://localhost:88/QLbanhang/public/img/<?= $category_item['img'] ?>');">
+                        <div class="categories__item " style="background-image: url('http://localhost/clothes/public/img/<?= $category_item['img'] ?>');">
                             <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
@@ -310,9 +311,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="row featured__filter">
 
             </div>
+
+           
+
+
         </div>
         </div>
         </div>
@@ -350,7 +356,7 @@
                                 <?php foreach ($product_new as $products_new) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLbanhang/public/img/<?= $products_new['img'] ?>" alt="">
+                                            <img src="http://localhost/clothes/public/img/<?= $products_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $products_new['TenSP'] ?></h6>
@@ -643,27 +649,28 @@
 
 </body>
 <?php
-include("./public/Chung/footer.php")
+
+require("./public/Chung/footer.php")
 ?>
 
 </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     $(document).ready(function() {
 
         id = 0
-        start = 1;
-        react(id, start)
+        // start = 1;
+        react(id)
         // click chọn loại hàng 
-        function react(id, start) {
+        function react(id) {
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=customer&action=sweater",
+                url: "http://localhost/clothes/index.php?controller=customer&action=sweater",
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
-                    id: id,
-                    start: start
+                    id: id, // id của mặt hàng 
+                    // start: start
                 },
                 success: function(dt) {
                     $('.featured__filter').html(dt)
@@ -680,19 +687,18 @@ include("./public/Chung/footer.php")
             });
 
         }
-
+            // click chọn loại hàng
         $('.active').click(function() {
-            id = $(this).attr('id')
-            // ở đây start = 1
-            react(id, start)
+            id = $(this).attr('id') // lay id loai hang
+            react(id) // goi react
+         
         })
 
         // click chuyển trang 
-        $(document).on('click', '.page-item', function() {
-            tranghientai = $(this).attr('tranghientai');
-            react(id, tranghientai)
-            // alert(tranghientai)
-        })
+        // $(document).on('click', '.page-item', function() {
+        //     tranghientai = $(this).attr('tranghientai');
+        //     react(id, tranghientai)
+        // })
 
         $('#btn_search').click(function() {
             val = $('#product_search').val()
@@ -700,7 +706,7 @@ include("./public/Chung/footer.php")
                 scrollTop: $(".search_pro").offset().top
             }, 1000);
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=customer&action=search",
+                url: "http://localhost/clothes/index.php?controller=customer&action=search",
                 method: 'POST',
                 data: {
                     TenSP: val,
@@ -721,7 +727,7 @@ include("./public/Chung/footer.php")
         $("#price").on("click", function() {
             val = $('#pro_val').val()
             $.ajax({
-                url: "http://localhost:88/QLbanhang/index.php?controller=customer&action=show_pro_price",
+                url: "http://localhost/clothes/index.php?controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
@@ -740,26 +746,6 @@ include("./public/Chung/footer.php")
         }
 
         setInterval(reset(), 1000)
-
-        const hashPrice = (text) => {
-            let arr = text.split('').reverse();
-            const newArr = [];
-            arr.forEach((e, i) => {
-                if ((i) % 3 === 0 && i !== 0) {
-                    newArr.push('.');
-                    newArr.push(e);
-                } else {
-                    newArr.push(e);
-                }
-            });
-            return newArr.reverse().join('');
-        }
-        console.log(hashPrice("1000"));
-        const arr = Array.from(document.querySelectorAll(".DonGiaBan"));
-        arr.forEach((e) => {
-            let number = e.textContent;
-            e.textContent = hashPrice(number);
-        })
 
 
 
