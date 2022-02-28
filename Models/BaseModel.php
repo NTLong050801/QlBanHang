@@ -80,7 +80,7 @@ class BaseModel extends Database
   }
   public function categories_item()
   {
-    $sql = "select * from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
+    $sql = "select TenSP from  sanpham SP,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang GROUP BY TenSP";
     $query = $this->query($sql);
     $ar = [];
     while ($row =  mysqli_fetch_assoc($query)) {

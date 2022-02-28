@@ -37,13 +37,7 @@ class AdminController extends BaseController
 
     public function allNhaCungCap()
     {
-        if(isset($_POST['order'])){
-            $order = $_POST['order'];
-        }else{
-            $order = "ASC";
-        }
-        $data = $this->AdminModel->totalSP_NCC($order);
-        
+        $data = $this->AdminModel->totalSP_NCC();
         return $this->view('frontend.admin.dataNhaCungCap', [
             'datas' => $data,
         ]);
@@ -57,14 +51,8 @@ class AdminController extends BaseController
             $IDSanPham = 0;
         }
         if(isset($_POST['IDLoaiHang'])){
+            $IDLoaiHang = $_POST;
             $id = $_POST['IDLoaiHang'];
-            if($id == 0){
-                $IDLoaiHang = 0;
-            }else{
-                $IDLoaiHang = $_POST;
-            }
-          
-           
         }else{
             $IDLoaiHang = 0;
             $id = 0;

@@ -78,7 +78,7 @@ if (is_array($datas)) {
                                     ?>">
                     <th scope="row"><?= $i ?></th>
                     <td>
-                        <img style="width:100px" src="http://localhost:88/QLBanHang/public/img/<?= $data['img'] ?>" alt="">
+                        <img style="width:100px" src="http://localhost/clothes/public/img/<?= $data['img'] ?>" alt="">
                         <?= $data['TenSP'] ?>
                     </td>
                     <td><?= $data['TenCongTy'] ?></td>

@@ -657,17 +657,13 @@ ol {
 
 .hero__categories ul {
 	border: 1px solid #ebebeb;
-	/* padding-left: 40px;
-	padding-right: 40px; */
-	text-align: center;
+	padding-left: 40px;
 	padding-top: 10px;
 	padding-bottom: 12px;
-	
 }
 
 .hero__categories ul li {
 	list-style: none;
-	border: #636363 1px solid;
 }
 
 .hero__categories ul li a {

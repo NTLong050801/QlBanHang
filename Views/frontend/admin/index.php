@@ -32,6 +32,15 @@ include('./public/Chung/header.php');
                     <nav class="navbar navbar-light">
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
+                            <!-- <form class="d-flex" style="margin-left: 30%;" onsubmit="return false;" hidden>
+                                <input require id="search_ip" class="form-control me-2" type="text" placeholder="Nhập tên sách" aria-label="Search">
+
+                                <button id="btn_search" class="btn btn-outline-success" type="button">Tìm</button>
+
+                                <div id="list_sach" style="z-index: 4;">
+
+                                </div>
+                            </form> -->
                             <form class="d-flex">
                                 <a id="profile_tch" href="#" class="navbar-brand">Tài khoản</a>
                                 <a href="../Login/logout.php" class="navbar-brand">Đăng xuất</a>
@@ -76,30 +85,13 @@ include('./public/Chung/header.php');
   </div>
 </div>
 <div id="liveAlertPlaceholder"></div>
-<div class="position-fixed bottom-0 end-0 p-3 " style="z-index: 11">
-    <div id="liveToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-            </svg>
-            <strong class="me-auto">Thông báo</strong>
-            <small>Just now</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="d-flex">
-            <div class="toast-body">
-            </div>
-            <!-- <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button> -->
-        </div>
-    </div>
-</div>
 </body>
 <?php
 include('./public/Chung/footer.php');
 ?>
-<script src="http://localhost:88/QLBanHang/public/js/admin/chung.js"></script>
-<script src="http://localhost:88/QLBanHang/public/js/admin/index.js"></script>
-<script src="http://localhost:88/QLBanHang/public/js/admin/ncc.js"></script>
-<script src="http://localhost:88/QLBanHang/public/js/admin/sp.js"></script>
-<script src="http://localhost:88/QLBanHang/public/js/admin/ctygh.js"></script>
-<script src="http://localhost:88/QLBanHang/public/js/admin/nv.js"></script>
+<script src="http://localhost/clothes/public/js/admin/chung.js"></script>
+<script src="http://localhost/clothes/public/js/admin/index.js"></script>
+<script src="http://localhost/clothes/public/js/admin/ncc.js"></script>
+<script src="http://localhost/clothes/public/js/admin/sp.js"></script>
+<script src="http://localhost/clothes/public/js/admin/ctygh.js"></script>
+<script src="http://localhost/clothes/public/js/admin/nv.js"></script>

@@ -25,17 +25,13 @@ class CustomerModel extends BaseModel
         return $this->categories_item();
     }
 
-    public function type_item($id, $tranghientai)
+    public function type_item($id)
     {
-        $limit = 4;
-        $start = ($tranghientai - 1) * 4;
-
         if ($id == 0) {
-            $sql  = "SELECT * from sanpham SP order by IDSanPham ASC Limit $start,$limit ";
+            $sql  = "select * from sanpham SP order by IDLoaiHang ASC ";
         } else {
-            $sql  = "SELECT * from sanpham SP ,loaihang LH 
-            where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id 
-            order by IDSanPham ASC limit  $start,$limit ";
+            $sql  = "select * from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id 
+            order by IDSanPham ASC  ";
         }
 
         $query = $this->query($sql);
@@ -48,10 +44,9 @@ class CustomerModel extends BaseModel
 
 
     //lấy ra sản phẩm mới thêm
-    public function product_new($order)
+    public function product_new()
     {
-        
-        $sql = "select  * from sanpham SP order by $order DESC limit 6";
+        $sql = "select  * from sanpham SP order by SP.IDSanPham DESC limit 0,3";
         $query = $this->query($sql);
         $ar = [];
         while ($row = mysqli_fetch_assoc($query)) {
@@ -59,19 +54,6 @@ class CustomerModel extends BaseModel
         }
         return $ar;
     }
-
-    // public function product_sold()
-    // {
-    //     $sql = "select  * from sanpham SP order by IDSanPham DESC limit 3";
-    //     $query = $this->query($sql);
-    //     $ar = [];
-    //     while ($row = mysqli_fetch_assoc($query)) {
-    //         array_push($ar, $row);
-    //     }
-    //     return $ar;
-    // }
-
-
     public function product_selling()
     {
         $sql = "select * from sanpham SP , sp_donhang SPDH where SP.IDSanPham = SPDH.IDSanPham 
@@ -92,25 +74,14 @@ class CustomerModel extends BaseModel
         }
     }
 
-    public function show_pro_price($price, $IDLoaiHang,$tranghientai)
+    public function show_pro_price($price)
     {
-        $limit = 4;
-        $start = ($tranghientai-1)*$limit;
-        if ($IDLoaiHang == 0) {
-            $sql = "SELECT * FROM  sanpham where DonGiaBan>=0 and DonGiaBan<= $price limit $start,$limit";
-        } else {
-            $sql = "SELECT * FROM  sanpham where IDLoaiHang = $IDLoaiHang and DonGiaBan>=0 and DonGiaBan<= $price limit $start,$limit";
-        }
+        $sql = "SELECT * FROM  sanpham where DonGiaBan between 0 and $price";
         $query = $this->query($sql);
-        if (mysqli_num_rows($query) > 0) {
-            $ar = [];
-            while ($row = mysqli_fetch_assoc($query)) {
-                array_push($ar, $row);
-            }
-        } else {
-            $ar = "Không có sản phẩm nào";
+        $ar = [];
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($ar, $row);
         }
-
         return $ar;
     }
 
@@ -118,10 +89,10 @@ class CustomerModel extends BaseModel
     public function total_page($id)
     {
         if ($id == '0') {
-            $sql = "SELECT count(IDSanPham) as SLSP from SanPham";
+            $sql = "SELECT count(IDSanPham) as SLSP from SanPham ";
         } else {
             $sql = "SELECT count(IDSanPham) as SLSP from sanpham SP ,loaihang LH 
-                where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id";
+            where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id";
         }
         $query = $this->query($sql);
         // tổng số sản phẩm của loại hàng
@@ -130,20 +101,37 @@ class CustomerModel extends BaseModel
         $tongsotrang = ceil($tongsosp / 4);
         return $tongsotrang;
     }
-    // tổng số trang sau khi nhấn search
-    public function total_page_search($id, $val)
+    public function pro_1_page($id , $sotranghientai)
     {
-        if ($id == '0') {
-            $sql = "SELECT count(IDSanPham) as SLSP from SanPham where DonGiaBan>=0 and DonGiaBan<= $val";
-        } else {
-            $sql = "SELECT count(IDSanPham) as SLSP from sanpham SP ,loaihang LH 
-            where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id and DonGiaBan>=0 and DonGiaBan<= $val";
+        $start = $sotranghientai -1 ; 
+        $sosanpham1trang = 4;
+        if($id = 0 )
+        {
+            $sql = "select * from sanpham,loaihang  where  sanpham.IDSanpham order by ASC limit $sotranghientai,$sosanpham1trang";
+        }else 
+        {
+            $sql = "select * from sanpham ,loaihang  where sanpham.IDLoaiHang= loaihang.IDLoaiHang and sanpham.IDSanpham order by ASC limit $sotranghientai,$sosanpham1trang";
+        } 
+        $query =$this->query($sql);
+        
+
+    }
+    public function page_num($id_LH)
+    {
+        if($id_LH == 0 )
+        {
+            $sql  = "select count(IDSanPham) as SoluongSP from sanpham ";
+            $query = $this->query($sql);
+           $tongbanghi = mysqli_fetch_assoc($query)['SoluongSP'];
+           
+        } else 
+        {
+            $sql  = "select count(SP.IDSanPham) as SoluongSP from sanpham SP ,loaihang LH where SP.IDLoaiHang = LH.IDLoaiHang and LH.IDLoaiHang = $id_LH";
+            $query = $this->query($sql);
+            $tongbanghi = mysqli_fetch_assoc($query)['SoluongSP'];
+           
         }
-        $query = $this->query($sql);
-        // tổng số sản phẩm của loại hàng
-        $tongsosp = mysqli_fetch_assoc($query)['SLSP'];
-        // tổng số trang = tổng số sản phẩm / số sp 1 trang
-        $tongsotrang = ceil($tongsosp / 4);
+        $tongsotrang = ceil($tongbanghi/5);
         return $tongsotrang;
     }
 }

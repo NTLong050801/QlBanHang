@@ -57,10 +57,10 @@ class AdminModel extends BaseModel
         return $ar;
     }
 
-    public function totalSP_NCC($order)
+    public function totalSP_NCC()
     {
         $sql = "SELECT Nhacungcap.IDNhaCungCap,TenCongTy,Diachi,SoDienThoai,Website,
-        (SELECT COUNT(IDSanPham) FROM sanpham where IDNhaCungCap =  Nhacungcap.IDNhaCungCap) as SLSP from NhacungCap order by SLSP $order";
+        (SELECT COUNT(IDSanPham) FROM sanpham where IDNhaCungCap =  Nhacungcap.IDNhaCungCap) as SLSP from NhacungCap";
         $query = $this->query($sql);
         $ar = [];
         while ($row =  mysqli_fetch_assoc($query)) {
