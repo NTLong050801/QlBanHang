@@ -191,10 +191,10 @@
                 <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
-                            <i class=""><?= $sum ?></i>
+                            <i class="fa fa-bars"></i>
                             <span>Thể loại quần áo </span>
                         </div>
-                        <ul>
+                        <ul class="ul_category">
                             <?php
 
                             foreach ($category as $categories) {
@@ -213,8 +213,17 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
-                                    <span class=""><?= $sum ?></span>
+
+
+                                    <!-- All Sản phẩm
+                                    <span class="arrow_carrot-down"></span> -->
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
                                 </div>
                                 <input id="product_search" type="text" placeholder="What do yo u need?">
                                 <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
@@ -240,7 +249,7 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
-                                <img src="http://localhost:88/QLBanHang/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="http://localhost:88/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
@@ -307,11 +316,11 @@
 
                     <div id="xinchao" class="featured__controls">
                         <ul>
-                            <li id="0" class="active" data-filter="*">All</li>
+                            <li id="0" class="category active" data-filter="*">All</li>
                             <?php
                             foreach ($category as $categories) {
                             ?>
-                                <li id="<?= $categories['IDLoaiHang'] ?>" class="active" data-filter="*"><?= $categories['TenLoaiHang'] ?></li>
+                                <li id="<?= $categories['IDLoaiHang'] ?>" class="category" data-filter="*"><?= $categories['TenLoaiHang'] ?></li>
                             <?php
                             }
                             ?>
@@ -362,14 +371,34 @@
                         <h4>Sản phẩm mới ra</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <?php foreach ($product_new as $products_new) { ?>
+                                <?php
+                                $product_news_03 = array_slice($product_news, 0, 3);
+                                foreach ($product_news_03 as $product_new) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $products_new['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6><?= $products_new['TenSP'] ?></h6>
-                                            <span><?= $products_new['DonGiaBan'] ?></span>
+                                            <h6><?= $product_new['TenSP'] ?></h6>
+                                            <span>$<?= $product_new['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <?php
+                                $product_news_46 = array_slice($product_news, 3, 6);
+                                foreach ($product_news_46 as $product_new) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_new['TenSP'] ?></h6>
+                                            <span><?= $product_new['DonGiaBan'] ?></span>
                                         </div>
                                     </a>
                                 <?php
@@ -386,127 +415,81 @@
                         <h4>Sản phẩm bán chạy</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <?php
+                                $product_solds_03 = array_slice($product_solds, 0, 3);
+                                foreach ($product_solds_03 as $product_sold) { ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_sold['TenSP'] ?></h6>
+                                            <span>$<?= $product_sold['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <?php
+                                $product_solds_46 = array_slice($product_solds, 3, 6);
+                                foreach ($product_solds_46 as $product_sold) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_sold['TenSP'] ?></h6>
+                                            <span><?= $product_sold['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Sản phẩm khuyến mại</h4>
+                        <h4>Sản phẩm yêu thích </h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <?php
+                                $product_sellings_03 = array_slice($product_sellings, 0, 3);
+                                foreach ($product_sellings_03 as $product_selling) { ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_selling['TenSP'] ?></h6>
+                                            <span>$<?= $product_selling['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <?php
+                                $product_sellings_46 = array_slice($product_sellings, 3, 6);
+                                foreach ($product_sellings_46 as $product_selling) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_selling['TenSP'] ?></h6>
+                                            <span><?= $product_selling['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -673,6 +656,7 @@ require("./public/Chung/footer.php")
         react(id)
         // click chọn loại hàng 
         function react(id, tranghientai) {
+
             $.ajax({
                 url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=sweater",
                 method: "POST",
@@ -683,37 +667,19 @@ require("./public/Chung/footer.php")
                     tranghientai: tranghientai
                 },
                 success: function(dt) {
-                    $('.featured__filter').html(dt)
-                    change_color()
+                    $('.featured__filter').hide().html(dt).fadeIn('slow')
+                    // change_color()
 
                 }
             })
         }
 
-        function change_color() {
-            // $(document).on("css","solid 2px red !important")
-            $(document).ready(function() {
-                $('.fresh-meat').css("border", "solid 2px red !important");
-            });
-
-        }
         // click chọn loại hàng
-        $('.active').click(function() {
+        $('.category').click(function() {
             id = $(this).attr('id') // lay id loai hang
             react(id) // goi react
 
         })
-
-        // click chuyển trang 
-        $(document).on('click', '.page-item', function() {
-            tranghientai = $(this).attr('tranghientai');
-            // alert(tranghientai)
-            react(id, tranghientai)
-            $('html, body').animate({
-                scrollTop: $(".search_pro").offset().top
-            }, 1000);
-        })
-
         $('#btn_search').click(function() {
             val = $('#product_search').val()
             $('html, body').animate({
@@ -726,56 +692,89 @@ require("./public/Chung/footer.php")
                     TenSP: val,
                 },
                 success: function(dt) {
-                    $('.featured__filter').html(dt)
+                    $('.featured__filter').hide().html(dt).fadeIn("slow")
 
                 }
             })
 
         })
 
-        // function dauChamOSo() {
-        //     const hashPrice = (text) => {
-        //         let arr = text.split("").reverse();
-        //         const newArr = [];
-        //         arr.forEach((e, i) => {
-        //             if (i % 3 === 0 && i !== 0) {
-        //                 newArr.push(".");
-        //                 newArr.push(e);
-        //             } else {
-        //                 newArr.push(e);
-        //             }
-        //         });
-        //         return newArr.reverse().join("");
-        //     };
-        //     // console.log(hashPrice("1000"));
-        //     const arr = Array.from(document.querySelectorAll("#max_price"));
-        //     arr.forEach((e) => {
-        //         let number = e.textContent;
-        //         e.textContent = hashPrice(number);
-        //     });
-        // }
-        // dauChamOSo()
         $("#pro_val").on('input', function() {
             val = $(this).val()
-             $('#max_price').html(val)
-            // dauChamOSo()
+            $('#max_price').html(val)
+
         });
 
-        $("#price").on("click", function() {
+        $(document).on("click", "#price", function() {
             val = $('#pro_val').val()
-            $('.mixitup-control-active').each(function(){
-                $(this).hasClass('.mixitup-control-active .active');
-                IDLH = $(this).attr('id')
+
+            $('.featured__controls li').each(function() {
+                if ($(this).hasClass('active')) {
+                    IDLH = $(this).attr('id')
+                }
             })
-            alert(IDLH);
+            // console.log(IDLH)
             $.ajax({
                 url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
+                    IDLoaiHang: IDLH
                 },
                 success: function(dt) {
                     $('.featured__filter').html(dt)
+                }
+            })
+
+        })
+
+        // click chuyển trang 
+        $(document).on('click', '.page-item', function() {
+            tranghientai = $(this).attr('tranghientai');
+            // alert(tranghientai)
+            // console.log(id)
+            id = $(this).attr('IDLH')
+            price = $(this).attr('price');
+            if (price == 'none') {
+                react(id, tranghientai)
+            } else {
+                $.ajax({
+                    url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=show_pro_price",
+                    method: "POST",
+                    // gửi đi id loại hàng và số trang 
+                    data: {
+                        IDLoaiHang: IDLH, // id của mặt hàng 
+                        // start: start
+                        tranghientai: tranghientai,
+                        val: price
+                    },
+                    success: function(dt) {
+                        $('.featured__filter').html(dt)
+                        // change_color()
+
+                    }
+                })
+            }
+
+            $('html, body').animate({
+                scrollTop: $(".search_pro").offset().top
+            }, 1000);
+        })
+
+        $('ul.ul_category li a').click(function() {
+            id = $(this).attr('id');
+            // alert('123')
+            $('ul.ul_category li a').removeClass('bg-secondary')
+            $(this).addClass('bg-secondary')
+            react(id)
+            $('html, body').animate({
+                scrollTop: $(".search_pro").offset().top
+            }, 1000);
+            $('.category').removeClass('active')
+            $('.category').each(function() {
+                id_category = $(this).attr('id');
+                if (id_category == id) {
+                    $(this).addClass('active')
                 }
             })
         })
