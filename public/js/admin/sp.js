@@ -5,7 +5,7 @@ $(document).on('click', '#btn_add_sp', function () {
     $('#btn_add_sp_suc').click(function () {
         form = new FormData(myform_adds)
         $.ajax({
-            url: "http://localhost/clothes/index.php?controller=admin&action=add_all",
+            url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=add_all",
             method: "POST",
             data: form,
             mimeType: "multipart/form-data",
@@ -31,7 +31,7 @@ $(document).on('click', '.delete_sp', function () {
     $('#btn_delete_succees').css("display", "block")
     $('#btn_delete_succees').click(function () {
         $.ajax({
-            url: "http://localhost/clothes/index.php?controller=admin&action=delete_all",
+            url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=delete_all",
             method: "POST",
             data: {
                 IDSanPham: id,
@@ -53,7 +53,7 @@ $(document).on('click', '.update_sp', function () {
     $('#btn_add_sp_suc').html('Sửa sản phẩm')
     // alert(id);
     $.ajax({
-        url: "http://localhost/clothes/index.php?controller=admin&action=findByID",
+        url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=findByID",
         method: "POST",
         data: {
             IDSanPham: id,
@@ -79,7 +79,7 @@ $(document).on('click', '.update_sp', function () {
     $('#btn_add_sp_suc').click(function () {
         form = new FormData(myform_adds)
         $.ajax({
-            url: "http://localhost/clothes/index.php?controller=admin&action=update_all",
+            url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=update_all",
             method: "POST",
             data: form,
             mimeType: "multipart/form-data",
@@ -97,7 +97,7 @@ $(document).on('click', '.update_sp', function () {
 $(document).on('change', '#floatingSelect', function () {
     IDLoaiHang = $(this).val()
     $.ajax({
-        url: "http://localhost/clothes/index.php?controller=admin&action=all" + types + "",
+        url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=all" + types + "",
         method: "POST",
         data: {
             IDLoaiHang: IDLoaiHang,
@@ -114,7 +114,7 @@ $(document).on('click','#btn_search',function(){
     val = $('#ip_search').val()
     IDLoaiHang = $('#floatingSelect').val();
     $.ajax({
-        url: "http://localhost/clothes/index.php?controller=admin&action=search_sp",
+        url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=search_sp",
         method: "POST",
         data: {
             val : val,

@@ -12,7 +12,7 @@ $(document).ready(function () {
       SoDienThoai = $('#SoDienThoai').val();
       Website = $('#Website').val();
       $.ajax({
-         url: "http://localhost/clothes/index.php?controller=admin&action=add_all",
+         url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=add_all",
          method: "POST",
          data: {
             TenCongTy: TenNCC,
@@ -65,7 +65,7 @@ $(document).ready(function () {
          $('#btn_delete_succees').css("display", "block")
          $('#btn_delete_succees').click(function () {
             $.ajax({
-               url: "http://localhost/clothes/index.php?controller=admin&action=delete_all",
+               url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=delete_all",
                method: "POST",
                data: {
                   IDNhaCungCap: id,
@@ -86,7 +86,7 @@ $(document).ready(function () {
       id = $(this).attr('id');
       // alert(id);
       $.ajax({
-         url: "http://localhost/clothes/index.php?controller=admin&action=findByID",
+         url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=findByID",
          method: "POST",
          data: {
             IDNhaCungCap: id,
@@ -111,7 +111,7 @@ $(document).ready(function () {
       SDT_new = $('#SDT_new').val();
       Website_new = $('#Website_new').val();
       $.ajax({
-         url: "http://localhost/clothes/index.php?controller=admin&action=update_all",
+         url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=update_all",
          method: "POST",
          data: {
             IDNhaCungCap: id,
@@ -123,7 +123,7 @@ $(document).ready(function () {
          },
          success: function (dt) {
             msg(dt);
-            console.log(dt)
+
             load(types)
             $('#Modal_update_ncc').modal('hide')
          }
@@ -131,12 +131,11 @@ $(document).ready(function () {
    })
 
    $(document).on('click', '.show_ncc_sp', function () {
-      id = $(this).attr('IDncc')
+      id = $(this).attr('idncc')
       TenCongTy = $(this).attr('TenCty')
       $('#offcanvasRightLabel').html(TenCongTy)
-      alert('123')
       $.ajax({
-         url: "http://localhost/clothes/index.php?controller=admin&action=data_canvas",
+         url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=data_canvas",
          method: "POST",
          data: {
             IDNhaCungCap: id
@@ -145,5 +144,37 @@ $(document).ready(function () {
             $('#data_canvas').html(dt)
          }
       })
+   })
+   spam = 1
+   $(document).on('click', '#order_ncc', function () {
+      spam++;
+      // alert('123')
+      orderby = $(this).attr('order')
+      if (spam < 5) {
+         $.ajax({
+            url: "http://localhost:88/QLbanhang/index.php?controller=admin&action=all" + types + "",
+            method: "POST",
+            data: {
+               order: orderby,
+            },
+            success: function (dt) {
+               $('.main-content').html(dt)
+
+               if (orderby == 'DESC') {
+                  load_toast('Đã sắp xếp loại hàng với SLSP từ lớn đến nhỏ !')
+                  $('#order_ncc').attr('order', "ASC")
+               } else {
+                  load_toast('Đã sắp xếp loại hàng với SLSP từ nhỏ đến lớn!')
+                  $('#order_ncc').attr('order', "DESC")
+               }
+            }
+         })
+      } else {
+         msg("Vui lòng không spam !!!!!!")
+      }
+      // alert(orderby)
+      setInterval(function () {
+         spam = 1
+      }, 5000)
    })
 })
