@@ -17,11 +17,7 @@ $(document).ready(function () {
             MoTa = $('#MoTa').val();
 
             $.ajax({
-<<<<<<< Updated upstream
-                url: "http://localhost/clothes/index.php?controller=admin&action=add_all",
-=======
-                url: "http://localhost/QLBanHang/index.php?controller=admin&action=add_all",
->>>>>>> Stashed changes
+                url: url+"controller=admin&action=add_all",
                 method: "POST",
                 data: {
                     TenLoaiHang: TenLoaiHang,
@@ -73,11 +69,7 @@ $(document).ready(function () {
             $('#btn_delete_succees').css("display", "block")
             $('#btn_delete_succees').click(function () {
                 $.ajax({
-<<<<<<< Updated upstream
-                    url: "http://localhost/clothes/index.php?controller=admin&action=delete_all",
-=======
-                    url: "http://localhost/QLBanHang/index.php?controller=admin&action=delete_all",
->>>>>>> Stashed changes
+                    url: url+"controller=admin&action=delete_all",
                     method: "POST",
                     data: {
                         IDLoaiHang: id,
@@ -98,11 +90,7 @@ $(document).ready(function () {
         id = $(this).attr('id');
         // alert(id);
         $.ajax({
-<<<<<<< Updated upstream
-            url: "http://localhost/clothes/index.php?controller=admin&action=findByID",
-=======
-            url: "http://localhost/QLBanHang/index.php?controller=admin&action=findByID",
->>>>>>> Stashed changes
+            url: url+"controller=admin&action=findByID",
             method: "POST",
             data: {
                 IDLoaiHang: id,
@@ -123,11 +111,7 @@ $(document).ready(function () {
         TenTheLoai_new = $('#TenTheLoai_new').val();
         MoTa_new = $('#MoTa_new').val();
         $.ajax({
-<<<<<<< Updated upstream
-            url: "http://localhost/clothes/index.php?controller=admin&action=update_all",
-=======
-            url: "http://localhost/QLBanHang/index.php?controller=admin&action=update_all",
->>>>>>> Stashed changes
+            url: url+"controller=admin&action=update_all",
             method: "POST",
             data: {
                 IDLoaiHang: id,
@@ -147,11 +131,7 @@ $(document).ready(function () {
 })
 function getAllSpByLh(id){
     $.ajax({
-<<<<<<< Updated upstream
-        url: "http://localhost/clothes/index.php?controller=admin&action=data_canvas",
-=======
-        url: "http://localhost/QLBanHang/index.php?controller=admin&action=data_canvas",
->>>>>>> Stashed changes
+        url: url+"controller=admin&action=data_canvas",
         method: "POST",
         data: {
             IDLoaiHang: id
@@ -175,11 +155,7 @@ $(document).on('click', '.detail_sp', function () {
     types = "SanPham"
 
     $.ajax({
-<<<<<<< Updated upstream
-        url: "http://localhost/clothes/index.php?controller=admin&action=all" + types + "",
-=======
-        url: "http://localhost/QLBanHang/index.php?controller=admin&action=all" + types + "",
->>>>>>> Stashed changes
+        url: url+"controller=admin&action=all" + types + "",
         method: "POST",
         data: {
             IDSanPham: IDSanPham
@@ -210,13 +186,7 @@ $(document).on('click', '.detail_sp', function () {
         }
     })
 })
-function load_toast(content) {
-    $('#liveToast').toast('show')
-    $('.toast-body').html(content);
-    setTimeout(function () {
-        $('#liveToast').toast('hide')
-    }, 2000)
-}
+
 $(document).on('click', '.lamsau', function () {
     load_toast('Chức năng này đang được nhà phát triển thiết kế !')
     // alert('123')
@@ -228,11 +198,7 @@ $(document).on('click', '#order_sp', function () {
     orderby = $(this).attr('order')
     if (spam < 5) {
         $.ajax({
-<<<<<<< Updated upstream
-            url: "http://localhost/clothes/index.php?controller=admin&action=all" + types + "",
-=======
-            url: "http://localhost/QLBanHang/index.php?controller=admin&action=all" + types + "",
->>>>>>> Stashed changes
+            url: url+"controller=admin&action=all" + types + "",
             method: "POST",
             data: {
                 order: orderby,

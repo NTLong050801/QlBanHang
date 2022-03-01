@@ -53,7 +53,15 @@ foreach ($product_type as $type_itemes) {
                     }else{
                         echo 'none';
                     }
-                ?>" IDLH=<?= $IDLH ?> class="page-item <?php
+                ?>" val_search = "<?php
+                   if(isset($val)){
+                       echo $val;
+                   } 
+                ?>" <?php
+                if(isset($IDLH)){
+                    echo 'IDLH='.$IDLH;
+                }
+            ?> class="page-item <?php
                                         if ($tranghientai == 1) {
                                             echo 'disabled';
                                         }
@@ -77,7 +85,15 @@ foreach ($product_type as $type_itemes) {
                         }else{
                             echo 'none';
                         }
-                    ?>" IDLH=<?= $IDLH ?> class="page-item <?php
+                    ?>" val_search = "<?php
+                    if(isset($val)){
+                        echo $val;
+                    } 
+                 ?>" <?php
+                        if(isset($IDLH)){
+                            echo 'IDLH='.$IDLH;
+                        }
+                    ?> class="page-item <?php
                                             if ($tranghientai == $i) {
                                                 echo 'active';
                                             }
@@ -91,7 +107,15 @@ foreach ($product_type as $type_itemes) {
                     }else{
                         echo 'none';
                     }
-                ?>" IDLH=<?= $IDLH ?> class="page-item <?php
+                ?>" <?php
+                if(isset($IDLH)){
+                    echo 'IDLH='.$IDLH;
+                }
+            ?> val_search = "<?php
+            if(isset($val)){
+                echo $val;
+            } 
+         ?>" class="page-item <?php
                                         if ($tranghientai == $tongsotrang_id) {
                                             echo 'disabled';
                                         }
