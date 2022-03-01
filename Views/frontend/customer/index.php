@@ -19,6 +19,19 @@
     <link rel="stylesheet" href="http://localhost/clothes/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
+<<<<<<< Updated upstream
+=======
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/style1.css" type="text/css">
+>>>>>>> Stashed changes
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
@@ -60,7 +73,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="http://localhost/QlBanHang/index.php?controller=shop#">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
@@ -134,11 +147,11 @@
                         <a href="./index.html"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6">
+                <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="#">Man</a>
+                            <li><a href="http://localhost/QlBanHang/index.php?controller=shop#">Shop</a>
                                 <ul class="header__menu__dropdown man">
                                     <li><a href="#">Sweater</a> </li>
                                     <li><a href="#">Short</a></li>
@@ -157,7 +170,7 @@
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
-                </div> -->
+                </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
@@ -204,8 +217,22 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
+<<<<<<< Updated upstream
                                     All Categories
                                     <span class=""><?= $sum ?></span>
+=======
+
+
+                                    All Sản phẩm
+                                    <span class="arrow_carrot-down"></span>
+                                    <!-- <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select> -->
+
+>>>>>>> Stashed changes
                                 </div>
                                 <input id="product_search" type="text" placeholder="What do yo u need?">
                                 <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
@@ -231,6 +258,7 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
+<<<<<<< Updated upstream
                                 <img src="http://localhost/clothes/public/img/aophao.jpg" style="" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
@@ -238,6 +266,15 @@
                             </div>
                             <div class="carousel-item">
                                 <img src="http://localhost/clothes/public/img/undenim.jpg" class="d-block w-100" alt="...">
+=======
+                                <img src="http://localhost/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://localhost/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="http://localhost/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
+>>>>>>> Stashed changes
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -265,7 +302,11 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
+<<<<<<< Updated upstream
                         <div class="categories__item " style="background-image: url('http://localhost/clothes/public/img/<?= $category_item['img'] ?>');">
+=======
+                        <div class="categories__item " style="background-image: url('http://localhost/QLBanHang/public/img/<?= $category_item['img'] ?>');">
+>>>>>>> Stashed changes
                             <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
@@ -357,11 +398,37 @@
                                 <?php foreach ($product_new as $products_new) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
+<<<<<<< Updated upstream
                                             <img src="http://localhost/clothes/public/img/<?= $products_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $products_new['TenSP'] ?></h6>
                                             <span><?= $products_new['DonGiaBan'] ?></span>
+=======
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_new['TenSP'] ?></h6>
+                                            <span>$<?= $product_new['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <?php
+                                $product_news_46 = array_slice($product_news, 3, 6);
+                                foreach ($product_news_46 as $product_new) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_new['TenSP'] ?></h6>
+                                            <span><?= $product_new['DonGiaBan'] ?></span>
+>>>>>>> Stashed changes
                                         </div>
                                     </a>
                                 <?php
@@ -378,6 +445,7 @@
                         <h4>Sản phẩm bán chạy</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
+<<<<<<< Updated upstream
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="img/latest-product/lp-1.jpg" alt="">
@@ -434,6 +502,41 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
+=======
+                                <?php
+                                $product_solds_03 = array_slice($product_solds, 0, 3);
+                                foreach ($product_solds_03 as $product_sold) { ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_sold['TenSP'] ?></h6>
+                                            <span>$<?= $product_sold['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <?php
+                                $product_solds_46 = array_slice($product_solds, 3, 6);
+                                foreach ($product_solds_46 as $product_sold) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_sold['TenSP'] ?></h6>
+                                            <span><?= $product_sold['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
@@ -444,6 +547,7 @@
                         <h4>Sản phẩm khuyến mại</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
+<<<<<<< Updated upstream
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="img/latest-product/lp-1.jpg" alt="">
@@ -500,6 +604,41 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
+=======
+                                <?php
+                                $product_sellings_03 = array_slice($product_sellings, 0, 3);
+                                foreach ($product_sellings_03 as $product_selling) { ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_selling['TenSP'] ?></h6>
+                                            <span>$<?= $product_selling['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <?php
+                                $product_sellings_46 = array_slice($product_sellings, 3, 6);
+                                foreach ($product_sellings_46 as $product_selling) {
+                                ?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6><?= $product_selling['TenSP'] ?></h6>
+                                            <span><?= $product_selling['DonGiaBan'] ?></span>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
@@ -689,7 +828,11 @@ require("./public/Chung/footer.php")
         // click chọn loại hàng 
         function react(id) {
             $.ajax({
+<<<<<<< Updated upstream
                 url: "http://localhost/clothes/index.php?controller=customer&action=sweater",
+=======
+                url: "http://localhost/QLBanHang/index.php?controller=customer&action=sweater",
+>>>>>>> Stashed changes
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
@@ -718,6 +861,7 @@ require("./public/Chung/footer.php")
             react(id) // goi react
          
         })
+<<<<<<< Updated upstream
 
         // click chuyển trang 
         // $(document).on('click', '.page-item', function() {
@@ -726,12 +870,19 @@ require("./public/Chung/footer.php")
         // })
 
         $('#btn_search').click(function() {
+=======
+        $('#btn_search').click(function() { 
+>>>>>>> Stashed changes
             val = $('#product_search').val()
             $('html, body').animate({
                 scrollTop: $(".search_pro").offset().top
             }, 1000);
             $.ajax({
+<<<<<<< Updated upstream
                 url: "http://localhost/clothes/index.php?controller=customer&action=search",
+=======
+                url: "http://localhost/QLBanHang/index.php?controller=customer&action=search",
+>>>>>>> Stashed changes
                 method: 'POST',
                 data: {
                     TenSP: val,
@@ -753,7 +904,11 @@ require("./public/Chung/footer.php")
         $("#price").on("click", function() {
             val = $('#pro_val').val()
             $.ajax({
+<<<<<<< Updated upstream
                 url: "http://localhost/clothes/index.php?controller=customer&action=show_pro_price",
+=======
+                url: "http://localhost/QLBanHang/index.php?controller=customer&action=show_pro_price",
+>>>>>>> Stashed changes
                 method: "POST",
                 data: {
                     val: val,
@@ -762,6 +917,42 @@ require("./public/Chung/footer.php")
                     $('.featured__filter').html(dt)
                 }
             })
+<<<<<<< Updated upstream
+=======
+
+        })
+
+        // click chuyển trang 
+        $(document).on('click', '.page-item', function() {
+            tranghientai = $(this).attr('tranghientai');
+            // alert(tranghientai)
+            // console.log(id)
+            id = $(this).attr('IDLH')
+            price = $(this).attr('price');
+            if (price == 'none') {
+                react(id, tranghientai)
+            } else {
+                $.ajax({
+                    url: "http://localhost/QLBanHang/index.php?controller=customer&action=show_pro_price",
+                    method: "POST",
+                    // gửi đi id loại hàng và số trang 
+                    data: {
+                        IDLoaiHang: IDLH, // id của mặt hàng 
+                        // start: start
+                        tranghientai: tranghientai,
+                        val: price
+                    },
+                    success: function(dt) {
+                        $('.featured__filter').html(dt)
+                        // change_color()
+                    }
+                })
+            }
+
+            $('html, body').animate({
+                scrollTop: $(".search_pro").offset().top
+            }, 1000);
+>>>>>>> Stashed changes
         })
 
         $(document).on("click",".pagenation",function(){

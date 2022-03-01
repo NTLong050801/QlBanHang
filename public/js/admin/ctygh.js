@@ -7,7 +7,11 @@ $(document).on('click','#btn_add_ctgh_succ',function(){
     // console.log(form)
  
     $.ajax({
+<<<<<<< Updated upstream
         url: "http://localhost/clothes/index.php?controller=admin&action=add_all",
+=======
+        url: "http://localhost/QLBanHang/index.php?controller=admin&action=add_all",
+>>>>>>> Stashed changes
         method: "POST",
         data: form,
         mimeType: "multipart/form-data",
@@ -33,7 +37,11 @@ $(document).on('click','.delete_ctygh',function(){
     $('#btn_delete_succees').css("display", "block")
     $('#btn_delete_succees').click(function () {
         $.ajax({
+<<<<<<< Updated upstream
             url: "http://localhost/clothes/index.php?controller=admin&action=delete_all",
+=======
+            url: "http://localhost/QLBanHang/index.php?controller=admin&action=delete_all",
+>>>>>>> Stashed changes
             method: "POST",
             data: {
                 IDCty: id,
@@ -55,7 +63,11 @@ $(document).on('click', '.update_ctygh', function () {
     $('#btn_add_ctgh_succ').html('Sửa Công ty')
     // alert(id);
     $.ajax({
+<<<<<<< Updated upstream
         url: "http://localhost/clothes/index.php?controller=admin&action=findByID",
+=======
+        url: "http://localhost/QLBanHang/index.php?controller=admin&action=findByID",
+>>>>>>> Stashed changes
         method: "POST",
         data: {
             IDCty: id,
@@ -73,7 +85,11 @@ $(document).on('click', '.update_ctygh', function () {
     $('#btn_add_ctgh_succ').click(function () {
         form = new FormData(myForm_add_ctgh)
         $.ajax({
+<<<<<<< Updated upstream
             url: "http://localhost/clothes/index.php?controller=admin&action=update_all",
+=======
+            url: "http://localhost/QLBanHang/index.php?controller=admin&action=update_all",
+>>>>>>> Stashed changes
             method: "POST",
             data: form,
             mimeType: "multipart/form-data",

@@ -43,15 +43,25 @@ class CusTomerController extends BaseController
   }
   public function search()
   {
-    $ar = $_POST;
-    $val = reset($ar);
-    $search_pro = $this->CustomerModel->search($val);
-    return $this->view(
-      'frontend.customer.featured__item',
-      [
-        'datas' => $search_pro
-      ]
-    );
+    $id = 0 ; 
+    if(isset($_POST['tranghientai']) )
+    {
+      $tranghientai = $_POST['tranghientai'] ;
+    }else 
+    {
+      $tranghientai = 1 ;
+    }
+   $ar = $_POST['TenSP']; 
+  //  $val =  reset($ar);
+   $search  = $this -> CustomerModel-> search($ar,$tranghientai);
+    $total_page = $this ->CustomerModel -> total_page_search_idproduct($ar);
+    return $this->view('frontend.customer.type_item', [
+      'tranghientai' => $tranghientai,
+      'product_type' => $search,
+      'tongsotrang_id' => $total_page,
+      'IDLH' => $id,
+      'price' => $ar,
+    ]);
   }
   public function show_pro_price()
   {
@@ -75,5 +85,9 @@ class CusTomerController extends BaseController
         'tongsotrang' => $page_num
       ]
     );
+  }
+  public function search_type_id_pro()
+  {
+    
   }
 }

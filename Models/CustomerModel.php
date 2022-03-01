@@ -59,9 +59,11 @@ class CustomerModel extends BaseModel
         $sql = "select * from sanpham SP , sp_donhang SPDH where SP.IDSanPham = SPDH.IDSanPham 
         and (select count(IDSanPham) from sp_donhang group by IDSanPham) = (select max(count(IDSanPham)) from sp_donhang group by IDSanPham )";
     }
-    public function search($val)
+    public function search($val,$tranghientai)
     {
-        $sql = "select * from  sanpham SP where TenSP like '%$val%'";
+        $limit = 4; 
+        $start  =  ($tranghientai -1 ) *$limit ; 
+        $sql = "select * from  sanpham SP where TenSP like '%$val%' limit $start , $limit ";
         $query = $this->query($sql);
         if (mysqli_num_rows($query) > 0) {
             $ar  = [];
@@ -72,6 +74,16 @@ class CustomerModel extends BaseModel
         } else {
             echo "Quần áo đâu rồi !!!";
         }
+        echo $sql ; 
+    }
+    public function total_page_search_idproduct($val)
+    {
+        $sql = "select count(IDSanPham) as Sosanpham from sanpham where TenSP like '%$val%'" ;
+        $query = $this->query($sql);
+        $tongsosp = mysqli_fetch_assoc($query)['Sosanpham'];
+        // tổng số trang = tổng số sản phẩm / số sp 1 trang
+        $tongsotrang = ceil($tongsosp / 4);
+        return $tongsotrang;
     }
 
     public function show_pro_price($price)
