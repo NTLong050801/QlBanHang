@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/style1.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/style1.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
@@ -147,12 +147,12 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="#">Man</a>
-                                <ul class="header__menu__dropdown man">
+                            <li><a href="http://localhost/QlBanHang/index.php?controller=shop">Shop</a>
+                                <!-- <ul class="header__menu__dropdown man">
                                     <li><a href="#">Sweater</a> </li>
                                     <li><a href="#">Short</a></li>
                                     <li><a href="#">Khaki pant</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <li><a href="#">Woman</a>
                                 <ul class="header__menu__dropdown">
@@ -242,13 +242,13 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
-                                <img src="http://localhost:88/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost:88/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost:88/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -276,7 +276,7 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
-                        <div class="categories__item " style="background-image: url('http://localhost:88/QLBanHang/public/img/<?= $category_item['img'] ?>');">
+                        <div class="categories__item " style="background-image: url('http://localhost/QLBanHang/public/img/<?= $category_item['img'] ?>');">
                             <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
@@ -369,7 +369,7 @@
                                 foreach ($product_news_03 as $product_new) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_new['TenSP'] ?></h6>
@@ -387,7 +387,7 @@
                                 ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_new['TenSP'] ?></h6>
@@ -413,7 +413,7 @@
                                 foreach ($product_solds_03 as $product_sold) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_sold['TenSP'] ?></h6>
@@ -431,7 +431,7 @@
                                 ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_sold['TenSP'] ?></h6>
@@ -456,7 +456,7 @@
                                 foreach ($product_sellings_03 as $product_selling) { ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_selling['TenSP'] ?></h6>
@@ -474,7 +474,7 @@
                                 ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_selling['TenSP'] ?></h6>
