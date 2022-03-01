@@ -59,10 +59,11 @@ class CusTomerController extends BaseController
     $ar = $_POST;
     $val = reset($ar);
     $search_pro = $this->CustomerModel->search($val);
+    $tongsotrang_id = $this->CustomerModel->total_page();
     return $this->view(
-      'frontend.customer.featured__item',
+      'frontend.customer.type_item',
       [
-        'datas' => $search_pro
+        'product_type' => $search_pro
       ]
     );
   }

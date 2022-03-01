@@ -143,7 +143,7 @@
                         <a href="./index.html"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6">
+                <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
@@ -166,7 +166,7 @@
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
-                </div> -->
+                </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
@@ -215,15 +215,8 @@
                                 <div class="hero__search__categories">
 
 
-                                    <!-- All Sản phẩm
-                                    <span class="arrow_carrot-down"></span> -->
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-
+                                    All Sản phẩm
+                                    <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input id="product_search" type="text" placeholder="What do yo u need?">
                                 <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
@@ -514,7 +507,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="img/blog/blog-1.jpg" alt="">
+                            <img src="https://www.elle.vn/wp-content/uploads/2019/12/22/383202/trang-phuc-chat-lieu-da-sang-chanh.jpg" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
@@ -529,7 +522,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="img/blog/blog-2.jpg" alt="">
+                            <img src="https://file.hstatic.net/1000272479/file/pasted_image_0_8_86c237f0037445238278b33470ac82f9_grande.png" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
@@ -544,7 +537,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="img/blog/blog-3.jpg" alt="">
+                            <img src="https://luvinus.com/wp-content/uploads/2020/08/chan-vay-da-mac-voi-ao-gi-1.jpg" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
@@ -647,8 +640,6 @@ require("./public/Chung/footer.php")
 ?>
 
 </html>
-
-
 <script>
     $(document).ready(function() {
 
