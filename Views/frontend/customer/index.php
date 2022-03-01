@@ -650,7 +650,7 @@ require("./public/Chung/footer.php")
         function react(id, tranghientai) {
 
             $.ajax({
-                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=sweater",
+                url: url+"controller=customer&action=sweater",
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
@@ -659,7 +659,7 @@ require("./public/Chung/footer.php")
                     tranghientai: tranghientai
                 },
                 success: function(dt) {
-                    $('.featured__filter').hide().html(dt).fadeIn('slow')
+                    $('.featured__filter').hide().html(dt).fadeIn("slow")
                     // change_color()
 
                 }
@@ -672,22 +672,31 @@ require("./public/Chung/footer.php")
             react(id) // goi react
 
         })
-        $('#btn_search').click(function() {
-            val = $('#product_search').val()
-            $('html, body').animate({
-                scrollTop: $(".search_pro").offset().top
-            }, 1000);
+
+        function search(val, tranghientai) {
             $.ajax({
-                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=search",
+                url: url+"controller=customer&action=search",
                 method: 'POST',
                 data: {
                     TenSP: val,
+                    tranghientai: tranghientai
                 },
                 success: function(dt) {
                     $('.featured__filter').hide().html(dt).fadeIn("slow")
 
                 }
             })
+        }
+        $('#btn_search').click(function() {
+            val = $('#product_search').val()
+            tranghientai = 1;
+            if (val != '') {
+                $('html, body').animate({
+                    scrollTop: $(".search_pro").offset().top
+                }, 1000);
+                search(val, tranghientai)
+            }
+
 
         })
 
@@ -707,7 +716,7 @@ require("./public/Chung/footer.php")
             })
             // console.log(IDLH)
             $.ajax({
-                url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=show_pro_price",
+                url: url+"controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
@@ -727,11 +736,16 @@ require("./public/Chung/footer.php")
             // console.log(id)
             id = $(this).attr('IDLH')
             price = $(this).attr('price');
+            val = $(this).attr('val_search');
             if (price == 'none') {
-                react(id, tranghientai)
+                if (val != '') {
+                    search(val, tranghientai)
+                } else {
+                    react(id, tranghientai)
+                }
             } else {
                 $.ajax({
-                    url: "http://localhost:88/QLBanHang/index.php?controller=customer&action=show_pro_price",
+                    url: url+"controller=customer&action=show_pro_price",
                     method: "POST",
                     // gửi đi id loại hàng và số trang 
                     data: {
@@ -741,13 +755,11 @@ require("./public/Chung/footer.php")
                         val: price
                     },
                     success: function(dt) {
-                        $('.featured__filter').html(dt)
-                        // change_color()
+                        $('.featured__filter').hide().html(dt).fadeIn("slow")
 
                     }
                 })
             }
-
             $('html, body').animate({
                 scrollTop: $(".search_pro").offset().top
             }, 1000);

@@ -1,3 +1,4 @@
+url = "http://localhost:88/QLBanHang/index.php?";
 function msg(dt) {
     $('#msg').modal('show');
     $('#text_msg').html(dt)
@@ -7,7 +8,7 @@ function msg(dt) {
 }
 function load(types, id_sp) {
     $.ajax({
-        url: "http://localhost:88/QLBanHang/index.php?controller=admin&action=all" + types + "",
+        url: url+"controller=admin&action=all" + types,
         method: "POST",
         data: {
             IDSanPham: id_sp,   

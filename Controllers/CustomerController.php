@@ -56,14 +56,21 @@ class CusTomerController extends BaseController
   }
   public function search()
   {
-    $ar = $_POST;
-    $val = reset($ar);
-    $search_pro = $this->CustomerModel->search($val);
-    $tongsotrang_id = $this->CustomerModel->total_page();
+    $val = $_POST['TenSP'];
+    if(isset($_POST['tranghientai'])){
+      $tranghientai = $_POST['tranghientai'];
+    }else{
+      $tranghientai = 1;
+    }
+    $search_pro = $this->CustomerModel->search($val,$tranghientai);
+    $tongsotrang_id = $this->CustomerModel->total_page_search_sp($val);
     return $this->view(
       'frontend.customer.type_item',
       [
-        'product_type' => $search_pro
+        'product_type' => $search_pro,
+        'tongsotrang_id' => $tongsotrang_id,
+        'tranghientai' => $tranghientai,
+        'val' => $val
       ]
     );
   }
