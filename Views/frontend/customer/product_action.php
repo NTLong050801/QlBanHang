@@ -34,16 +34,17 @@
 ?>
 <nav class="d-flex flex-row-reverse" aria-label="...">
     <ul class="pagination">
-        <li class="page-item page-previous" idLH = "<?php echo $product['IDLoaiHang']?>" cr_page = "<?php echo $current_page ?>">
+        <li class="page-item page-previous" idLH = "<?php echo $idLH?>" cr_page = "<?php echo $current_page ?>">
             <a class="page-link">Previous</a>
         </li>
         <?php
+         $idLH = $_POST['idLH'];
         for ($i = 1; $i <= $soTrang; $i++) {
         ?>
-            <li idLH = "<?php echo $product['IDLoaiHang']?>" cr_page = "<?= $i ?>" class="page-item page-current page<?= $i?>"><a class="page-link" href="#"><?php echo $i?></a></li>
+            <li idLH = "<?php echo $idLH?>" cr_page = "<?= $i ?>" class="page-item page-current page<?= $i?>"><a class="page-link" href="#"><?php echo $i?></a></li>
         <?php          }
         ?>
-        <li class="page-item page-next" idLH = "<?php echo $product['IDLoaiHang']?>" cr_page = "<?= $current_page ?>">
+        <li class="page-item page-next" idLH = "<?php echo $idLH?>" cr_page = "<?= $current_page ?>">
             <a class="page-link" href="#">Next</a>
         </li>
     </ul>

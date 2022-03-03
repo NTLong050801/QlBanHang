@@ -23,7 +23,6 @@ $(document).ready(function () {
     idLH = $(this).attr("idLH");
     current_page = 1;
     transIDLH(idLH, current_page);
-
   });
 
   $(".section-range__range").on("input", function () {
@@ -48,30 +47,24 @@ $(document).ready(function () {
   $(document).on("click", ".page-current", function(){
     idLH = $(this).attr("idLH");
     numPage = $(this).attr('cr_page');
-    console.log(numPage);
     transIDLH(idLH, numPage);
     current_page = numPage;
     console.log(current_page);
-
   })
 
   $(document).on("click", ".page-previous", function(){
     idLH = $(this).attr("idLH");
     numPage = $(this).attr('cr_page');
-    // transIDLH(idLH, current_page);
-    console.log(numPage);
-    current_page = parseInt(numPage) - 1;
-    console.log(current_page);
-
+    numPages = parseInt(numPage) - 1;
+    // transIDLH(idLH, numPages);
+     console.log(numPages);
   })
 
   $(document).on("click", ".page-next", function(){
     idLH = $(this).attr("idLH");
     numPage = $(this).attr('cr_page');
-    console.log(numPage);
-    current_page = parseInt(numPage) + 1;
-    console.log(current_page);
-
-    // transIDLH(idLH, current_page);
+    numPages = parseInt(numPage) + 1;
+    // transIDLH(idLH, numPages);
+    console.log(numPages);
   })
 });

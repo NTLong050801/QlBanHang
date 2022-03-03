@@ -89,7 +89,6 @@
                     array_push($ar, $row);
                 }
                 return $ar;
-                
             }
         }
     }

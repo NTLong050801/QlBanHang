@@ -50,7 +50,7 @@ class CusTomerController extends BaseController
     $getProducts = $this->CustomerModel->getProductByPages($idLH, $current_page, $step);
     return $this->view(
       'frontend.customer.product_action',
-      ['getProducts' => $getProducts, 'soTrang' => $soTrang, "current_page" => $current_page]
+      ['getProducts' => $getProducts, 'soTrang' => $soTrang, "current_page" => $current_page, "idLH" => $idLH]
     );
   }
 
