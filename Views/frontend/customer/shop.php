@@ -62,7 +62,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="http://localhost/QlBanHang/index.php?controller=customer#">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="http://localhost/QlBanHang/index.php?controller=shop#">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
@@ -140,7 +140,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="http://localhost/QlBanHang/index.php?controller=customer#">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="http://localhost/QlBanHang/index.php?controller=shop#">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -197,12 +197,12 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form action="http://localhost/QlBanHang/index.php?controller=customer" method="POST">
                                 <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input name="name_product" type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -246,9 +246,10 @@
             <div class="row">
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
-                        <div class="sidebar__item">
+                        <div class="sidebar__item categories_item">
                             <h4>Department</h4>
                             <ul>
+                                <li id="0"><a href="#">Tất cả sản phẩm</a></li>
                                 <?php
                                 foreach ($get_category as $get_categories) {
                                 ?>
@@ -262,7 +263,7 @@
                         <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="540">
+                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="50000" data-max="1000000">
                                     <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -270,7 +271,8 @@
                                 <div class="range-slider">
                                     <div class="price-input">
                                         <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
+                                        <input type="text" id="maxamount" style="float: right">
+                                        <button style="margin-top: 20px" class="btn btn-success btn_search_price">Sản phẩm theo giá</button>
                                     </div>
                                 </div>
                             </div>
@@ -315,93 +317,59 @@
                             </div>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Popular Size</h4>
-                            <div class="sidebar__item__size">
-                                <label for="large">
-                                    Large
-                                    <input type="radio" id="large">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="medium">
-                                    Medium
-                                    <input type="radio" id="medium">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="small">
-                                    Small
-                                    <input type="radio" id="small">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="tiny">
-                                    Tiny
-                                    <input type="radio" id="tiny">
-                                </label>
-                            </div>
+                            <h4>Nhà cung câp</h4>
+                            <?php
+                            foreach ($allNhaCungCap as $allNhaCungCaps) {
+                            ?>
+                                <div class="sidebar__item__size">
+                                    <label for="large">
+                                        <?= $allNhaCungCaps['TenCongTy'] ?>
+                                        <input type="radio" id="large">
+                                    </label>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="sidebar__item">
+
                             <div class="latest-product__text">
                                 <h4>Latest Products</h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-2.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-3.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
+                                        <?php
+                                        foreach ($product_new as $product_news) {
+                                        ?>
+                                            <a href="#" class="latest-product__item">
+                                                <div class="latest-product__item__pic">
+                                                    <img src="http://localhost/QlBanHang/public/img/<?= $product_news['img'] ?>" alt="">
+                                                </div>
+                                                <div class="latest-product__item__text">
+                                                    <h6><?= $product_news['TenSP'] ?></h6>
+                                                    <span><?= $product_news['DonGiaBan'] ?></span>
+                                                </div>
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
+
                                     </div>
                                     <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-2.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-3.jpg" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
+                                        <?php
+                                        foreach ($page_product as $page_products) {
+                                        ?>
+                                            <a href="#" class="latest-product__item">
+                                                <div class="latest-product__item__pic">
+                                                    <img src="http://localhost/QlBanHang/public/img/<?= $page_products['img'] ?>" alt="">
+                                                </div>
+                                                <div class="latest-product__item__text">
+                                                    <h6><?= $page_products['TenSP'] ?></h6>
+                                                    <span><?= $page_products['DonGiaBan'] ?></span>
+                                                </div>
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -451,16 +419,16 @@
                                 <div class="filter__sort">
                                     <span>Sắp xếp giá sản phẩm theo</span>
                                     <br>
-                                    <select>
+                                    <select id="sort_price">
                                         <option value="0">mặc định</option>
-                                        <option value="0">Giảm dần</option>
-                                        <option value="0">Tăng dần</option>
+                                        <option value="DESC">Giảm dần</option>
+                                        <option value="ASC">Tăng dần</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span><?= $count_pro ?></span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -471,40 +439,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        
-                            <?php
-                            foreach ($allSanPham as $allSanPhams) 
-                            {
-                                ?>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="public/img/<?= $allSanPhams['img']?>">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#"><?= $allSanPhams['TenSP']?></a></h6>
-                                    <h5><?= $allSanPhams['DonGiaBan']?></h5>
-                                </div>
-                            </div>
-                        </div>
-                                <?php
-                            }
-                            ?>       
-                    </div>
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <div class="row d-flex flex-column" id="shop_item">
+
+
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- Product Section End -->
 
@@ -597,3 +537,121 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+        IDLoaiHang = 0
+
+
+        load_item(0, 1)
+        //phana trang
+        $(document).on("click", ".product__pagination a", function() {
+            price_min = ($("#minamount").val()).substring(1)
+            price_max = ($("#maxamount").val()).substring(1)
+            Tranghientai = $(this).attr("trang")
+            IDLoaiHang = $(".id_category").attr("idloaihang")
+            order_by = $("#sort_price").val()
+            //load_item(IDLoaiHang, Tranghientai)
+            action = $(".id_category").attr("action")
+            if (action == "none") {
+                load_item(IDLoaiHang, Tranghientai, order_by)
+            } else {
+                if (action == "search") {
+                    load_page_by_id(IDLoaiHang, price_min, price_max, Tranghientai,order_by)
+                }
+            }
+
+            $('html, body').animate({
+                scrollTop: $(".filter__item").offset().top
+            }, 1000);
+        })
+
+        count_product(IDLoaiHang)
+        $(".hero__categories ul li ,.sidebar__item ul li").click(function() {
+            IDLoaiHang = $(this).attr("id")
+            load_item(IDLoaiHang, 1)
+            count_product(IDLoaiHang)
+            $('html, body').animate({
+                scrollTop: $(".filter__item").offset().top
+            }, 1000);
+        })
+
+
+
+        $(".btn_search_price").click(function() {
+            Tranghientai = 1
+            IDLoaiHang = $(".id_category").attr("IDLoaiHang")
+            price_min = ($("#minamount").val()).substring(1)
+            price_max = ($("#maxamount").val()).substring(1)
+            load_page_by_id(IDLoaiHang, price_min, price_max, Tranghientai)
+            count_product(IDLoaiHang, price_min, price_max)
+
+        })
+
+        $("#sort_price").change(function() {
+            order_by = $(this).val()
+            Tranghientai = 1
+            IDLoaiHang = $(".id_category").attr("IDLoaiHang")
+            price_min = ($("#minamount").val()).substring(1)
+            price_max = ($("#maxamount").val()).substring(1)
+            action = $(".id_category").attr("action")
+            if (action == "none") {
+                load_item(IDLoaiHang, Tranghientai, order_by)
+            } else {
+                if (action == "search") {
+                    load_page_by_id(IDLoaiHang, price_min, price_max, Tranghientai, order_by)
+                }
+            }
+
+        })
+
+        //lay ra san phẩm theo idloai hang
+        function load_item(IDLoaiHang, Tranghientai, order_by) {
+            $.ajax({
+                url: "http://localhost/QlBanHang/index.php?controller=shop&action=shop_item",
+                method: "POST",
+                data: {
+                    IDLoaiHang: IDLoaiHang,
+                    Tranghientai: Tranghientai,
+                    order_by: order_by,
+                },
+                success: function(dt) {
+                    $("#shop_item").hide().html(dt).fadeIn("slow")
+                }
+            })
+        }
+        // timf theo gia
+        function load_page_by_id(IDLoaiHang,price_min,price_max,Tranghientai,order_by) {
+            $.ajax({
+                url: "http://localhost/QlBanHang/index.php?controller=shop&action=search_by_price",
+                method: "POST",
+                data: {
+                    IDLoaiHang: IDLoaiHang,
+                    price_max: price_max,
+                    price_min: price_min,
+                    Tranghientai: Tranghientai,
+                    order_by : order_by,
+                },
+                success: function(dt) {
+                    $("#shop_item").html(dt)
+                }
+            })
+        }
+        // dem san pham theo loc gia
+        function count_product(IDLoaiHang, price_min, price_max) {
+
+            $.ajax({
+                url: "http://localhost/QlBanHang/index.php?controller=shop&action=count_product",
+                method: "POST",
+                data: {
+                    IDLoaiHang: IDLoaiHang,
+                    price_min: price_min,
+                    price_max: price_max,
+                },
+                success: function(dt) {
+                    $(".filter__found h6 span").html(dt)
+                    //  console.log(dt)
+                }
+            })
+        }
+    })
+</script>

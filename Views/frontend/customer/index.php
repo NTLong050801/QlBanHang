@@ -148,11 +148,6 @@
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
                             <li><a href="http://localhost/QlBanHang/index.php?controller=shop">Shop</a>
-                                <!-- <ul class="header__menu__dropdown man">
-                                    <li><a href="#">Sweater</a> </li>
-                                    <li><a href="#">Short</a></li>
-                                    <li><a href="#">Khaki pant</a></li>
-                                </ul> -->
                             </li>
                             <li><a href="#">Woman</a>
                                 <ul class="header__menu__dropdown">
@@ -218,8 +213,12 @@
                                     All Sản phẩm
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input id="product_search" type="text" placeholder="What do yo u need?">
-                                <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
+                                <input value="<?php
+                                                if (isset($_POST['name_product'])) {
+                                                    echo $_POST['name_product'];
+                                                }
+                                                ?>" id="product_search" type="text" placeholder="What do yo u need?">
+                                <button id="btn_search" type="button" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -642,15 +641,23 @@ require("./public/Chung/footer.php")
 </html>
 <script>
     $(document).ready(function() {
-
         id = 0
-        // start = 1;
-        react(id)
+        val = $("#product_search").val()
+
+        if (val != "") {
+            search(val, 1)
+
+        } else {
+            // start = 1;
+            react(id)
+        }
+
+
         // click chọn loại hàng 
         function react(id, tranghientai) {
 
             $.ajax({
-                url: url+"controller=customer&action=sweater",
+                url: url + "controller=customer&action=sweater",
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
@@ -675,7 +682,7 @@ require("./public/Chung/footer.php")
 
         function search(val, tranghientai) {
             $.ajax({
-                url: url+"controller=customer&action=search",
+                url: url + "controller=customer&action=search",
                 method: 'POST',
                 data: {
                     TenSP: val,
@@ -683,7 +690,9 @@ require("./public/Chung/footer.php")
                 },
                 success: function(dt) {
                     $('.featured__filter').hide().html(dt).fadeIn("slow")
-
+                    $('html, body').animate({
+                        scrollTop: $(".search_pro").offset().top
+                    }, 1000);
                 }
             })
         }
@@ -691,9 +700,7 @@ require("./public/Chung/footer.php")
             val = $('#product_search').val()
             tranghientai = 1;
             if (val != '') {
-                $('html, body').animate({
-                    scrollTop: $(".search_pro").offset().top
-                }, 1000);
+
                 search(val, tranghientai)
             }
 
@@ -716,7 +723,7 @@ require("./public/Chung/footer.php")
             })
             // console.log(IDLH)
             $.ajax({
-                url: url+"controller=customer&action=show_pro_price",
+                url: url + "controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
@@ -745,7 +752,7 @@ require("./public/Chung/footer.php")
                 }
             } else {
                 $.ajax({
-                    url: url+"controller=customer&action=show_pro_price",
+                    url: url + "controller=customer&action=show_pro_price",
                     method: "POST",
                     // gửi đi id loại hàng và số trang 
                     data: {

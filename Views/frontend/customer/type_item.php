@@ -14,7 +14,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#"><?= $type_itemes['TenSP'] ?></a></h6>
+                            <h6><a href="http://localhost/QlBanHang/index.php?controller=details&IDSP=<?=$type_itemes['IDSanPham']?>&IDLH=<?=$type_itemes['IDLoaiHang']?>&IDNCC=<?=$type_itemes['IDNhaCungCap']?>"><?= $type_itemes['TenSP'] ?></a></h6>
                             <h5 class="DonGiaBan"><?= $type_itemes['DonGiaBan'] ?></h5>
                         </div>
                     </div>
@@ -33,25 +33,25 @@
                                 echo 'none';
                             }
                             ?>" val_search="<?php
-                                if (isset($val)) {
-                                    echo $val;
-                                }
-                                ?>" <?php
-                    if (isset($IDLH)) {
-                        echo 'IDLH=' . $IDLH;
-                    }
-                    ?> class="page-item <?php
-                                if ($tranghientai == 1) {
-                                    echo 'disabled';
-                                }
-                                ?>" tranghientai=<?php
-                                                            if ($tranghientai > 1) {
-                                                                echo $tranghientai - 1;
-                                                            } else {
-                                                                $tranghientai = 1;
-                                                                echo $tranghientai;
-                                                            }
-                                                            ?>>
+                                            if (isset($val)) {
+                                                echo $val;
+                                            }
+                                            ?>" <?php
+                                                if (isset($IDLH)) {
+                                                    echo 'IDLH=' . $IDLH;
+                                                }
+                                                ?> class="page-item <?php
+                                                                    if ($tranghientai == 1) {
+                                                                        echo 'disabled';
+                                                                    }
+                                                                    ?>" tranghientai=<?php
+                                                                                        if ($tranghientai > 1) {
+                                                                                            echo $tranghientai - 1;
+                                                                                        } else {
+                                                                                            $tranghientai = 1;
+                                                                                            echo $tranghientai;
+                                                                                        }
+                                                                                        ?>>
                     <a class="page-link" href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -65,18 +65,18 @@
                                     echo 'none';
                                 }
                                 ?>" val_search="<?php
-                                    if (isset($val)) {
-                                        echo $val;
-                                    }
-                                    ?>" <?php
-                            if (isset($IDLH)) {
-                                echo 'IDLH=' . $IDLH;
-                            }
-                        ?> class="page-item <?php
-                                        if ($tranghientai == $i) {
-                                            echo 'active';
-                                        }
-                                        ?>" tranghientai=<?= $i ?>><a class="page-link" href="#"><?= $i ?></a></li>
+                                                if (isset($val)) {
+                                                    echo $val;
+                                                }
+                                                ?>" <?php
+                                                    if (isset($IDLH)) {
+                                                        echo 'IDLH=' . $IDLH;
+                                                    }
+                                                    ?> class="page-item <?php
+                                                                        if ($tranghientai == $i) {
+                                                                            echo 'active';
+                                                                        }
+                                                                        ?>" tranghientai=<?= $i ?>><a class="page-link" href="#"><?= $i ?></a></li>
                 <?php
                         }
                 ?>
@@ -87,22 +87,22 @@
                                 echo 'none';
                             }
                             ?>" <?php
-                    if (isset($IDLH)) {
-                        echo 'IDLH=' . $IDLH;
-                    }
-                    ?> val_search="<?php
-                            if (isset($val)) {
-                                echo $val;
-                            }
-                            ?>" class="page-item <?php
-                                if ($tranghientai == $tongsotrang_id) {
-                                    echo 'disabled';
+                                if (isset($IDLH)) {
+                                    echo 'IDLH=' . $IDLH;
                                 }
-                                ?>" tranghientai=<?php if ($tranghientai < $tongsotrang_id) {
-                                                                echo $tranghientai + 1;
-                                                            } else {
-                                                                echo $tongsotrang_id;
-                                                            } ?>>
+                                ?> val_search="<?php
+                                                if (isset($val)) {
+                                                    echo $val;
+                                                }
+                                                ?>" class="page-item <?php
+                                                                        if ($tranghientai == $tongsotrang_id) {
+                                                                            echo 'disabled';
+                                                                        }
+                                                                        ?>" tranghientai=<?php if ($tranghientai < $tongsotrang_id) {
+                                                                                                echo $tranghientai + 1;
+                                                                                            } else {
+                                                                                                echo $tongsotrang_id;
+                                                                                            } ?>>
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>

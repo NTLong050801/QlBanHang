@@ -78,11 +78,7 @@ if (is_array($datas)) {
                                     ?>">
                     <th scope="row"><?= $i ?></th>
                     <td>
-<<<<<<< Updated upstream
-                        <img style="width:100px" src="http://localhost/clothes/public/img/<?= $data['img'] ?>" alt="">
-=======
                         <img style="width:100px" src="http://localhost/QLBanHang/public/img/<?= $data['img'] ?>" alt="">
->>>>>>> Stashed changes
                         <?= $data['TenSP'] ?>
                     </td>
                     <td><?= $data['TenCongTy'] ?></td>

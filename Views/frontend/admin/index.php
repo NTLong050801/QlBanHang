@@ -89,9 +89,9 @@ include('./public/Chung/header.php');
 <?php
 include('./public/Chung/footer.php');
 ?>
-<script src="http://localhost/clothes/public/js/admin/chung.js"></script>
-<script src="http://localhost/clothes/public/js/admin/index.js"></script>
-<script src="http://localhost/clothes/public/js/admin/ncc.js"></script>
-<script src="http://localhost/clothes/public/js/admin/sp.js"></script>
-<script src="http://localhost/clothes/public/js/admin/ctygh.js"></script>
-<script src="http://localhost/clothes/public/js/admin/nv.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/chung.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/index.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/ncc.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/sp.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/ctygh.js"></script>
+<script src="http://localhost/QlBanHang/public/js/admin/nv.js"></script>
