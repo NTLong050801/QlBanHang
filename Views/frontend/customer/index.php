@@ -212,6 +212,14 @@
 
                                     All Sản phẩm
                                     <span class="arrow_carrot-down"></span>
+                                   <!-- <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                        </select> -->
+
+                                   
                                 </div>
                                 <input value="<?php
                                                 if (isset($_POST['name_product'])) {
@@ -641,166 +649,173 @@ require("./public/Chung/footer.php")
 </html>
 <script>
     $(document).ready(function() {
-        id = 0
-        val = $("#product_search").val()
+                id = 0
+                val = $("#product_search").val()
 
-        if (val != "") {
-            search(val, 1)
+                if (val != "") {
+                    search(val, 1)
 
-        } else {
-            // start = 1;
-            react(id)
-        }
-
-
-        // click chọn loại hàng 
-        function react(id, tranghientai) {
-
-            $.ajax({
-                url: url + "controller=customer&action=sweater",
-                method: "POST",
-                // gửi đi id loại hàng và số trang 
-                data: {
-                    id: id, // id của mặt hàng 
-                    // start: start
-                    tranghientai: tranghientai
-                },
-                success: function(dt) {
-                    $('.featured__filter').hide().html(dt).fadeIn("slow")
-                    // change_color()
-
+                } else {
+                    // start = 1;
+                    react(id)
                 }
-            })
-        }
 
-        // click chọn loại hàng
-        $('.category').click(function() {
-            id = $(this).attr('id') // lay id loai hang
-            react(id) // goi react
 
-        })
+                // click chọn loại hàng 
+                function react(id, tranghientai) {
 
-        function search(val, tranghientai) {
-            $.ajax({
-                url: url + "controller=customer&action=search",
-                method: 'POST',
-                data: {
-                    TenSP: val,
-                    tranghientai: tranghientai
-                },
-                success: function(dt) {
-                    $('.featured__filter').hide().html(dt).fadeIn("slow")
+                    $.ajax({
+
+                        url: "http://localhost/QLBanHang/index.php?controller=customer&action=sweater",
+                        method: "POST",
+                        // gửi đi id loại hàng và số trang 
+                        data: {
+                            id: id, // id của mặt hàng 
+                            // start: start
+                            tranghientai: tranghientai
+                        },
+                        success: function(dt) {
+                            $('.featured__filter').hide().html(dt).fadeIn('slow')
+                            // change_color()
+
+                        }
+                    })
+                }
+
+                // click chọn loại hàng
+                $('.category').click(function() {
+                    id = $(this).attr('id') // lay id loai hang
+                    react(id) // goi react
+
+                })
+
+                $('#btn_search').click(function() {
+                    val = $('#product_search').val()
                     $('html, body').animate({
                         scrollTop: $(".search_pro").offset().top
                     }, 1000);
-                }
-            })
-        }
-        $('#btn_search').click(function() {
-            val = $('#product_search').val()
-            tranghientai = 1;
-            if (val != '') {
+                    $.ajax({
+                        url: "http://localhost/QLBanHang/index.php?controller=customer&action=search",
+                        method: 'POST',
+                        data: {
+                            TenSP: val,
+                            tranghientai: tranghientai
+                        },
+                        success: function(dt) {
+                            $('.featured__filter').hide().html(dt).fadeIn("slow")
+                            $('html, body').animate({
+                                scrollTop: $(".search_pro").offset().top
+                            }, 1000);
 
-                search(val, tranghientai)
-            }
+
+                        }
+                    })
+
+                    $('#btn_search').click(function() {
+                        val = $('#product_search').val()
+                        tranghientai = 1;
+                        if (val != '') {
+
+                            search(val, tranghientai)
+                        }
 
 
-        })
+                    })
 
-        $("#pro_val").on('input', function() {
-            val = $(this).val()
-            $('#max_price').html(val)
+                    $("#pro_val").on('input', function() {
+                        val = $(this).val()
+                        $('#max_price').html(val)
 
-        });
+                    });
 
-        $(document).on("click", "#price", function() {
-            val = $('#pro_val').val()
+                    $(document).on("click", "#price", function() {
+                        val = $('#pro_val').val()
 
-            $('.featured__controls li').each(function() {
-                if ($(this).hasClass('active')) {
-                    IDLH = $(this).attr('id')
-                }
-            })
-            // console.log(IDLH)
-            $.ajax({
-                url: url + "controller=customer&action=show_pro_price",
-                method: "POST",
-                data: {
-                    val: val,
-                    IDLoaiHang: IDLH
-                },
-                success: function(dt) {
-                    $('.featured__filter').html(dt)
-                }
-            })
+                        $('.featured__controls li').each(function() {
+                            if ($(this).hasClass('active')) {
+                                IDLH = $(this).attr('id')
+                            }
+                        })
+                        // console.log(IDLH)
+                        $.ajax({
+                            url: "http://localhost/QLBanHang/index.php?controller=customer&action=show_pro_price",
+                            method: "POST",
+                            data: {
+                                val: val,
+                                IDLoaiHang: IDLH
+                            },
+                            success: function(dt) {
+                                $('.featured__filter').html(dt)
+                            }
+                        })
 
-        })
+                    })
 
-        // click chuyển trang 
-        $(document).on('click', '.page-item', function() {
-            tranghientai = $(this).attr('tranghientai');
-            // alert(tranghientai)
-            // console.log(id)
-            id = $(this).attr('IDLH')
-            price = $(this).attr('price');
-            val = $(this).attr('val_search');
-            if (price == 'none') {
-                if (val != '') {
-                    search(val, tranghientai)
-                } else {
-                    react(id, tranghientai)
-                }
-            } else {
-                $.ajax({
-                    url: url + "controller=customer&action=show_pro_price",
-                    method: "POST",
-                    // gửi đi id loại hàng và số trang 
-                    data: {
-                        IDLoaiHang: IDLH, // id của mặt hàng 
-                        // start: start
-                        tranghientai: tranghientai,
-                        val: price
-                    },
-                    success: function(dt) {
-                        $('.featured__filter').hide().html(dt).fadeIn("slow")
+                    // click chuyển trang 
+                    $(document).on('click', '.page-item', function() {
+                        tranghientai = $(this).attr('tranghientai');
+                        // alert(tranghientai)
+                        // console.log(id)
+                        id = $(this).attr('IDLH')
+                        price = $(this).attr('price');
+                        val = $(this).attr('val_search');
+                        if (price == 'none') {
+                            if (val != '') {
+                                search(val, tranghientai)
+                            } else {
+                                react(id, tranghientai)
+                            }
+                        } else {
+                            $.ajax({
+                                url: url + "controller=customer&action=show_pro_price",
+                                method: "POST",
+                                // gửi đi id loại hàng và số trang 
+                                data: {
+                                    IDLoaiHang: IDLH, // id của mặt hàng 
+                                    // start: start
+                                    tranghientai: tranghientai,
+                                    val: price
+                                },
+                                success: function(dt) {
+                                    $('.featured__filter').hide().html(dt).fadeIn("slow")
+
+                                }
+                            })
+                        }
+                        $('html, body').animate({
+                            scrollTop: $(".search_pro").offset().top
+                        }, 1000);
+                    })
+
+                    $('ul.ul_category li a').click(function() {
+                        id = $(this).attr('id');
+                        // alert('123')
+                        $('ul.ul_category li a').removeClass('bg-secondary')
+                        $(this).addClass('bg-secondary')
+                        react(id)
+                        $('html, body').animate({
+                            scrollTop: $(".search_pro").offset().top
+                        }, 1000);
+                        $('.category').removeClass('active')
+                        $('.category').each(function() {
+                            id_category = $(this).attr('id');
+                            if (id_category == id) {
+                                $(this).addClass('active')
+                            }
+                        })
+                    })
+
+                    function reset() {
+                        $('#right').click(function() {
+
+                        })
 
                     }
+
+                    setInterval(reset(), 1000)
+
+
+
+
                 })
-            }
-            $('html, body').animate({
-                scrollTop: $(".search_pro").offset().top
-            }, 1000);
-        })
-
-        $('ul.ul_category li a').click(function() {
-            id = $(this).attr('id');
-            // alert('123')
-            $('ul.ul_category li a').removeClass('bg-secondary')
-            $(this).addClass('bg-secondary')
-            react(id)
-            $('html, body').animate({
-                scrollTop: $(".search_pro").offset().top
-            }, 1000);
-            $('.category').removeClass('active')
-            $('.category').each(function() {
-                id_category = $(this).attr('id');
-                if (id_category == id) {
-                    $(this).addClass('active')
-                }
-            })
-        })
-
-        function reset() {
-            $('#right').click(function() {
-
-            })
-
-        }
-
-        setInterval(reset(), 1000)
-
-
-
-
-    })
 </script>

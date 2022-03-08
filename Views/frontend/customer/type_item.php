@@ -14,7 +14,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="http://localhost/QlBanHang/index.php?controller=details&IDSP=<?=$type_itemes['IDSanPham']?>&IDLH=<?=$type_itemes['IDLoaiHang']?>&IDNCC=<?=$type_itemes['IDNhaCungCap']?>"><?= $type_itemes['TenSP'] ?></a></h6>
+                            <h6><a href="http://localhost/QlBanHang/index.php?controller=details&IDSP=<?= $type_itemes['IDSanPham'] ?>&IDLH=<?= $type_itemes['IDLoaiHang'] ?>&IDNCC=<?= $type_itemes['IDNhaCungCap'] ?>"><?= $type_itemes['TenSP'] ?></a></h6>
                             <h5 class="DonGiaBan"><?= $type_itemes['DonGiaBan'] ?></h5>
                         </div>
                     </div>
