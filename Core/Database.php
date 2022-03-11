@@ -2,9 +2,9 @@
 class Database
 {
     const HOST = 'localhost';
-    const USERNAME = 'root';
-    const PASSWORD = '' ;
+    const USERNAME = 'root'; 
     const DB_NAME = 'qlbh';
+    const PASSWORD = '';
     const URL = "http://localhost/clothes/";
     // URL: =
     private  $connect;

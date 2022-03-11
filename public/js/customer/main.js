@@ -3,7 +3,7 @@ $(document).ready(function () {
   // current_page = 1;
   current_page = $('.page-current').attr('current_page');
   transIDLH(idLH, current_page);
-  dauChamOSo();
+  dauChamOSo(DonGiaBan);
   $(".hero__search__btnSearch").on("click", function () {
     keySearch = $(".hero__search__valSearch").val();
     $.ajax({
@@ -39,7 +39,7 @@ $(document).ready(function () {
       success: function (dt) {
         $(".featured__filter").html(dt);
         transIDLH(idLH, current_page); 
-        dauChamOSo();
+        dauChamOSo(DonGiaBan);
       },
     });
   });
