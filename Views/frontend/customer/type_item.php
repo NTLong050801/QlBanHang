@@ -6,15 +6,15 @@
         ?>
                 <div class=" col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic " style="background-image: url('http://localhost/QLBanHang/public/img/<?= $type_itemes['img'] ?>');">
+                        <div class="featured__item__pic " style="background-image: url('http://localhost:88/QLBanHang/public/img/<?= $type_itemes['img'] ?>');">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="http://localhost:88/QlBanHang/index.php?controller=cart&action=addCart&IDSP=<?= $type_itemes['IDSanPham']?>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#"><?= $type_itemes['TenSP'] ?></a></h6>
+                            <h6><a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $type_itemes['IDSanPham']?>"><?= $type_itemes['TenSP'] ?></a></h6>
                             <h5 class="DonGiaBan"><?= $type_itemes['DonGiaBan'] ?></h5>
                         </div>
                     </div>

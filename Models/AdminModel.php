@@ -56,7 +56,7 @@ class AdminModel extends BaseModel
         }
         return $ar;
     }
-
+    //đếm sp theo ncc
     public function totalSP_NCC()
     {
         $sql = "SELECT Nhacungcap.IDNhaCungCap,TenCongTy,Diachi,SoDienThoai,Website,
@@ -90,7 +90,7 @@ class AdminModel extends BaseModel
     {
         return $this->update($table, $ar, $ar_id);
     }
-    public function type_item_canvans($id)
+    public function type_item_canvans($id,$limit)
     {
         // $new_ar = [];
         if(is_array($id)){
@@ -100,10 +100,12 @@ class AdminModel extends BaseModel
         }
        
         if ($id == 0) {
-            $sql  = "select * from sanpham SP ,loaihang LH , nhacungcap ncc where SP.IDLoaiHang = LH.IDLoaiHang AND ncc.IDNhaCungCap = sp.IDNhaCungCap  ";
+            $sql  = "select * from sanpham SP ,loaihang LH , nhacungcap ncc 
+            where SP.IDLoaiHang = LH.IDLoaiHang AND ncc.IDNhaCungCap = sp.IDNhaCungCap
+            ORDER BY RAND () LIMIT $limit;  ";
         } else {
             $sql  = "select * from sanpham SP ,loaihang LH , nhacungcap ncc where SP.IDLoaiHang = LH.IDLoaiHang 
-            AND ncc.IDNhaCungCap = sp.IDNhaCungCap and SP.$where ";
+            AND ncc.IDNhaCungCap = sp.IDNhaCungCap and SP.$where ORDER BY RAND () LIMIT $limit;";
         }
 
         $query = $this->query($sql);

@@ -6,25 +6,16 @@
       </div>
     </div>
   </div>
-</div>  
-<<<<<<< Updated upstream
- <script src="http://localhost/clothes/public/js/jquery-3.3.1.min.js"></script>
-    <script src="http://localhost/clothes/public/js/bootstrap.min.js"></script>
-    <script src="http://localhost/clothes/public/js/jquery.nice-select.min.js"></script>
-    <script src="http://localhost/clothes/public/js/jquery-ui.min.js"></script>
-    <script src="http://localhost/clothes/public/js/jquery.slicknav.js"></script>
-    <script src="http://localhost/clothes/public/js/mixitup.min.js"></script>
-    <script src="http://localhost/clothes/public/js/owl.carousel.min.js"></script>
-    <script src="http://localhost/clothes/public/js/main.js"></script>
-    <script src="http://localhost/clothes/public/js/admin/chung.js"></script>
-=======
- <script src="http://localhost/QlBanHang/public/js/jquery-3.3.1.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/bootstrap.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/jquery.nice-select.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/jquery-ui.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/jquery.slicknav.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/mixitup.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/owl.carousel.min.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/main.js"></script>
-    <script src="http://localhost/QlBanHang/public/js/admin/chung.js"></script>
->>>>>>> Stashed changes
+</div>
+<?php
+const URL1 = "http://localhost:88/QlBanHang/";
+?>
+<script src="<?=URL1?>public/js/jquery-3.3.1.min.js"></script>
+<script src="<?=URL1?>public/js/bootstrap.min.js"></script>
+<script src="<?=URL1?>public/js/jquery.nice-select.min.js"></script>
+<script src="<?=URL1?>public/js/jquery-ui.min.js"></script>
+<script src="<?=URL1?>public/js/jquery.slicknav.js"></script>
+<script src="<?=URL1?>public/js/mixitup.min.js"></script>
+<script src="<?=URL1?>public/js/owl.carousel.min.js"></script>
+<script src="<?=URL1?>public/js/main.js"></script>
+<script src="<?=URL1?>public/js/admin/chung.js"></script>

@@ -78,11 +78,8 @@ if (is_array($datas)) {
                                     ?>">
                     <th scope="row"><?= $i ?></th>
                     <td>
-<<<<<<< Updated upstream
-                        <img style="width:100px" src="http://localhost/clothes/public/img/<?= $data['img'] ?>" alt="">
-=======
-                        <img style="width:100px" src="http://localhost/QLBanHang/public/img/<?= $data['img'] ?>" alt="">
->>>>>>> Stashed changes
+                        <img style="width:100px" src="http://localhost:88/QLBanHang/public/img/<?= $data['img'] ?>" alt="">
+
                         <?= $data['TenSP'] ?>
                     </td>
                     <td><?= $data['TenCongTy'] ?></td>
@@ -179,6 +176,18 @@ if (is_array($datas)) {
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Ảnh</label>
                                 <input require type="file" class="form-control" name="img" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Ảnh 1:</label>
+                                <input require type="file" class="form-control" name="img1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Ảnh 2:</label>
+                                <input require type="file" class="form-control" name="img2" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Ảnh 3:</label>
+                                <input require type="file" class="form-control" name="img3" aria-describedby="emailHelp">
                             </div>
                         </div>
 

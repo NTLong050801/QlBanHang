@@ -59,7 +59,7 @@ class AdminController extends BaseController
         }
         
         // print_r($_POST);
-        $product_type = $this->AdminModel->type_item_canvans($IDLoaiHang);
+        $product_type = $this->AdminModel->type_item_canvans($IDLoaiHang,100);
         // $data = $this->AdminModel->allSanPham();
         $loaihangs =  $this->AdminModel->allmathang();
         $nccs = $this->AdminModel->allNhaCungCap();
@@ -114,7 +114,7 @@ class AdminController extends BaseController
         if (isset($_FILES['img']['name'])) {
             $anhchinh = $_FILES['img']['name'];
             $tempname = $_FILES["img"]["tmp_name"];
-            $folder = $_SERVER['DOCUMENT_ROOT'] . "/clothes/public/img/" . $anhchinh;
+            $folder = $_SERVER['DOCUMENT_ROOT'] . "/QLBanHang/public/img/" . $anhchinh;
             move_uploaded_file($tempname, $folder);
             $ar['img'] = $anhchinh;
             $ar['types'] = 'sanpham';
@@ -168,7 +168,7 @@ class AdminController extends BaseController
     public function data_canvas()
     {
         $id = $_POST;
-        $product_type = $this->AdminModel->type_item_canvans($id);
+        $product_type = $this->AdminModel->type_item_canvans($id,100);
         return $this->view('frontend.admin.data_canvas', [
             'product_types' => $product_type
         ]);

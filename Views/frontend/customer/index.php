@@ -8,26 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ogani | Template</title>
-
-    <!-- Css Styles -->
-    <!-- <link rel="stylesheet" href="http://localhost/clothes/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/clothes/public/css/style1.css" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="http://localhost/QLBanHang/public/css/style1.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="http://localhost:88/QLBanHang/public/css/style1.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
@@ -63,7 +51,9 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="#"><i class="fa fa-user"></i>
+                
+            </a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -128,8 +118,23 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <div class="header__top__right__auth" tt = "<?php
+                if(isset($_SESSION['check_login'])){
+                    echo 'Logout';
+                
+                }else{
+                    echo 'Login';
+                }
+                ?>" id="iconLogin" >
+                                <a href="#"><i class="fa fa-user"></i> 
+                                <?php
+                if(isset($_SESSION['check_login'])){
+                    echo 'Logout';
+                }else{
+                    echo 'Login';
+                }
+                ?>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +152,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="http://localhost/QlBanHang/index.php?controller=shop">Shop</a>
+                            <li><a href="http://localhost:88/QlBanHang/index.php?controller=shop">Shop</a>
                                 <!-- <ul class="header__menu__dropdown man">
                                     <li><a href="#">Sweater</a> </li>
                                     <li><a href="#">Short</a></li>
@@ -218,8 +223,14 @@
                                     All Sản phẩm
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input id="product_search" type="text" placeholder="What do yo u need?">
-                                <button id="btn_search" type="submit" class="site-btn">SEARCH</button>
+                                <input id="product_search" type="text" value="<?php
+                                                                                if (isset($_POST['input_search'])) {
+                                                                                    echo $_POST['input_search'];
+                                                                                } else {
+                                                                                    echo '';
+                                                                                }
+                                                                                ?>" placeholder="What do yo u need?">
+                                <button id="btn_search" type="button" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -233,7 +244,7 @@
                         </div>
                     </div>
                     <!-- slideshow -->
-                    <!-- <div class="hero__item set-bg" data-setbg="http://localhost/clothes/public/img/kingman1.jpg"> -->
+                    <!-- <div class="hero__item set-bg" data-setbg="http://localhost:88/clothes/public/img/kingman1.jpg"> -->
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -242,13 +253,13 @@
                         </div>
                         <div class="carousel-inner" style="height : 500px; ">
                             <div class="carousel-item active">
-                                <img src="http://localhost/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/aophao.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/quannam.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="http://localhost/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
+                                <img src="http://localhost:88/QLBanHang/public/img/undenim.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" id="left" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -276,8 +287,8 @@
                     <?php
                     foreach ($categories_item as $category_item) {
                     ?>
-                        <div class="categories__item " style="background-image: url('http://localhost/QLBanHang/public/img/<?= $category_item['img'] ?>');">
-                            <h5><a href="#"><?= $category_item['TenSP'] ?></a></h5>
+                        <div class="categories__item " style="background-image: url('http://localhost:88/QLBanHang/public/img/<?= $category_item['img'] ?>');">
+                            <h5><a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $category_item['IDSanPham'] ?>"><?= $category_item['TenSP'] ?></a></h5>
                         </div>
                     <?php
                     }
@@ -295,10 +306,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>Sản Phẩm</h2>
                     </div>
                     <div>
-                        <label for="customRange2" class="form-label">Value Product</label>
+                        <label for="customRange2" class="form-label">Giá</label>
                         <br>
                         <span> 0 </span>
                         <input type="range" min="0" max="1000000" step="100000" value="0" style="width: 50%" class="form-range" id="pro_val">
@@ -326,10 +337,6 @@
             <div class=" featured__filter">
 
             </div>
-
-
-
-
         </div>
         </div>
         </div>
@@ -354,7 +361,6 @@
         </div>
     </div>
     <!-- Banner End -->
-
     <!-- Latest Product Section Begin -->
     <section class="latest-product spad">
         <div class="container">
@@ -367,9 +373,9 @@
                                 <?php
                                 $product_news_03 = array_slice($product_news, 0, 3);
                                 foreach ($product_news_03 as $product_new) { ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_new['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_new['TenSP'] ?></h6>
@@ -385,9 +391,9 @@
                                 $product_news_46 = array_slice($product_news, 3, 6);
                                 foreach ($product_news_46 as $product_new) {
                                 ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_new['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_new['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_new['TenSP'] ?></h6>
@@ -411,9 +417,9 @@
                                 <?php
                                 $product_solds_03 = array_slice($product_solds, 0, 3);
                                 foreach ($product_solds_03 as $product_sold) { ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_sold['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_sold['TenSP'] ?></h6>
@@ -429,9 +435,9 @@
                                 $product_solds_46 = array_slice($product_solds, 3, 6);
                                 foreach ($product_solds_46 as $product_sold) {
                                 ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_sold['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_sold['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_sold['TenSP'] ?></h6>
@@ -454,9 +460,9 @@
                                 <?php
                                 $product_sellings_03 = array_slice($product_sellings, 0, 3);
                                 foreach ($product_sellings_03 as $product_selling) { ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_selling['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_selling['TenSP'] ?></h6>
@@ -472,9 +478,9 @@
                                 $product_sellings_46 = array_slice($product_sellings, 3, 6);
                                 foreach ($product_sellings_46 as $product_selling) {
                                 ?>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="http://localhost:88/QlBanHang/index.php?controller=details&IDSP=<?= $product_selling['IDSanPham'] ?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="http://localhost/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
+                                            <img src="http://localhost:88/QLBanHang/public/img/<?= $product_selling['img'] ?>" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6><?= $product_selling['TenSP'] ?></h6>
@@ -626,31 +632,47 @@
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-
-
-
-
 </body>
-<?php
+<div id="regsign" thongbao="<?php
+                            // session_start();
+                            if (isset($_SESSION['thongbao'])) {
+                                echo $_SESSION['thongbao'];
+                                unset($_SESSION['thongbao']);
+                            } else {
+                                echo 'none';
+                            }
 
+                            ?>"></div>
+<?php
 require("./public/Chung/footer.php")
+?>
+<?php
+include('login.php');
 ?>
 
 </html>
 <script>
     $(document).ready(function() {
+        $('#ThongBao').show();
 
+        if ($('#regsign').attr("thongbao") == 'none') {
+
+        } else {
+            msg($('#regsign').attr("thongbao"))
+        }
         id = 0
         // start = 1;
         react(id)
+        input = $('#product_search').val();
+        if (input != '') {
+            search(input, 1)
+            //$('#product_search').val('')
+        }
         // click chọn loại hàng 
         function react(id, tranghientai) {
 
             $.ajax({
-                url: url+"controller=customer&action=sweater",
+                url: url + "controller=customer&action=sweater",
                 method: "POST",
                 // gửi đi id loại hàng và số trang 
                 data: {
@@ -675,7 +697,7 @@ require("./public/Chung/footer.php")
 
         function search(val, tranghientai) {
             $.ajax({
-                url: url+"controller=customer&action=search",
+                url: url + "controller=customer&action=search",
                 method: 'POST',
                 data: {
                     TenSP: val,
@@ -683,6 +705,9 @@ require("./public/Chung/footer.php")
                 },
                 success: function(dt) {
                     $('.featured__filter').hide().html(dt).fadeIn("slow")
+                    $('html, body').animate({
+                        scrollTop: $(".search_pro").offset().top
+                    }, 1000);
 
                 }
             })
@@ -691,9 +716,7 @@ require("./public/Chung/footer.php")
             val = $('#product_search').val()
             tranghientai = 1;
             if (val != '') {
-                $('html, body').animate({
-                    scrollTop: $(".search_pro").offset().top
-                }, 1000);
+
                 search(val, tranghientai)
             }
 
@@ -716,7 +739,7 @@ require("./public/Chung/footer.php")
             })
             // console.log(IDLH)
             $.ajax({
-                url: url+"controller=customer&action=show_pro_price",
+                url: url + "controller=customer&action=show_pro_price",
                 method: "POST",
                 data: {
                     val: val,
@@ -745,7 +768,7 @@ require("./public/Chung/footer.php")
                 }
             } else {
                 $.ajax({
-                    url: url+"controller=customer&action=show_pro_price",
+                    url: url + "controller=customer&action=show_pro_price",
                     method: "POST",
                     // gửi đi id loại hàng và số trang 
                     data: {

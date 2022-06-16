@@ -19,3 +19,7 @@
     
     <title>Document</title>
 </head>
+<?php 
+    session_start();
+    // URL1 == "http://localhost:88/QlBanHang";
+?>

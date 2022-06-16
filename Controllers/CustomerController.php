@@ -1,6 +1,7 @@
 <?php
 class CusTomerController extends BaseController
 {
+  //hàm tạo
   public function __construct()
   {
     $this->loadModel('CustomerModel');

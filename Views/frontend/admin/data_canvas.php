@@ -2,11 +2,9 @@
 foreach ($product_types as $product_type) {
 ?>
     <div class="card" style="width: 15rem;margin: 5% 15%;">
-<<<<<<< Updated upstream
-        <img src="http://localhost/clothes/public/img/<?= $product_type['img'] ?>" class="card-img-top" alt="...">
-=======
-        <img src="http://localhost/QLBanHang/public/img/<?= $product_type['img'] ?>" class="card-img-top" alt="...">
->>>>>>> Stashed changes
+
+        <img src="http://localhost:88/QLBanHang/public/img/<?= $product_type['img'] ?>" class="card-img-top" alt="...">
+
         <div class="card-body">
             <h5 class="card-title"><?= $product_type['TenSP'] ?></h5>
             <p class="card-text">Giá : <?=  $product_type['DonGiaBan'] ?> 

@@ -1,9 +1,10 @@
-
 <?php
+
 class BaseController
 {
     const VIEW_FOLDER = 'Views';
     const MODEL_FOLDER ='Models';
+    const URL = "http://localhost:88/QLbanhang/index.php?";
     /*
      Description : path name :" folder.file.name
      lấy từ sau thư mục view 

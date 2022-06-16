@@ -12,9 +12,10 @@ $(document).on('click', '#btn_add_sp', function () {
             processData: false,
             contentType: false,
             success: function (dt) {
-                msg(dt)
-                load(types)
-                $('#modalAddSP').modal('hide')
+                // msg(dt)
+                // load(types)
+                // $('#modalAddSP').modal('hide')
+                console.log(dt)
             }
         })
     })

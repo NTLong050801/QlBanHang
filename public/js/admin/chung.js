@@ -1,4 +1,4 @@
-url = "http://localhost/QLBanHang/index.php?";
+url = "http://localhost:88/QLBanHang/index.php?";
 function msg(dt) {
     $('#msg').modal('show');
     $('#text_msg').html(dt)
@@ -28,3 +28,5 @@ function load_toast(content) {
         $('#liveToast').toast('hide')
     }, 2000)
 }
+
+
